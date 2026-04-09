@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import logoImg from "@/assets/logo-pixelpage.png";
 
 const navItems = [
   {
@@ -37,8 +38,8 @@ const Navbar = () => {
       scrolled ? "bg-card/95 backdrop-blur-lg shadow-subtle" : ""
     }`}>
       <div className="max-w-[1200px] mx-auto h-16 flex items-center px-6 lg:px-8">
-        <Link to="/" className="font-display text-[18px] tracking-[0.35em] text-t-strong mr-auto">
-          PIXELPAGE
+        <Link to="/" className="mr-auto">
+          <img src={logoImg} alt="PixelPage" className="h-6" />
         </Link>
 
         <div className="hidden lg:flex items-center gap-10">

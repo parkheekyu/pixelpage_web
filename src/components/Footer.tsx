@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import logoImg from "@/assets/logo-pixelpage.png";
 
 const Footer = () => (
   <footer className="bg-dark py-16">
     <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-14">
         <div className="col-span-2 md:col-span-1">
-          <span className="font-display text-[16px] tracking-[0.35em] text-cream/90">PIXELPAGE</span>
+          <img src={logoImg} alt="PixelPage" className="h-5 brightness-0 invert opacity-90" />
           <p className="font-display italic text-[12px] text-gold mt-1.5">Selling what you can't touch.</p>
         </div>
         <div>
