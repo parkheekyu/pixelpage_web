@@ -9,15 +9,15 @@ export default {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1240px",
+        "2xl": "1200px",
       },
     },
     extend: {
       fontFamily: {
-        serif: ['Noto Serif KR', 'Georgia', 'serif'],
-        sans: ['Noto Sans KR', 'Apple SD Gothic Neo', 'sans-serif'],
-        display: ['Cormorant Garamond', 'Georgia', 'serif'],
-        accent: ['Playfair Display', 'Georgia', 'serif'],
+        serif: ["Noto Serif KR", "Georgia", "serif"],
+        sans: ["Noto Sans KR", "Apple SD Gothic Neo", "sans-serif"],
+        display: ["Cormorant Garamond", "Georgia", "serif"],
+        accent: ["Playfair Display", "Georgia", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -25,10 +25,7 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        cream: {
-          DEFAULT: "hsl(var(--cream))",
-          dark: "hsl(var(--cream-dark))",
-        },
+        cream: "hsl(var(--cream))",
         dark: {
           DEFAULT: "hsl(var(--dark))",
           mid: "hsl(var(--dark-mid))",
@@ -36,8 +33,12 @@ export default {
         gold: {
           DEFAULT: "hsl(var(--gold))",
           light: "hsl(var(--gold-light))",
-          faint: "hsl(var(--gold-faint))",
         },
+        "t-strong": "hsl(var(--text-strong))",
+        "t-primary": "hsl(var(--text-primary))",
+        "t-secondary": "hsl(var(--text-secondary))",
+        "t-tertiary": "hsl(var(--text-tertiary))",
+        "t-disabled": "hsl(var(--text-disabled))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

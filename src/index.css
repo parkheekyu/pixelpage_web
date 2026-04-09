@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,55 +6,56 @@
 
 @layer base {
   :root {
-    /* Warm cream & gold palette */
-    --background: 38 38% 89%;       /* #F0EAD9 */
-    --foreground: 30 50% 10%;       /* #231A0E */
+    /* StyleSeed: soft backgrounds, never pure white/black */
+    --background: 40 20% 96%;        /* #F5F2ED warm off-white */
+    --foreground: 30 8% 16%;         /* #2A2A2A soft black */
 
-    --card: 40 50% 98%;             /* #FEFCF8 */
-    --card-foreground: 30 50% 10%;
+    --card: 0 0% 100%;               /* #FFFFFF */
+    --card-foreground: 30 8% 16%;
 
-    --popover: 40 50% 98%;
-    --popover-foreground: 30 50% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 8% 16%;
 
-    --primary: 38 40% 55%;          /* #C4A05A gold */
-    --primary-foreground: 30 60% 6%; /* dark */
+    /* Single accent: warm gold */
+    --primary: 38 45% 52%;           /* #C4A05A */
+    --primary-foreground: 30 30% 8%;
 
-    --secondary: 38 22% 85%;       /* cream-dark */
-    --secondary-foreground: 30 50% 10%;
+    --secondary: 40 12% 92%;
+    --secondary-foreground: 30 8% 16%;
 
-    --muted: 38 22% 85%;
-    --muted-foreground: 28 20% 40%; /* #6B5744 */
+    --muted: 40 12% 92%;
+    --muted-foreground: 30 4% 42%;   /* #6A6A6A */
 
-    --accent: 38 40% 55%;
-    --accent-foreground: 30 60% 6%;
+    --accent: 38 45% 52%;
+    --accent-foreground: 30 30% 8%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 60% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 30 20% 88%;
-    --input: 30 20% 88%;
-    --ring: 38 40% 55%;
+    --border: 30 8% 90%;
+    --input: 30 8% 90%;
+    --ring: 38 45% 52%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    /* Custom tokens */
-    --cream: 38 38% 89%;
-    --cream-dark: 38 22% 85%;
-    --dark: 30 60% 6%;
-    --dark-mid: 24 42% 12%;
-    --gold: 38 40% 55%;
+    /* Grayscale hierarchy (StyleSeed) */
+    --text-strong: 0 0% 16%;         /* #2A2A2A */
+    --text-primary: 0 0% 24%;        /* #3C3C3C */
+    --text-secondary: 0 0% 42%;      /* #6A6A6A */
+    --text-tertiary: 0 0% 48%;       /* #7A7A7A */
+    --text-disabled: 0 0% 61%;       /* #9B9B9B */
+
+    /* Brand tokens */
+    --cream: 40 20% 96%;
+    --dark: 30 20% 8%;
+    --dark-mid: 30 12% 14%;
+    --gold: 38 45% 52%;
     --gold-light: 42 50% 62%;
-    --gold-faint: 38 40% 55% / 0.15;
-    --text-light: 38 38% 89% / 0.75;
-    --border-dark: 38 38% 89% / 0.12;
-    --border-cream: 30 50% 10% / 0.12;
 
     --font-serif: 'Noto Serif KR', 'Georgia', serif;
     --font-sans: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
     --font-display: 'Cormorant Garamond', Georgia, serif;
     --font-accent: 'Playfair Display', Georgia, serif;
-
-    --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -79,41 +80,47 @@
     @apply bg-background text-foreground;
     line-height: 1.7;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
-/* Animations */
-@keyframes float1 {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+/* StyleSeed: Shadow at 4% opacity */
+.shadow-subtle {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
 }
-@keyframes float2 {
+.shadow-card {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.shadow-card-hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+/* Animations */
+@keyframes float-gentle {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
 }
-@keyframes scroll-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(30px); }
+  from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
 }
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+@keyframes scroll-line {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
 
-.animate-float1 { animation: float1 6s ease-in-out infinite; }
-.animate-float2 { animation: float2 7s ease-in-out infinite; }
-.animate-scroll-pulse { animation: scroll-pulse 2s ease-in-out infinite; }
+.animate-float { animation: float-gentle 6s ease-in-out infinite; }
 .animate-fade-up { animation: fade-up 0.7s ease forwards; }
-.animate-marquee { animation: marquee 30s linear infinite; }
+.animate-marquee { animation: marquee 40s linear infinite; }
 
-/* Stagger delay utilities */
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
-.delay-400 { animation-delay: 400ms; }
-.delay-500 { animation-delay: 500ms; }
-.delay-600 { animation-delay: 600ms; }
+.stagger-1 { animation-delay: 0ms; }
+.stagger-2 { animation-delay: 120ms; }
+.stagger-3 { animation-delay: 240ms; }
+.stagger-4 { animation-delay: 360ms; }
+.stagger-5 { animation-delay: 480ms; }
+.stagger-6 { animation-delay: 600ms; }
