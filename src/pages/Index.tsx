@@ -28,8 +28,7 @@ const Index = () => {
                 교육 · 지식 · 경험 · 문화 전담 마케팅
               </p>
               <h1 className="font-serif text-[clamp(40px,6vw,80px)] font-light leading-[1.1] tracking-[-0.03em] text-cream/95 mb-8 opacity-0 animate-fade-up stagger-2">
-                만질 수 없는 것을 파는 브랜드의<br />
-                <span className="text-gold font-normal">전담 마케팅 파트너.</span>
+                만질 수 없는 것을<br />파는 일.
               </h1>
               <p className="text-[18px] text-cream/70 leading-[2.1] max-w-[580px] mb-12 opacity-0 animate-fade-up stagger-3">
                 퍼포먼스 광고 · 브랜디드 유튜브 · SEO · CRM · 웹 빌드까지,
