@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import logoImg from "@/assets/logo-pixelpage.png";
+import logoDark from "@/assets/logo-dark.png";
+import logoWhite from "@/assets/logo-white.png";
 
 const navItems = [
   {
@@ -39,13 +40,13 @@ const Navbar = () => {
     }`}>
       <div className="max-w-[1200px] mx-auto h-16 flex items-center px-6 lg:px-8">
         <Link to="/" className="mr-auto">
-          <img src={logoImg} alt="PixelPage" className="h-6" />
+          <img src={scrolled ? logoDark : logoWhite} alt="PixelPage" className="h-6 transition-opacity duration-300" />
         </Link>
 
         <div className="hidden lg:flex items-center gap-10">
           {navItems.map((item) => (
             <div key={item.label} className="relative group">
-              <Link to={item.href} className="text-[13px] font-medium text-t-secondary hover:text-t-strong transition-colors">
+              <Link to={item.href} className={`text-[13px] font-medium transition-colors ${scrolled ? "text-t-secondary hover:text-t-strong" : "text-cream/70 hover:text-cream"}`}>
                 {item.label}
               </Link>
               {item.dropdown && (
@@ -68,7 +69,7 @@ const Navbar = () => {
         </div>
 
         <button className="lg:hidden p-1.5" onClick={() => setMobileOpen(!mobileOpen)}>
-          {mobileOpen ? <X className="w-5 h-5 text-t-primary" /> : <Menu className="w-5 h-5 text-t-primary" />}
+          {mobileOpen ? <X className={`w-5 h-5 ${scrolled ? "text-t-primary" : "text-cream"}`} /> : <Menu className={`w-5 h-5 ${scrolled ? "text-t-primary" : "text-cream"}`} />}
         </button>
       </div>
 
