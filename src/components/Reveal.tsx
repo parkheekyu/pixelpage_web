@@ -1,45 +1,23 @@
 import { useEffect, useRef, ReactNode } from "react";
 
-interface RevealProps {
-  children: ReactNode;
-  className?: string;
-  delay?: number;
-}
-
-const Reveal = ({ children, className = "", delay = 0 }: RevealProps) => {
+const Reveal = ({ children, className = "" }: { children: ReactNode; className?: string }) => {
   const ref = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            el.style.opacity = "1";
-            el.style.transform = "translateY(0)";
-          }, delay);
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [delay]);
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        el.style.opacity = "1";
+        el.style.transform = "translateY(0)";
+        obs.unobserve(el);
+      }
+    }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   return (
-    <div
-      ref={ref}
-      className={className}
-      style={{
-        opacity: 0,
-        transform: "translateY(40px)",
-        transition: "opacity 0.8s ease, transform 0.8s ease",
-      }}
-    >
+    <div ref={ref} className={className} style={{ opacity: 0, transform: "translateY(28px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
       {children}
     </div>
   );
