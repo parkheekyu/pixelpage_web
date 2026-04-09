@@ -1,6 +1,8 @@
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import Reveal from "@/components/Reveal";
+import charMale from "@/assets/char-male.png";
+import charFemale from "@/assets/char-female.jpeg";
 
 const WebBuildPage = () => (
   <div className="pt-24">
@@ -11,41 +13,57 @@ const WebBuildPage = () => (
           <ArrowLeft className="w-3 h-3" /> 홈으로
         </Link>
         <Reveal>
-          <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-gold mb-4">Web Build</p>
-          <h1 className="font-serif text-[clamp(36px,5vw,64px)] font-light text-cream/90 leading-[1.15] tracking-[-0.02em] mb-4">
-            웹 빌드
-          </h1>
-          <p className="font-display italic text-[clamp(18px,2.5vw,28px)] text-gold/80">보여주기 위한 웹이 아닌, 파는 웹.</p>
-        </Reveal>
-        <Reveal className="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-14">
-          <div>
-            <p className="text-[14px] text-cream/50 leading-[1.9] mb-8">
-              광고를 클릭한 관객이 처음 만나는 것은 웹사이트입니다. 전환이 일어나도록 설계된 <strong className="text-cream/80 font-medium">파는 웹을 빌드합니다</strong>.
-            </p>
-            {["전환 최적화 랜딩 페이지", "브랜드 사이트 · 포트폴리오 웹", "강의 · 코호트 상품 판매 페이지", "픽셀 · CRM 연동 풀스택 빌드"].map(li => (
-              <p key={li} className="text-[13px] text-cream/40 pl-4 py-1.5 border-l border-gold/30 mb-2">{li}</p>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7">
+              <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-gold mb-4">Web Build</p>
+              <h1 className="font-serif text-[clamp(36px,5vw,64px)] font-light text-cream/90 leading-[1.15] tracking-[-0.02em] mb-4">
+                웹 빌드
+              </h1>
+              <p className="font-display italic text-[clamp(18px,2.5vw,28px)] text-gold/80 mb-8">보여주기 위한 웹이 아닌, 파는 웹.</p>
+              <p className="text-[14px] text-cream/50 leading-[1.9] mb-8 max-w-[440px]">
+                광고를 클릭한 관객이 처음 만나는 것은 웹사이트입니다. 전환이 일어나도록 설계된 <strong className="text-cream/80 font-medium">파는 웹을 빌드합니다</strong>.
+              </p>
+              {["전환 최적화 랜딩 페이지", "브랜드 사이트 · 포트폴리오 웹", "강의 · 코호트 상품 판매 페이지", "픽셀 · CRM 연동 풀스택 빌드"].map(li => (
+                <p key={li} className="text-[13px] text-cream/40 pl-4 py-1.5 border-l border-gold/30 mb-2">{li}</p>
+              ))}
+            </div>
+            <div className="lg:col-span-5 flex justify-center lg:justify-end">
+              <div className="flex items-end gap-[-16px]">
+                <div className="w-[140px] lg:w-[160px] rounded-2xl overflow-hidden shadow-lg -mr-6 relative z-10">
+                  <div className="aspect-[3/4] overflow-hidden">
+                    <img src={charMale} alt="웹 빌드 캐릭터" className="w-full h-full object-cover object-top scale-[1.3] origin-top" />
+                  </div>
+                </div>
+                <div className="w-[140px] lg:w-[160px] rounded-2xl overflow-hidden shadow-lg relative z-0">
+                  <div className="aspect-[3/4] overflow-hidden">
+                    <img src={charFemale} alt="웹 빌드 캐릭터" className="w-full h-full object-cover object-top scale-[1.25] origin-top" />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="flex flex-col gap-3">
-            <div className="bg-cream/4 border border-cream/8 rounded-lg p-6">
-              <h4 className="text-[14px] font-medium text-cream/70 mb-1.5">Landing Page</h4>
-              <p className="text-[12px] text-cream/35 leading-[1.7]">단일 전환 목적의 고집중 랜딩. 반응형 · 모바일 퍼스트 · 픽셀 연동.</p>
-            </div>
-            <div className="bg-cream/4 border-2 border-gold/40 rounded-lg p-6 relative">
-              <span className="absolute -top-2.5 left-5 text-[9px] font-bold bg-gold text-primary-foreground px-2.5 py-0.5 rounded tracking-[0.04em]">Most Popular</span>
-              <h4 className="text-[14px] font-medium text-cream/80 mb-1.5">Brand Website</h4>
-              <p className="text-[12px] text-cream/40 leading-[1.7]">브랜드 전체를 아우르는 웹 경험. CMS · 블로그 · CRM · 결제 연동.</p>
-            </div>
-            <div className="bg-cream/4 border border-cream/8 rounded-lg p-6">
-              <h4 className="text-[14px] font-medium text-cream/70 mb-1.5">Enterprise</h4>
-              <p className="text-[12px] text-cream/35 leading-[1.7]">가맹·B2B·다지점 사업을 위한 대형 풀 빌드. 회원 · 예약 · SEO 포함.</p>
-            </div>
+        </Reveal>
+
+        {/* Tier cards */}
+        <Reveal className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="bg-cream/4 border border-cream/8 rounded-lg p-6">
+            <h4 className="text-[14px] font-medium text-cream/70 mb-1.5">Landing Page</h4>
+            <p className="text-[12px] text-cream/35 leading-[1.7]">단일 전환 목적의 고집중 랜딩. 반응형 · 모바일 퍼스트 · 픽셀 연동.</p>
+          </div>
+          <div className="bg-cream/4 border-2 border-gold/40 rounded-lg p-6 relative">
+            <span className="absolute -top-2.5 left-5 text-[9px] font-bold bg-gold text-primary-foreground px-2.5 py-0.5 rounded tracking-[0.04em]">Most Popular</span>
+            <h4 className="text-[14px] font-medium text-cream/80 mb-1.5">Brand Website</h4>
+            <p className="text-[12px] text-cream/40 leading-[1.7]">브랜드 전체를 아우르는 웹 경험. CMS · 블로그 · CRM · 결제 연동.</p>
+          </div>
+          <div className="bg-cream/4 border border-cream/8 rounded-lg p-6">
+            <h4 className="text-[14px] font-medium text-cream/70 mb-1.5">Enterprise</h4>
+            <p className="text-[12px] text-cream/35 leading-[1.7]">가맹·B2B·다지점 사업을 위한 대형 풀 빌드. 회원 · 예약 · SEO 포함.</p>
           </div>
         </Reveal>
       </div>
     </section>
 
-    {/* Enterprise detail — cream for rhythm */}
+    {/* Enterprise detail */}
     <section className="py-24 lg:py-32">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
         <Reveal>
