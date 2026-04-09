@@ -68,22 +68,22 @@ const Index = () => {
       </section>
 
       {/* ─── PHILOSOPHY ─── */}
-      <section className="py-32 lg:py-40 border-t border-border">
+      <section className="py-32 lg:py-40 bg-dark text-cream">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
           <Reveal>
             <p className="font-display text-[13px] tracking-[0.25em] uppercase text-primary mb-6">01 · Philosophy</p>
-            <h2 className="font-serif text-[clamp(32px,5vw,64px)] font-normal text-foreground leading-[1.15] tracking-[-0.02em] max-w-[700px]">
-              만질 수 없는 것을<br />파는 일은, 조금 다릅니다.
+            <h2 className="font-serif text-[clamp(32px,5vw,64px)] font-normal text-cream leading-[1.15] tracking-[-0.02em] max-w-[700px]">
+              무형의 가치를 파는 브랜드의<br />전담 마케팅 파트너.
             </h2>
           </Reveal>
           <div className="mt-3 mb-16 w-16 h-px bg-primary" />
           <Reveal className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
-              <p className="text-[17px] text-muted-foreground leading-[2] mb-6">
+              <p className="text-[17px] text-cream/70 leading-[2] mb-6">
                 교육 · 지식 · 체험 · 문화 — 무형의 가치를 파는 브랜드는 '공급의 질'만큼
-                <strong className="text-foreground font-medium"> '의향을 가진 관객과 어떻게 만나는가'가 전부입니다.</strong>
+                <strong className="text-cream font-medium"> '의향을 가진 관객과 어떻게 만나는가'가 전부입니다.</strong>
               </p>
-              <p className="text-[17px] text-muted-foreground leading-[2]">
+              <p className="text-[17px] text-cream/70 leading-[2]">
                 PIXELPAGE는 이 낯선 시장에서만 일해 왔습니다. 예산의 크기가 아니라 짧은 시간 안에 얼마나 또렷한 결과를 만들 수 있는가 — 상품이 아니라 서사, 숫자가 아니라 태도를 다루는 브랜드들의 전담 파트너입니다.
               </p>
             </div>
@@ -94,10 +94,10 @@ const Index = () => {
                 { num: "03", title: "Short-Cycle Wins", body: "짧은 사이클 안에 유의미한 결과. 단기 집행만으로 브랜드가 다음 단계로 넘어갑니다." },
                 { num: "04", title: "Category Leader", body: "함께한 브랜드들은 각 카테고리에서 상위권으로 올라섰습니다." },
               ].map(p => (
-                <div key={p.num} className="border-t border-border pt-6 pr-6 pb-8">
+                <div key={p.num} className="border-t border-cream/15 pt-6 pr-6 pb-8">
                   <span className="text-[12px] font-display text-primary tracking-[0.1em]">{p.num}</span>
-                  <h3 className="font-accent text-[15px] font-bold text-foreground mt-3 mb-2">{p.title}</h3>
-                  <p className="text-[14px] text-muted-foreground leading-[1.9]">{p.body}</p>
+                  <h3 className="font-accent text-[15px] font-bold text-cream mt-3 mb-2">{p.title}</h3>
+                  <p className="text-[14px] text-cream/60 leading-[1.9]">{p.body}</p>
                 </div>
               ))}
             </div>
@@ -178,14 +178,14 @@ const Index = () => {
       </section>
 
       {/* ─── CASES ─── */}
-      <section id="cases" className="py-32 lg:py-40 border-t border-border">
+      <section id="cases" className="py-32 lg:py-40 bg-dark text-cream">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
           <Reveal>
             <p className="font-display text-[13px] tracking-[0.25em] uppercase text-primary mb-6">03 · Case Studies</p>
-            <h2 className="font-serif text-[clamp(32px,5vw,64px)] font-normal text-foreground leading-[1.15] tracking-[-0.02em]">
+            <h2 className="font-serif text-[clamp(32px,5vw,64px)] font-normal text-cream leading-[1.15] tracking-[-0.02em]">
               짧은 기간, 또렷한 결과.
             </h2>
-            <p className="text-[17px] text-muted-foreground mt-5 max-w-[500px] leading-[2]">
+            <p className="text-[17px] text-cream/70 mt-5 max-w-[500px] leading-[2]">
               무형 서비스 브랜드와 함께한 실제 성과입니다.
             </p>
           </Reveal>
@@ -196,17 +196,17 @@ const Index = () => {
               { name: "플러스 스피치 학원", cat: "오프라인 교육", desc: "단일 지점에서 시작해, 마케팅을 통해 4개 신규 지점을 오픈하며 매출을 6.6배 성장시켰습니다.", stats: [{ n: "6.6", u: "×", l: "매출 성장" }, { n: "4", u: "+", l: "신규 지점" }] },
               { name: "라 컴퍼니", cat: "가맹 네트워크", desc: "전국 7개 지점의 가맹 네트워크를 마케팅으로 확장한 프로젝트입니다.", stats: [{ n: "7", u: "+", l: "전국 지점" }, { n: "전국", u: "", l: "커버리지" }] },
             ].map((c, i) => (
-              <div key={i} className="border border-border rounded-lg p-10 hover:shadow-card-hover transition-shadow">
+              <div key={i} className="border border-cream/15 rounded-lg p-10 hover:bg-cream/5 transition-colors">
                 <span className="text-[12px] font-medium tracking-[0.08em] uppercase text-primary">{c.cat}</span>
-                <h3 className="font-serif text-[26px] font-normal text-foreground mt-3 mb-4">{c.name}</h3>
-                <p className="text-[15px] text-muted-foreground leading-[2] mb-8">{c.desc}</p>
-                <div className="flex gap-10 pt-6 border-t border-border">
+                <h3 className="font-serif text-[26px] font-normal text-cream mt-3 mb-4">{c.name}</h3>
+                <p className="text-[15px] text-cream/60 leading-[2] mb-8">{c.desc}</p>
+                <div className="flex gap-10 pt-6 border-t border-cream/15">
                   {c.stats.map((s, j) => (
                     <div key={j}>
-                      <span className="text-[36px] font-display font-normal text-foreground tracking-[-0.02em]">
-                        {s.n}<span className="text-[16px] text-muted-foreground ml-0.5">{s.u}</span>
+                      <span className="text-[36px] font-display font-normal text-cream tracking-[-0.02em]">
+                        {s.n}<span className="text-[16px] text-cream/50 ml-0.5">{s.u}</span>
                       </span>
-                      <span className="block text-[11px] text-muted-foreground tracking-[0.08em] uppercase mt-1">{s.l}</span>
+                      <span className="block text-[11px] text-cream/50 tracking-[0.08em] uppercase mt-1">{s.l}</span>
                     </div>
                   ))}
                 </div>
@@ -246,20 +246,20 @@ const Index = () => {
       </section>
 
       {/* ─── CONTACT ─── */}
-      <section id="contact" className="py-32 lg:py-40 border-t border-border">
+      <section id="contact" className="py-32 lg:py-40 bg-dark text-cream">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
           <Reveal>
             <p className="font-display text-[13px] tracking-[0.25em] uppercase text-primary mb-6">05 · Contact</p>
-            <h2 className="font-serif text-[clamp(32px,5vw,64px)] font-normal text-foreground leading-[1.15] tracking-[-0.02em] mb-6">
+            <h2 className="font-serif text-[clamp(32px,5vw,64px)] font-normal text-cream leading-[1.15] tracking-[-0.02em] mb-6">
               한 번 얘기해봐요.
             </h2>
-            <p className="text-[17px] text-muted-foreground max-w-[480px] leading-[2] mb-12">
+            <p className="text-[17px] text-cream/70 max-w-[480px] leading-[2] mb-12">
               지금 당장 계약이 목표가 아닙니다. 브랜드를 함께 진단하고, 어떻게 팔 수 있는지 생각해 보는 것부터 시작합니다.
             </p>
-            <a href="mailto:contact@pixelpage.co.kr" className="block font-serif text-[24px] text-foreground hover:text-primary transition-colors mb-2">
+            <a href="mailto:contact@pixelpage.co.kr" className="block font-serif text-[24px] text-cream hover:text-primary transition-colors mb-2">
               contact@pixelpage.co.kr
             </a>
-            <p className="text-[13px] text-muted-foreground mb-10">보통 24시간 이내 회신드립니다.</p>
+            <p className="text-[13px] text-cream/50 mb-10">보통 24시간 이내 회신드립니다.</p>
             <a href="mailto:contact@pixelpage.co.kr" className="inline-flex items-center gap-2 px-9 py-4 bg-primary text-primary-foreground text-[14px] font-bold tracking-[0.05em] hover:bg-gold-light transition-all hover:-translate-y-0.5">
               이메일 문의 <ArrowRight className="w-4 h-4" />
             </a>
