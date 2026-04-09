@@ -101,7 +101,7 @@ const Index = () => {
           <Reveal>
             <p className="font-display text-[13px] tracking-[0.25em] uppercase text-primary mb-6">01 · Philosophy</p>
             <h2 className="font-serif text-[clamp(32px,5vw,64px)] font-normal text-cream leading-[1.15] tracking-[-0.02em] max-w-[700px]">
-              무형의 가치를 파는 브랜드의<br />전담 마케팅 파트너.
+              만질 수 없는 것을<br />파는 일은, 조금 다릅니다.
             </h2>
           </Reveal>
           <div className="mt-3 mb-16 w-16 h-px bg-primary" />
