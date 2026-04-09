@@ -16,58 +16,79 @@ const Index = () => {
     <div>
 
       {/* ─── HERO ─── */}
-      <section className="relative min-h-screen flex items-center pt-32 pb-20">
-        <div className="absolute inset-0">
-          <img src={heroOffice} alt="PIXELPAGE 오피스" className="w-full h-full object-cover" width={1920} height={1080} />
-          <div className="absolute inset-0 bg-dark/70" />
+      <section className="relative min-h-screen flex items-center pt-32 pb-20 bg-background overflow-hidden">
+        {/* Subtle radial glow */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-[15%] right-[15%] w-[500px] h-[500px] rounded-full bg-gold/[0.06] blur-[120px]" />
+          <div className="absolute bottom-[20%] left-[10%] w-[400px] h-[400px] rounded-full bg-gold/[0.04] blur-[100px]" />
         </div>
-        <div className="relative z-10 max-w-[1200px] mx-auto w-full px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8">
-              <p className="text-[13px] font-medium tracking-[0.2em] uppercase text-gold mb-6 opacity-0 animate-fade-up stagger-1">
-                교육 · 지식 · 경험 · 문화 전담 마케팅
+        <div className="relative z-10 max-w-[1240px] mx-auto w-full px-6 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Text */}
+            <div>
+              <p className="font-display text-[13px] tracking-[0.25em] uppercase text-gold mb-6 opacity-0 animate-fade-up stagger-1">
+                교육 · 지식 · 경험 · 문화
               </p>
-              <h1 className="font-serif text-[clamp(40px,6vw,80px)] font-light leading-[1.1] tracking-[-0.03em] text-cream/95 mb-8 opacity-0 animate-fade-up stagger-2">
+              <h1 className="font-serif text-[clamp(48px,7vw,96px)] font-normal leading-[1.1] tracking-[-0.03em] text-foreground mb-7 opacity-0 animate-fade-up stagger-2">
                 만질 수 없는 것을<br /><span className="text-gold">파는 일.</span>
               </h1>
-              <p className="text-[18px] text-cream/70 leading-[2.1] max-w-[580px] mb-12 opacity-0 animate-fade-up stagger-3">
-                퍼포먼스 광고 · 브랜디드 유튜브 · SEO · CRM · 웹 빌드까지,
-                <br />5가지 서비스가 유기적으로 연결된 마케팅을 설계합니다.
-                <br />짧은 사이클 안에 또렷한 결과를 만드는 팀입니다.
+              <p className="text-[17px] text-muted-foreground leading-[1.85] max-w-[460px] mb-10 opacity-0 animate-fade-up stagger-3">
+                무형의 가치를 파는 브랜드의 전담 마케팅 파트너.<br />
+                짧은 사이클 안에, 관객이 '한 번 경험해 보고 싶다'고<br />
+                느끼는 그 순간까지 설계합니다.
               </p>
-              <div className="flex items-center gap-4 mb-16 opacity-0 animate-fade-up stagger-4">
-                <Link to="/#contact" className="inline-flex items-center gap-2 px-7 py-3.5 bg-gold text-primary-foreground text-[14px] font-bold tracking-[0.02em] rounded-md hover:bg-gold-light transition-colors">
+              <div className="flex items-center gap-4 mb-14 opacity-0 animate-fade-up stagger-4">
+                <Link to="/#contact" className="inline-flex items-center gap-2 px-9 py-4 bg-gold text-primary-foreground text-[14px] font-bold tracking-[0.05em] hover:bg-gold-light transition-all hover:-translate-y-0.5">
                   무료 상담 신청
-                  <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link to="/#cases" className="text-[14px] font-medium text-cream/60 hover:text-cream transition-colors px-4 py-3.5">
-                  성과 보기 →
+                <Link to="/#cases" className="inline-flex items-center px-8 py-4 border border-foreground/20 text-[14px] font-medium text-foreground hover:border-gold hover:text-gold transition-colors">
+                  성과 보기
                 </Link>
               </div>
-              <div className="flex items-center gap-0 opacity-0 animate-fade-up stagger-5">
+              <div className="flex items-center gap-8 opacity-0 animate-fade-up stagger-5">
                 {[
-                  { num: "3.93", unit: "%", label: "Avg. CTR" },
-                  { num: "500", unit: "%", label: "Peak ROAS" },
-                  { num: "6.6", unit: "×", label: "매출 성장" },
-                  { num: "280", unit: "+", label: "캠페인" },
+                  { num: "100%", label: "무형 서비스 전담" },
+                  { num: "5+", label: "시그니처 브랜드" },
+                  { num: "TOP 1%", label: "니치 마켓 포지션" },
                 ].map((k, i) => (
-                  <div key={i} className="flex items-center gap-0">
-                    {i > 0 && <div className="w-px h-8 bg-cream/15 mx-6" />}
+                  <div key={i} className="flex items-center gap-8">
+                    {i > 0 && <div className="w-px h-9 bg-foreground/10" />}
                     <div>
-                      <span className="text-[30px] font-serif font-light text-cream/90 tracking-[-0.02em]">
-                        {k.num}
-                        <span className="text-[15px] text-cream/45 ml-0.5">{k.unit}</span>
-                      </span>
-                      <span className="block text-[11px] font-medium text-cream/40 tracking-[0.08em] uppercase mt-0.5">{k.label}</span>
+                      <span className="block font-display text-[28px] font-normal text-foreground tracking-[-0.02em]">{k.num}</span>
+                      <span className="block text-[11px] text-muted-foreground tracking-[0.05em] mt-0.5">{k.label}</span>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="lg:col-span-4 hidden lg:flex justify-end opacity-0 animate-fade-up stagger-6">
-              <img src={charCurly} alt="PIXELPAGE 캐릭터" className="w-[200px] rounded-2xl animate-float" />
+            {/* Characters + floating tags */}
+            <div className="hidden lg:flex flex-col items-start gap-6 opacity-0 animate-fade-up stagger-6">
+              <div className="relative">
+                <div className="flex items-end gap-4">
+                  <img src={charCurly} alt="픽셀페이지" className="w-[210px] rounded-3xl animate-float" />
+                  <img src={charMale} alt="픽셀페이지" className="w-[160px] rounded-2xl mb-2 scale-[1.15] origin-bottom" style={{ animation: 'float-gentle 7s ease-in-out infinite' }} />
+                </div>
+                {/* Floating KPI tags */}
+                <div className="absolute -top-3 -right-4 bg-card border border-border shadow-card px-4 py-2 rounded-md text-[12px] font-medium text-foreground animate-float" style={{ animationDelay: '0.5s' }}>
+                  Meta Ads
+                </div>
+                <div className="absolute top-1/3 -left-6 bg-card border border-border shadow-card px-4 py-2 rounded-md text-[12px] font-medium text-gold animate-float" style={{ animationDelay: '1.2s' }}>
+                  3.93% CTR
+                </div>
+                <div className="absolute bottom-12 -right-8 bg-card border border-border shadow-card px-4 py-2 rounded-md text-[12px] font-medium text-gold animate-float" style={{ animationDelay: '1.8s' }}>
+                  ROAS 500%
+                </div>
+                <div className="absolute -bottom-2 left-8 bg-card border border-border shadow-card px-4 py-2 rounded-md text-[12px] font-medium text-foreground animate-float" style={{ animationDelay: '2.4s' }}>
+                  ×6.6 성장
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+        {/* Scroll hint */}
+        <div className="absolute bottom-10 left-12 flex items-center gap-4">
+          <span className="text-[11px] tracking-[0.15em] uppercase text-muted-foreground">스크롤</span>
+          <div className="w-[60px] h-px bg-gold" style={{ animation: 'scroll-line 2s ease infinite' }} />
         </div>
       </section>
 
