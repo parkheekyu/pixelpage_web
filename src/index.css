@@ -120,6 +120,17 @@
 .animate-fade-up { animation: fade-up 0.7s ease forwards; }
 .animate-marquee { animation: marquee 40s linear infinite; }
 
+/* Irregular blob shapes */
+.blob-shape-1 {
+  border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+}
+.blob-shape-2 {
+  border-radius: 45% 55% 40% 60% / 55% 45% 60% 40%;
+}
+.blob-shape-3 {
+  border-radius: 55% 45% 60% 40% / 40% 55% 45% 60%;
+}
+
 .stagger-1 { animation-delay: 0ms; }
 .stagger-2 { animation-delay: 120ms; }
 .stagger-3 { animation-delay: 240ms; }
