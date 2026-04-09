@@ -7,6 +7,9 @@ import illustBranded from "@/assets/illust-branded.png";
 import illustSeo from "@/assets/illust-seo.png";
 import illustCrm from "@/assets/illust-crm.png";
 import illustWeb from "@/assets/illust-web.png";
+import charMale from "@/assets/char-male.png";
+import charFemale from "@/assets/char-female.png";
+import charCurly from "@/assets/char-curly.png";
 
 const Index = () => {
   return (
@@ -56,8 +59,33 @@ const Index = () => {
                 ))}
               </div>
             </div>
-            <div className="hidden lg:flex justify-center opacity-0 animate-fade-up stagger-6">
-              <img src={illustHero} alt="PIXELPAGE" className="w-[420px] animate-float" width={1024} height={1024} />
+            <div className="hidden lg:flex justify-center items-center relative h-[500px]">
+              {/* Floating blob characters */}
+              <div className="absolute top-0 right-8 animate-float stagger-2">
+                <div className="blob-shape-1 w-[200px] h-[200px] overflow-hidden shadow-card">
+                  <img src={charMale} alt="" className="w-full h-full object-cover scale-110" />
+                </div>
+              </div>
+              <div className="absolute bottom-4 right-16 animate-float stagger-4">
+                <div className="blob-shape-2 w-[220px] h-[240px] overflow-hidden shadow-card">
+                  <img src={charFemale} alt="" className="w-full h-full object-cover scale-110" />
+                </div>
+              </div>
+              <div className="absolute top-[30%] left-0 animate-float stagger-6">
+                <div className="blob-shape-3 w-[180px] h-[200px] overflow-hidden shadow-card">
+                  <img src={charCurly} alt="" className="w-full h-full object-cover scale-110" />
+                </div>
+              </div>
+              {/* Decorative floating tags */}
+              <div className="absolute top-[15%] left-[30%] bg-primary/10 text-primary text-[11px] font-medium px-3 py-1.5 rounded-full animate-float stagger-3">
+                Meta Ads
+              </div>
+              <div className="absolute bottom-[25%] left-[15%] bg-primary/10 text-primary text-[11px] font-medium px-3 py-1.5 rounded-full animate-float stagger-5">
+                ROAS 500%
+              </div>
+              <div className="absolute top-[55%] right-0 bg-primary/10 text-primary text-[11px] font-medium px-3 py-1.5 rounded-full animate-float stagger-1">
+                CTR 3.93%
+              </div>
             </div>
           </div>
         </div>
