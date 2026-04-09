@@ -36,17 +36,17 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? "bg-card/95 backdrop-blur-lg shadow-subtle" : ""
+      scrolled ? "bg-background/96 backdrop-blur-lg shadow-subtle" : ""
     }`}>
-      <div className="max-w-[1200px] mx-auto h-16 flex items-center px-6 lg:px-8">
+      <div className="max-w-[1240px] mx-auto h-[72px] flex items-center px-6 lg:px-12">
         <Link to="/" className="mr-auto">
-          <img src={scrolled ? logoDark : logoWhite} alt="PixelPage" className="h-6 transition-opacity duration-300" />
+          <img src={logoDark} alt="PixelPage" className="h-6 transition-opacity duration-300" />
         </Link>
 
         <div className="hidden lg:flex items-center gap-10">
           {navItems.map((item) => (
             <div key={item.label} className="relative group">
-              <Link to={item.href} className={`text-[13px] font-medium transition-colors ${scrolled ? "text-t-secondary hover:text-t-strong" : "text-cream/70 hover:text-cream"}`}>
+              <Link to={item.href} className="text-[14px] font-normal text-foreground/70 hover:text-foreground transition-colors">
                 {item.label}
               </Link>
               {item.dropdown && (
@@ -54,8 +54,8 @@ const Navbar = () => {
                   <div className="bg-card shadow-card-hover border border-border w-[280px] p-1.5 rounded-lg">
                     {item.dropdown.map((d) => (
                       <Link key={d.href} to={d.href} className="block px-3.5 py-2.5 rounded-md hover:bg-background transition-colors">
-                        <span className="block text-[13px] font-medium text-t-strong">{d.title}</span>
-                        <span className="block text-[11px] text-t-tertiary mt-0.5">{d.sub}</span>
+                        <span className="block text-[14px] font-medium text-foreground">{d.title}</span>
+                        <span className="block text-[11px] text-muted-foreground mt-0.5">{d.sub}</span>
                       </Link>
                     ))}
                   </div>
@@ -63,13 +63,13 @@ const Navbar = () => {
               )}
             </div>
           ))}
-          <Link to="/#contact" className="text-[12px] font-bold tracking-[0.04em] px-5 py-2 bg-gold text-primary-foreground rounded-md hover:bg-gold-light transition-colors">
-            상담 신청
+          <Link to="/#contact" className="text-[13px] font-bold tracking-[0.03em] px-6 py-2.5 bg-primary text-primary-foreground hover:bg-gold-light transition-colors">
+            무료 상담 신청
           </Link>
         </div>
 
         <button className="lg:hidden p-1.5" onClick={() => setMobileOpen(!mobileOpen)}>
-          {mobileOpen ? <X className={`w-5 h-5 ${scrolled ? "text-t-primary" : "text-cream"}`} /> : <Menu className={`w-5 h-5 ${scrolled ? "text-t-primary" : "text-cream"}`} />}
+          {mobileOpen ? <X className="w-5 h-5 text-foreground" /> : <Menu className="w-5 h-5 text-foreground" />}
         </button>
       </div>
 
