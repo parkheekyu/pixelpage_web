@@ -11,22 +11,9 @@ import charCurly from "@/assets/char-curly.png";
 import charMale from "@/assets/char-male.png";
 import charFemale from "@/assets/char-female.jpeg";
 
-const ticker = ["무형 서비스 전담", "퍼포먼스 마케팅", "브랜디드 유튜브", "검색엔진 최적화", "CRM 자동화", "웹 빌드", "Meta Business Partner", "짧은 사이클 · 또렷한 결과"];
-
 const Index = () => {
   return (
     <div>
-      {/* ─── TICKER ─── */}
-      <div className="fixed top-16 left-0 right-0 z-40 bg-dark overflow-hidden">
-        <div className="animate-marquee flex whitespace-nowrap py-2">
-          {[...ticker, ...ticker].map((t, i) => (
-            <span key={i} className="text-[11px] text-cream/50 tracking-[0.08em] mx-6 flex items-center gap-3">
-              <span className="w-1 h-1 rounded-full bg-gold inline-block" />
-              {t}
-            </span>
-          ))}
-        </div>
-      </div>
 
       {/* ─── HERO ─── */}
       <section className="relative min-h-screen flex items-center pt-32 pb-20">
