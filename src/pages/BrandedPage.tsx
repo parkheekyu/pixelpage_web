@@ -34,13 +34,13 @@ const BrandedPage = () => (
     </section>
 
     {/* Stats */}
-    <section className="py-16 bg-dark">
+    <section className="py-16 bg-background border-t border-border">
       <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
         <Reveal className="flex flex-wrap justify-between gap-8">
           {[{ n: "9", u: "년+", l: "영상 제작 경력" }, { n: "100", u: "만+", l: "누적 구독자" }, { n: "4", u: "배", l: "상담 전환율 증가" }, { n: "2", u: "개월", l: "채널 성장 기간" }].map(k => (
             <div key={k.l} className="text-center">
-              <span className="text-[36px] font-display font-normal text-cream tracking-[-0.02em]">{k.n}<span className="text-[16px] text-cream/40 ml-0.5">{k.u}</span></span>
-              <span className="block text-[11px] text-cream/30 tracking-[0.08em] uppercase mt-1">{k.l}</span>
+              <span className="text-[36px] font-display font-normal text-foreground tracking-[-0.02em]">{k.n}<span className="text-[16px] text-muted-foreground ml-0.5">{k.u}</span></span>
+              <span className="block text-[11px] text-muted-foreground tracking-[0.08em] uppercase mt-1">{k.l}</span>
             </div>
           ))}
         </Reveal>
