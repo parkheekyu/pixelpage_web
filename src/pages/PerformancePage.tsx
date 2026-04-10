@@ -34,13 +34,13 @@ const PerformancePage = () => (
     </section>
 
     {/* KPI */}
-    <section className="py-16 bg-dark">
+    <section className="py-16 bg-background border-t border-border">
       <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
         <Reveal className="flex flex-wrap justify-between gap-8">
           {[{ n: "3.93", u: "%", l: "Avg. CTR" }, { n: "500", u: "%", l: "Peak ROAS" }, { n: "280", u: "+", l: "캠페인 집행" }, { n: "70,000", u: "+", l: "커뮤니티 회원" }].map(k => (
             <div key={k.l} className="text-center">
-              <span className="text-[36px] font-display font-normal text-cream tracking-[-0.02em]">{k.n}<span className="text-[16px] text-cream/40 ml-0.5">{k.u}</span></span>
-              <span className="block text-[11px] text-cream/30 tracking-[0.08em] uppercase mt-1">{k.l}</span>
+              <span className="text-[36px] font-display font-normal text-foreground tracking-[-0.02em]">{k.n}<span className="text-[16px] text-muted-foreground ml-0.5">{k.u}</span></span>
+              <span className="block text-[11px] text-muted-foreground tracking-[0.08em] uppercase mt-1">{k.l}</span>
             </div>
           ))}
         </Reveal>
