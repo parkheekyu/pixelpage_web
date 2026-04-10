@@ -6,23 +6,23 @@ import illustBranded from "@/assets/illust-branded.png";
 const BrandedPage = () => (
   <div>
     {/* Hero */}
-    <section className="pt-32 pb-24 lg:pb-32 bg-background">
+    <section className="pt-32 pb-24 lg:pb-32 bg-dark text-cream">
       <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
-        <Link to="/" className="inline-flex items-center gap-1.5 text-[12px] text-muted-foreground hover:text-primary transition-colors mb-10">
+        <Link to="/" className="inline-flex items-center gap-1.5 text-[12px] text-cream/50 hover:text-primary transition-colors mb-10">
           <ArrowLeft className="w-3 h-3" /> 홈으로
         </Link>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <Reveal>
             <p className="font-display text-[13px] tracking-[0.25em] uppercase text-primary mb-6">02 · Branded Content</p>
-            <h1 className="font-serif text-[clamp(36px,5vw,64px)] font-normal text-foreground leading-[1.15] tracking-[-0.02em] mb-6">
+            <h1 className="font-serif text-[clamp(36px,5vw,64px)] font-normal text-cream leading-[1.15] tracking-[-0.02em] mb-6">
               브랜디드 콘텐츠
             </h1>
-            <p className="text-[17px] text-muted-foreground leading-[1.85] max-w-[480px] mb-8">
-              강사의 목소리, 공간의 공기, 수강생의 표정 — 무형을 파는 일은 결국 <strong className="text-foreground font-medium">감각을 번역하는 일</strong>입니다. 24시간 일하는 영업사원을 만듭니다.
+            <p className="text-[17px] text-cream/70 leading-[1.85] max-w-[480px] mb-8">
+              강사의 목소리, 공간의 공기, 수강생의 표정 — 무형을 파는 일은 결국 <strong className="text-cream font-medium">감각을 번역하는 일</strong>입니다. 24시간 일하는 영업사원을 만듭니다.
             </p>
             <div className="flex flex-wrap gap-2">
               {["브랜디드 유튜브", "숏폼 (Shorts · Reels)", "광고 소재 제작"].map(t => (
-                <span key={t} className="text-[12px] text-muted-foreground bg-secondary border border-border px-3 py-1 rounded-full">{t}</span>
+                <span key={t} className="text-[12px] text-cream/60 bg-cream/10 border border-cream/15 px-3 py-1 rounded-full">{t}</span>
               ))}
             </div>
           </Reveal>
