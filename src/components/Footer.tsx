@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import logoDark from "@/assets/logo-dark.png";
 
 const Footer = () => (
-  <footer className="border-t border-border py-16">
+  <footer className="bg-dark text-cream py-16">
     <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-14">
         <div className="col-span-2 md:col-span-1">
