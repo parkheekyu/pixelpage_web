@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ["Noto Serif KR", "Georgia", "serif"],
+        serif: ["MaruBuri", "Noto Serif KR", "Georgia", "serif"],
         sans: ["Noto Sans KR", "Apple SD Gothic Neo", "sans-serif"],
         display: ["Cormorant Garamond", "Georgia", "serif"],
         accent: ["Playfair Display", "Georgia", "serif"],
