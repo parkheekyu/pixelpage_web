@@ -155,9 +155,9 @@ const Index = () => {
                     <span className="text-[11px] tracking-[0.15em] uppercase text-muted-foreground">{s.sub}</span>
                     <h3 className="font-serif text-[clamp(30px,3.5vw,44px)] font-medium text-foreground mt-2 mb-3">{s.name}</h3>
                     <p className="text-[16px] text-muted-foreground leading-[1.9] mb-5 max-w-[420px]">{s.desc}</p>
-                    <div className="flex flex-wrap gap-2 mb-5">
+                    <div className="flex flex-wrap gap-2.5 mb-5">
                       {s.tags.map(t => (
-                        <span key={t} className="text-[11px] text-muted-foreground bg-secondary px-2.5 py-1 rounded-full">{t}</span>
+                        <span key={t} className="text-[13px] text-foreground/80 bg-surface-beige border border-border px-4 py-1.5 rounded-full">{t}</span>
                       ))}
                     </div>
                     <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-primary group-hover:translate-x-1 transition-transform">
