@@ -67,7 +67,7 @@ const Index = () => {
       </section>
 
       {/* ─── PHILOSOPHY ─── */}
-      <section className="py-28 lg:py-36 bg-background border-t border-border">
+      <section className="py-28 lg:py-36 bg-surface-white border-t border-border">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
           <Reveal>
             <p className="text-[12px] tracking-[0.2em] uppercase text-muted-foreground mb-5">Philosophy</p>
@@ -104,7 +104,7 @@ const Index = () => {
       </section>
 
       {/* ─── SERVICES ─── */}
-      <section className="py-28 lg:py-36 bg-background">
+      <section className="py-28 lg:py-36 bg-surface-beige">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
           <Reveal>
             <p className="text-[12px] tracking-[0.2em] uppercase text-muted-foreground mb-5">Services</p>
@@ -175,7 +175,7 @@ const Index = () => {
       </section>
 
       {/* ─── CASES ─── */}
-      <section id="cases" className="py-28 lg:py-36 bg-background border-t border-border">
+      <section id="cases" className="py-28 lg:py-36 bg-surface-white">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
           <Reveal>
             <p className="text-[12px] tracking-[0.2em] uppercase text-muted-foreground mb-5">Case Studies</p>
@@ -243,7 +243,7 @@ const Index = () => {
       </section>
 
       {/* ─── CONTACT ─── */}
-      <section id="contact" className="py-28 lg:py-36 bg-background border-t border-border">
+      <section id="contact" className="py-28 lg:py-36 bg-surface-beige">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
           <Reveal>
             <p className="text-[12px] tracking-[0.2em] uppercase text-muted-foreground mb-5">Contact</p>
