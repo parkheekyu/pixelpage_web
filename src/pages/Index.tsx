@@ -28,7 +28,7 @@ const Index = () => {
               <p className="text-[13px] tracking-[0.2em] uppercase text-muted-foreground mb-6 opacity-0 animate-fade-up stagger-1">
                 교육 · 지식 · 경험 · 문화
               </p>
-              <h1 className="font-serif text-[clamp(52px,7.5vw,96px)] font-bold leading-[1.1] tracking-[-0.03em] text-foreground mb-7 opacity-0 animate-fade-up stagger-2">
+              <h1 className="font-serif text-[clamp(52px,7.5vw,96px)] font-medium leading-[1.1] tracking-[-0.03em] text-foreground mb-7 opacity-0 animate-fade-up stagger-2">
                 만질 수 없는 것을<br /><span className="text-primary">파는 일.</span>
               </h1>
               <p className="text-[18px] text-muted-foreground leading-[1.85] max-w-[440px] mb-10 opacity-0 animate-fade-up stagger-3">
@@ -71,7 +71,7 @@ const Index = () => {
         <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
           <Reveal>
             <p className="text-[12px] tracking-[0.2em] uppercase text-muted-foreground mb-5">Philosophy</p>
-            <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-bold text-foreground leading-[1.2] tracking-[-0.02em] max-w-[600px]">
+            <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-medium text-foreground leading-[1.2] tracking-[-0.02em] max-w-[600px]">
               일반 마케팅 회사와는<br />조금 다릅니다.
             </h2>
           </Reveal>
@@ -108,7 +108,7 @@ const Index = () => {
         <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
           <Reveal>
             <p className="text-[12px] tracking-[0.2em] uppercase text-muted-foreground mb-5">Services</p>
-            <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-bold text-foreground leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-medium text-foreground leading-[1.2] tracking-[-0.02em]">
               5가지 서비스,<br />하나의 마케팅 설계.
             </h2>
             <p className="text-[17px] text-muted-foreground mt-4 max-w-[480px] leading-[1.9]">
@@ -153,7 +153,7 @@ const Index = () => {
                 <Link to={s.href} className={`group grid grid-cols-1 lg:grid-cols-2 gap-10 items-center py-10 border-t border-border transition-colors ${i % 2 === 1 ? 'lg:direction-rtl' : ''}`}>
                   <div className={i % 2 === 1 ? 'lg:order-2' : ''}>
                     <span className="text-[11px] tracking-[0.15em] uppercase text-muted-foreground">{s.sub}</span>
-                    <h3 className="font-serif text-[clamp(30px,3.5vw,44px)] font-bold text-foreground mt-2 mb-3">{s.name}</h3>
+                    <h3 className="font-serif text-[clamp(30px,3.5vw,44px)] font-medium text-foreground mt-2 mb-3">{s.name}</h3>
                     <p className="text-[16px] text-muted-foreground leading-[1.9] mb-5 max-w-[420px]">{s.desc}</p>
                     <div className="flex flex-wrap gap-2 mb-5">
                       {s.tags.map(t => (
@@ -179,7 +179,7 @@ const Index = () => {
         <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
           <Reveal>
             <p className="text-[12px] tracking-[0.2em] uppercase text-muted-foreground mb-5">Case Studies</p>
-            <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-bold text-foreground leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-medium text-foreground leading-[1.2] tracking-[-0.02em]">
               짧은 기간, 또렷한 결과.
             </h2>
             <p className="text-[17px] text-muted-foreground mt-4 max-w-[440px] leading-[1.9]">
@@ -195,7 +195,7 @@ const Index = () => {
             ].map((c, i) => (
               <div key={i} className="border border-border rounded-lg p-9 hover:border-foreground/20 transition-colors">
                 <span className="text-[11px] tracking-[0.08em] uppercase text-primary/70">{c.cat}</span>
-                <h3 className="font-serif text-[28px] font-bold text-foreground mt-2 mb-3">{c.name}</h3>
+                <h3 className="font-serif text-[28px] font-medium text-foreground mt-2 mb-3">{c.name}</h3>
                 <p className="text-[15px] text-muted-foreground leading-[1.9] mb-7">{c.desc}</p>
                 <div className="flex gap-10 pt-5 border-t border-border">
                   {c.stats.map((s, j) => (
@@ -218,7 +218,7 @@ const Index = () => {
         <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
           <Reveal>
             <p className="text-[12px] tracking-[0.2em] uppercase text-muted-foreground mb-5">Process</p>
-            <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-bold text-foreground leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-medium text-foreground leading-[1.2] tracking-[-0.02em]">
               어떻게 일하나요?
             </h2>
             <p className="text-[17px] text-muted-foreground mt-4 max-w-[480px] leading-[1.9]">
@@ -247,13 +247,13 @@ const Index = () => {
         <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
           <Reveal>
             <p className="text-[12px] tracking-[0.2em] uppercase text-muted-foreground mb-5">Contact</p>
-            <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-bold text-foreground leading-[1.2] tracking-[-0.02em] mb-5">
+            <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-medium text-foreground leading-[1.2] tracking-[-0.02em] mb-5">
               한 번 얘기해봐요.
             </h2>
             <p className="text-[17px] text-muted-foreground max-w-[440px] leading-[1.9] mb-10">
               지금 당장 계약이 목표가 아닙니다. 브랜드를 함께 진단하고, 어떻게 팔 수 있는지 생각해 보는 것부터 시작합니다.
             </p>
-            <a href="mailto:contact@pixelpage.co.kr" className="block font-serif text-[26px] font-bold text-foreground/80 hover:text-primary transition-colors mb-2">
+            <a href="mailto:contact@pixelpage.co.kr" className="block font-serif text-[26px] font-medium text-foreground/80 hover:text-primary transition-colors mb-2">
               contact@pixelpage.co.kr
             </a>
             <p className="text-[12px] text-muted-foreground mb-8">보통 24시간 이내 회신드립니다.</p>
