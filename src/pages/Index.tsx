@@ -63,7 +63,7 @@ const Index = () => {
               {/* Floating blob characters */}
               <div className="absolute top-0 right-8 animate-float stagger-2">
                 <div className="blob-shape-1 w-[200px] h-[200px] overflow-hidden shadow-card">
-                  <img src={charMale} alt="" className="w-full h-full object-cover scale-110" />
+                  <img src={charMale} alt="" className="w-full h-full object-cover scale-110 object-[center_20%]" />
                 </div>
               </div>
               <div className="absolute bottom-4 right-16 animate-float stagger-4">
@@ -78,13 +78,13 @@ const Index = () => {
               </div>
               {/* Decorative floating tags */}
               <div className="absolute top-[15%] left-[30%] bg-primary/10 text-primary text-[11px] font-medium px-3 py-1.5 rounded-full animate-float stagger-3">
-                Meta Ads
+                Meta Business Partner
               </div>
               <div className="absolute bottom-[25%] left-[15%] bg-primary/10 text-primary text-[11px] font-medium px-3 py-1.5 rounded-full animate-float stagger-5">
                 ROAS 500%
               </div>
               <div className="absolute top-[55%] right-0 bg-primary/10 text-primary text-[11px] font-medium px-3 py-1.5 rounded-full animate-float stagger-1">
-                CTR 3.93%
+                Marketing Design
               </div>
             </div>
           </div>
