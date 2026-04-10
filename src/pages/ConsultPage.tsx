@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import PageMeta from "@/components/PageMeta";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -100,6 +101,7 @@ const ConsultPage = () => {
 
   return (
     <div>
+      <PageMeta title="무료 상담 신청" description="브랜드를 함께 진단하고, 어떻게 팔 수 있는지 생각해 보는 것부터 시작합니다. 24시간 이내 담당자가 연락드립니다." path="/consult" />
       {/* Hero */}
       <section className="pt-32 pb-24 lg:pb-32 bg-dark text-cream">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-12">

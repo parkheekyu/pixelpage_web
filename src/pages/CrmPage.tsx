@@ -1,10 +1,12 @@
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import Reveal from "@/components/Reveal";
+import PageMeta from "@/components/PageMeta";
 import illustCrm from "@/assets/illust-crm.png";
 
 const CrmPage = () => (
   <div>
+    <PageMeta title="CRM 마케팅" description="리드 수집부터 육성 자동화, 전환 최적화, 리텐션까지. 광고로 데려온 관객이 떠나지 않도록 4단계 자동화 퍼널을 설계합니다." path="/services/crm" />
     {/* Hero */}
     <section className="pt-32 pb-24 lg:pb-32 bg-background">
       <div className="max-w-[1240px] mx-auto px-6 lg:px-12">

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import PageMeta from "@/components/PageMeta";
 import illustHero from "@/assets/illust-hero.png";
 import illustPerformance from "@/assets/illust-performance.png";
 import illustBranded from "@/assets/illust-branded.png";
@@ -14,6 +15,11 @@ import charCurly from "@/assets/char-curly.png";
 const Index = () => {
   return (
     <div>
+      <PageMeta
+        title="무형의 가치를 파는 브랜드 전담 에이전시"
+        description="교육·지식·경험·문화 — 만질 수 없는 가치를 파는 브랜드의 전담 마케팅 파트너. 퍼포먼스 광고, 브랜디드 콘텐츠, SEO, CRM 자동화, 웹 빌드."
+        path="/"
+      />
 
       {/* ─── HERO ─── */}
       <section className="relative min-h-screen flex items-center pt-32 pb-20 bg-background overflow-hidden">

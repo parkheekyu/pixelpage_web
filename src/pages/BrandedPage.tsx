@@ -1,10 +1,12 @@
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import Reveal from "@/components/Reveal";
+import PageMeta from "@/components/PageMeta";
 import illustBranded from "@/assets/illust-branded.png";
 
 const BrandedPage = () => (
   <div>
+    <PageMeta title="브랜디드 콘텐츠" description="브랜디드 유튜브와 숏폼으로 24시간 일하는 영업사원을 만듭니다. 무형 서비스의 감각을 영상으로 번역합니다." path="/services/branded" />
     {/* Hero */}
     <section className="pt-32 pb-24 lg:pb-32 bg-background">
       <div className="max-w-[1240px] mx-auto px-6 lg:px-12">

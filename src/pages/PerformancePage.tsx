@@ -1,10 +1,12 @@
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import Reveal from "@/components/Reveal";
+import PageMeta from "@/components/PageMeta";
 import illustPerformance from "@/assets/illust-performance.png";
 
 const PerformancePage = () => (
   <div>
+    <PageMeta title="퍼포먼스 마케팅" description="Meta·Google·토스·당근·TikTok — 무형 서비스에 특화된 서사형 광고로 구매 의향이 있는 관객을 정밀하게 찾아 전환합니다." path="/services/performance" />
     {/* Hero */}
     <section className="pt-32 pb-24 lg:pb-32 bg-background">
       <div className="max-w-[1240px] mx-auto px-6 lg:px-12">

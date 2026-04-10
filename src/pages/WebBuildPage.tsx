@@ -1,10 +1,12 @@
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import Reveal from "@/components/Reveal";
+import PageMeta from "@/components/PageMeta";
 import illustWeb from "@/assets/illust-web.png";
 
 const WebBuildPage = () => (
   <div>
+    <PageMeta title="웹 빌드" description="보여주기 위한 웹이 아닌, 파는 웹. 랜딩 페이지부터 브랜드 사이트, 엔터프라이즈까지 전환이 일어나는 웹을 설계합니다." path="/services/webbuild" />
     {/* Hero */}
     <section className="pt-32 pb-24 lg:pb-32 bg-background">
       <div className="max-w-[1240px] mx-auto px-6 lg:px-12">

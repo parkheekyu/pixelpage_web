@@ -1,10 +1,12 @@
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import Reveal from "@/components/Reveal";
+import PageMeta from "@/components/PageMeta";
 import illustSeo from "@/assets/illust-seo.png";
 
 const SeoPage = () => (
   <div>
+    <PageMeta title="검색엔진 최적화 (SEO)" description="네이버 생태계 전체를 활용한 콘텐츠 기반 장기 신뢰 구축. 광고비 없이도 찾아오게 만드는 SEO 전략." path="/services/seo" />
     {/* Hero */}
     <section className="pt-32 pb-24 lg:pb-32 bg-background">
       <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
