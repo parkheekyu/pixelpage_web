@@ -34,13 +34,13 @@ const Index = () => {
         <div className="relative z-10 max-w-[1240px] mx-auto w-full px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
-              <p className="text-[15px] tracking-[0.2em] uppercase text-muted-foreground mb-6 opacity-0 animate-fade-up stagger-1">
+              <p className="text-[15px] tracking-[0.2em] uppercase text-white/60 mb-6 opacity-0 animate-fade-up stagger-1">
                 교육 · 지식 · 경험 · 문화
               </p>
-              <h1 className="font-serif text-[clamp(52px,7.5vw,96px)] font-semibold leading-[1.1] tracking-[-0.03em] text-foreground mb-7 opacity-0 animate-fade-up stagger-2">
+              <h1 className="font-serif text-[clamp(52px,7.5vw,96px)] font-semibold leading-[1.1] tracking-[-0.03em] text-white mb-7 opacity-0 animate-fade-up stagger-2">
                 만질 수 없는 것을<br /><span className="text-primary">파는 일.</span>
               </h1>
-              <p className="text-[20px] text-muted-foreground leading-[1.85] max-w-[480px] mb-10 opacity-0 animate-fade-up stagger-3">
+              <p className="text-[20px] text-white/70 leading-[1.85] max-w-[480px] mb-10 opacity-0 animate-fade-up stagger-3">
                 무형의 가치를 파는 브랜드의 전담 마케팅 파트너.<br />
                 짧은 사이클 안에, 관객이 '한 번 경험해 보고 싶다'고
                 느끼는 그 순간까지 설계합니다.
@@ -49,7 +49,7 @@ const Index = () => {
                 <Link to="/#contact" className="inline-flex items-center gap-2 px-9 py-4 bg-primary text-primary-foreground text-[16px] font-medium tracking-[0.02em] hover:bg-gold-light transition-all rounded-md">
                   무료 상담 신청
                 </Link>
-                <Link to="/#cases" className="inline-flex items-center px-8 py-4 border border-border text-[16px] text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors rounded-md">
+                <Link to="/#cases" className="inline-flex items-center px-8 py-4 border border-white/30 text-[16px] text-white/80 hover:text-white hover:border-white/50 transition-colors rounded-md">
                   성과 보기
                 </Link>
               </div>
