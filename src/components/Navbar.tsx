@@ -76,7 +76,7 @@ const Navbar = () => {
               )}
             </div>
           ))}
-          <Link to="/consult" className="text-[13px] font-bold tracking-[0.03em] px-6 py-2.5 bg-primary text-primary-foreground hover:bg-gold-light transition-colors">
+          <Link to="/consult" className="text-[13px] font-bold tracking-[0.03em] px-6 py-2.5 bg-primary text-primary-foreground hover:bg-gold-light transition-colors rounded-md">
             무료 상담 신청
           </Link>
         </div>
