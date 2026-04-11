@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
 import ServicesTabSection from "@/components/ServicesTabSection";
+import PhilosophySection from "@/components/PhilosophySection";
 import charMale from "@/assets/char-male.png";
 import charFemale from "@/assets/char-female.png";
 import charCurly from "@/assets/char-curly.png";
@@ -74,42 +75,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ─── PHILOSOPHY ─── */}
-      <section className="py-28 lg:py-36 bg-surface-white border-t border-border">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
-          <Reveal className="text-center">
-            <img src={iconOk} alt="Philosophy" className="w-10 h-10 mb-5 mx-auto" />
-            <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-semibold text-foreground leading-[1.2] tracking-[-0.02em]">
-              일반 마케팅 회사와는<br />조금 다릅니다.
-            </h2>
-          </Reveal>
-          <Reveal className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div>
-              <p className="text-[19px] text-muted-foreground leading-[2] mb-5">
-                교육 · 지식 · 체험 · 문화 — 무형의 가치를 파는 브랜드는 '공급의 질'만큼
-                <strong className="text-foreground font-medium"> '의향을 가진 관객과 어떻게 만나는가'가 전부입니다.</strong>
-              </p>
-              <p className="text-[19px] text-muted-foreground leading-[2]">
-                PIXELPAGE는 이 낯선 시장에서만 일해 왔습니다. 상품이 아니라 서사, 숫자가 아니라 태도를 다루는 브랜드들의 전담 파트너입니다.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-0">
-              {[
-                { num: "01", title: "Intangible First", body: "무형 서비스 전담. 제품 기반 이커머스와 완전히 다른 의사결정 구조를 이해합니다." },
-                { num: "02", title: "Narrative Creative", body: "감각을 번역하는 크리에이티브. 브랜드 고유의 톤을 해치지 않는 서사를 설계합니다." },
-                { num: "03", title: "Short-Cycle Wins", body: "짧은 사이클 안에 유의미한 결과. 단기 집행만으로 다음 단계로 넘어갑니다." },
-                { num: "04", title: "Category Leader", body: "함께한 브랜드들은 각 카테고리에서 상위권으로 올라섰습니다." },
-              ].map(p => (
-                <div key={p.num} className="border-t border-border pt-6 pr-6 pb-8">
-                  <span className="text-[13px] text-primary/70 tracking-[0.1em]">{p.num}</span>
-                  <h3 className="text-[16px] font-medium text-foreground mt-3 mb-2">{p.title}</h3>
-                  <p className="text-[15px] text-muted-foreground leading-[1.9]">{p.body}</p>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <PhilosophySection />
 
       <ServicesTabSection />
 
