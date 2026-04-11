@@ -25,68 +25,110 @@ const MacWindow = ({ title, children }: { title: string; children: React.ReactNo
   </div>
 );
 
-/* ── 01. 퍼포먼스: 메타 광고관리자 (밝은 인터페이스) ── */
+/* ── 01. 퍼포먼스: 메타 광고관리자 (스크린샷 기반) ── */
 const PerformanceMockup = () => (
   <MacWindow title="Meta 광고 관리자 — pixelpage">
-    <div className="text-[11px] lg:text-[12px] bg-white">
-      {/* Meta header */}
-      <div className="flex items-center gap-3 px-4 py-2.5 bg-[#f0f2f5] border-b border-neutral-200">
-        <img src={metaLogo} alt="Meta" className="h-5 object-contain" />
-        <div className="flex items-center gap-1.5 ml-2">
-          <span className="text-[#1877f2] font-semibold text-[12px]">광고 관리자</span>
-        </div>
-        <span className="ml-auto text-neutral-500 text-[10px] hidden lg:inline">최대: 2024. 3. 11.~2026. 4. 11.</span>
+    <div className="text-[10px] lg:text-[11px] bg-white flex">
+      {/* Left sidebar */}
+      <div className="w-8 bg-white border-r border-neutral-200 flex flex-col items-center py-2 gap-3 flex-shrink-0 hidden lg:flex">
+        <img src={metaLogo} alt="Meta" className="w-5 h-5 object-contain mb-1" />
+        <div className="w-4 h-4 rounded bg-neutral-100" />
+        <div className="w-4 h-4 rounded bg-neutral-100" />
+        <div className="w-4 h-4 rounded bg-neutral-100" />
+        <div className="w-4 h-4 rounded bg-neutral-100" />
+        <div className="w-4 h-4 rounded bg-neutral-100" />
       </div>
 
-      {/* Tab bar */}
-      <div className="flex items-center gap-2 px-4 py-2 bg-white border-b border-neutral-200 flex-wrap">
-        <div className="flex items-center gap-1.5">
-          <span className="text-[#1877f2] font-semibold text-[12px] border-b-2 border-[#1877f2] pb-1">🔷 캠페인</span>
+      <div className="flex-1 min-w-0">
+        {/* Top info banner */}
+        <div className="px-3 py-1.5 bg-[#e7f3ff] border-b border-[#b3d7ff] text-[9px] text-neutral-600 flex items-center gap-1.5">
+          <span className="text-[#1877f2]">ⓘ</span>
+          <span>우리는 결과를 측정하는 방식을 진화하고 있다</span>
         </div>
-        <div className="flex items-center gap-1.5 ml-2">
-          <span className="text-neutral-500 text-[12px] pb-1">📊 광고 세트</span>
-        </div>
-        <div className="flex items-center gap-1.5 ml-2">
-          <span className="text-neutral-500 text-[12px] pb-1">📋 광고</span>
-        </div>
-      </div>
 
-      {/* Table header */}
-      <div className="grid grid-cols-[1fr_56px_56px_68px_72px_78px_56px] gap-px px-3 py-2 bg-[#f0f2f5] border-b border-neutral-200 text-neutral-500 text-[10px] font-medium">
-        <span>캠페인 ↕</span><span>게재</span><span>결과 ↕</span><span>결과당 비용</span><span>예산 ↕</span><span>지출 금액 ↕</span><span>노출 ↕</span>
-      </div>
+        {/* Header */}
+        <div className="px-3 py-2 border-b border-neutral-200 flex items-center gap-2">
+          <span className="text-neutral-900 font-semibold text-[12px]">캠페인</span>
+          <span className="text-neutral-400 text-[9px]">⊕ 재키 (483075199015698)</span>
+          <span className="bg-[#e8f5e9] text-emerald-700 text-[9px] px-1.5 py-0.5 rounded-full ml-1 font-medium">85</span>
+          <span className="text-neutral-400 text-[9px]">광고 최적화 지수</span>
+        </div>
 
-      {/* Table rows */}
-      {[
-        { name: "260412_브랜드인지_A", on: true, results: "122", cost: "₩7,816", budget: "₩940,000", spent: "₩953,551", imp: "16,897", checked: true },
-        { name: "260412_전환캠페인", on: true, results: "570", cost: "₩4,415", budget: "₩940,000", spent: "₩2,516,573", imp: "55,096", checked: true },
-        { name: "마케팅_리타겟팅", on: true, results: "15,805", cost: "₩93", budget: "₩10,000", spent: "₩1,470,022", imp: "288,562", checked: false },
-        { name: "2600405_리드수집", on: false, results: "598", cost: "₩6,689", budget: "₩1,170,000", spent: "₩4,000,000", imp: "80,157", checked: false },
-        { name: "260329_트래픽_B", on: false, results: "162", cost: "₩6,638", budget: "₩1,060,000", spent: "₩1,075,355", imp: "21,004", checked: false },
-        { name: "260329_트래픽캠페인", on: false, results: "432", cost: "₩6,694", budget: "₩910,000", spent: "₩2,891,714", imp: "47,465", checked: false },
-        { name: "260322_쇼츠대폭발_B", on: false, results: "40", cost: "₩13,479", budget: "₩690,000", spent: "₩539,156", imp: "9,795", checked: false },
-      ].map((c) => (
-        <div key={c.name} className="grid grid-cols-[1fr_56px_56px_68px_72px_78px_56px] gap-px px-3 py-[7px] border-b border-neutral-100 hover:bg-[#f0f2f5] transition-colors text-neutral-700">
-          <span className="flex items-center gap-1.5 min-w-0">
-            <div className={`w-3 h-3 rounded-sm border flex-shrink-0 ${c.checked ? 'bg-[#1877f2] border-[#1877f2]' : 'border-neutral-300'}`} />
-            <div className={`w-5 h-3 rounded-full flex-shrink-0 ${c.on ? 'bg-[#1877f2]' : 'bg-neutral-300'}`}>
-              <div className={`w-2.5 h-2.5 rounded-full bg-white mt-[1px] transition-all ${c.on ? 'ml-[9px]' : 'ml-[1px]'}`} />
-            </div>
-            <span className="text-[#1877f2] truncate">{c.name}</span>
+        {/* Tabs */}
+        <div className="flex items-center gap-0 px-3 border-b border-neutral-200 text-[10px]">
+          <span className="text-[#1877f2] font-medium px-2 py-1.5 border-b-2 border-[#1877f2]">■ 모든 광고</span>
+          <span className="text-neutral-500 px-2 py-1.5">▷ 게재 중인 광고</span>
+          <span className="text-neutral-500 px-2 py-1.5">⊙ 작업</span>
+          <span className="text-neutral-500 px-2 py-1.5">✧ 게재됨</span>
+          <span className="text-neutral-400 px-2 py-1.5">+ 더 보기</span>
+        </div>
+
+        {/* Filter chips */}
+        <div className="flex items-center gap-2 px-3 py-1.5 border-b border-neutral-200 flex-wrap">
+          <span className="flex items-center gap-1 text-[9px]">
+            <span className="text-[#1877f2]">▲</span> <strong>캠페인</strong>
+            <span className="bg-[#1877f2] text-white text-[8px] px-1.5 py-0.5 rounded ml-0.5">1개 선택함 ✕</span>
           </span>
-          <span className={`flex items-center gap-1 ${c.on ? 'text-emerald-600' : 'text-neutral-400'}`}>
-            <span className={`w-1.5 h-1.5 rounded-full ${c.on ? 'bg-emerald-500' : 'bg-neutral-400'}`} />
-            {c.on ? '활동 중' : '꺼짐'}
+          <span className="flex items-center gap-1 text-[9px]">
+            <span>⊞</span> <strong>광고 세트</strong>
+            <span className="bg-[#0e8a6e] text-white text-[8px] px-1.5 py-0.5 rounded ml-0.5">1개 선택함 ✕</span>
           </span>
-          <span className="text-neutral-900 font-medium">{c.results}</span>
-          <span>{c.cost}</span>
-          <span>{c.budget}</span>
-          <span>{c.spent}</span>
-          <span>{c.imp}</span>
+          <span className="flex items-center gap-1 text-[9px]">
+            <span>☐</span> <strong>광고</strong>
+            <span className="bg-[#0e8a6e] text-white text-[8px] px-1.5 py-0.5 rounded ml-0.5">1개 선택함 ✕</span>
+          </span>
         </div>
-      ))}
 
-      <div className="px-3 py-2 text-neutral-400 text-[10px] bg-[#f0f2f5]">캠페인 281개 결과 ⓘ</div>
+        {/* Action bar */}
+        <div className="flex items-center gap-1.5 px-3 py-1.5 border-b border-neutral-200 text-[9px]">
+          <span className="bg-[#0e8a6e] text-white px-2 py-1 rounded text-[9px] font-medium">+ 만들기</span>
+          <span className="border border-neutral-300 px-2 py-1 rounded text-neutral-600">📋 복제</span>
+          <span className="border border-neutral-300 px-2 py-1 rounded text-neutral-600">✏ 수정</span>
+          <span className="border border-neutral-300 px-1.5 py-1 rounded text-neutral-600">🗑</span>
+          <span className="border border-neutral-300 px-2 py-1 rounded text-neutral-600">🅰 A/B 테스트</span>
+          <span className="border border-neutral-300 px-2 py-1 rounded text-neutral-600">더 보기 ▾</span>
+        </div>
+
+        {/* Table header */}
+        <div className="grid grid-cols-[16px_20px_1fr_52px_52px_62px_62px_72px_52px] gap-px px-3 py-1.5 bg-[#f5f6f7] border-b border-neutral-200 text-neutral-500 text-[9px] font-medium">
+          <span></span><span>해제</span><span>캠페인 ↕</span><span>게재 ↑</span><span>결과 ↕</span><span>결과당 비용</span><span>예산 ↕</span><span>지출 금액 ↕</span><span>노출 ↕</span>
+        </div>
+
+        {/* Table rows */}
+        {[
+          { name: "260412_다된다운 - B", on: true, results: "122", cost: "₩7,816", budget: "₩940,000", spent: "₩953,551", imp: "16,897", checked: true, badge: "추천 2개" },
+          { name: "260412_다된다운", on: true, results: "570", cost: "₩4,415", budget: "₩940,000", spent: "₩2,516,573", imp: "55,096", checked: false, badge: "추천 2개" },
+          { name: "마케팅_참여", on: true, results: "15,805", cost: "₩93", budget: "₩10,000", spent: "₩1,470,022", imp: "288,562", checked: false, badge: "⚠ 경고 1개", badgeColor: true },
+          { name: "2600405_꽃디순디", on: false, results: "598", cost: "₩6,689", budget: "₩1,170,000", spent: "₩4,000,000", imp: "80,157", checked: false },
+          { name: "260329_텍사스홀덤 - B", on: false, results: "162", cost: "₩6,638", budget: "₩1,060,000", spent: "₩1,075,355", imp: "21,004", checked: false },
+          { name: "260329_텍사스홀덤", on: false, results: "432", cost: "₩6,694", budget: "₩910,000", spent: "₩2,891,714", imp: "47,465", checked: false },
+          { name: "260322_쇼츠대폭발 - B", on: false, results: "40", cost: "₩13,479", budget: "₩690,000", spent: "₩539,156", imp: "9,795", checked: false },
+          { name: "260322_쇼츠대폭발", on: false, results: "669", cost: "₩6,856", budget: "₩1,060,000", spent: "₩4,586,756", imp: "99,086", checked: false },
+        ].map((c) => (
+          <div key={c.name} className={`grid grid-cols-[16px_20px_1fr_52px_52px_62px_62px_72px_52px] gap-px px-3 py-[6px] border-b border-neutral-100 hover:bg-neutral-50 transition-colors text-neutral-700 ${c.checked ? 'bg-[#e7f3ff]' : ''}`}>
+            <span className="flex items-center">
+              <div className={`w-3 h-3 rounded-sm border flex-shrink-0 ${c.checked ? 'bg-[#1877f2] border-[#1877f2]' : 'border-neutral-300'}`} />
+            </span>
+            <span className="flex items-center">
+              <div className={`w-[18px] h-[10px] rounded-full flex-shrink-0 ${c.on ? 'bg-[#1877f2]' : 'bg-neutral-800'}`}>
+                <div className={`w-[8px] h-[8px] rounded-full bg-white mt-[1px] transition-all ${c.on ? 'ml-[9px]' : 'ml-[1px]'}`} />
+              </div>
+            </span>
+            <span className="text-[#0064d1] truncate font-medium">{c.name}</span>
+            <span className={`flex items-center gap-0.5 ${c.on ? 'text-emerald-700' : 'text-neutral-400'}`}>
+              <span className={`w-1.5 h-1.5 rounded-full ${c.on ? 'bg-emerald-600' : 'bg-neutral-400'}`} />
+              {c.on ? '활동 중' : '꺼짐'}
+            </span>
+            <span className="text-neutral-900">{c.results}</span>
+            <span>{c.cost}</span>
+            <span>{c.budget}</span>
+            <span>{c.spent}</span>
+            <span>{c.imp}</span>
+          </div>
+        ))}
+
+        <div className="px-3 py-1.5 text-neutral-400 text-[9px]">캠페인 281개 결과 ⓘ</div>
+      </div>
     </div>
   </MacWindow>
 );
