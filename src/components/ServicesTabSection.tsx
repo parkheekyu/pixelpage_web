@@ -1,5 +1,5 @@
 import { useState } from "react";
-import iconMovieClapper from "@/assets/icon-movie-clapper.svg";
+import iconFolder from "@/assets/icon-folder.svg";
 import { Link } from "react-router-dom";
 import {
   ArrowRight, Megaphone, Video, Search, Mail, Globe,
@@ -383,7 +383,7 @@ const ServicesTabSection = () => {
     <section className="py-28 lg:py-36 bg-surface-beige">
       <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
         <Reveal className="text-center">
-          <img src={iconMovieClapper} alt="Services" className="w-10 h-10 mb-5 mx-auto" />
+          <img src={iconFolder} alt="Services" className="w-10 h-10 mb-5 mx-auto" />
           <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-medium text-foreground leading-[1.2] tracking-[-0.02em]">
             5가지 서비스,<br />하나의 마케팅 설계.
           </h2>
