@@ -94,28 +94,31 @@ const Index = () => {
             </p>
           </Reveal>
 
-          <Reveal className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="space-y-0">
             {[
-              { cat: "온라인 교육", name: "디지털노마드 하이클래스", desc: "카페 회원 7만 명의 커뮤니티를 가진 온라인 교육 브랜드. 업계 평균의 3배 이상인 CTR을 달성했습니다.", stats: [{ val: "70K+", label: "카페 회원" }, { val: "3.93%", label: "CTR" }] },
-              { cat: "B2B 지식 서비스", name: "부트스트래퍼", desc: "고단가 B2B 지식 상품을 단 ₩40M 예산으로 ROAS 500%를 달성하며 수익성을 증명했습니다.", stats: [{ val: "500%", label: "ROAS" }, { val: "40M", label: "집행 금액" }] },
-              { cat: "오프라인 교육", name: "플러스 스피치 학원", desc: "단일 지점에서 시작해, 4개 신규 지점을 오픈하며 매출을 6.6배 성장시켰습니다.", stats: [{ val: "6.6×", label: "매출 성장" }, { val: "4+", label: "신규 지점" }] },
-              { cat: "가맹 네트워크", name: "라 컴퍼니", desc: "전국 7개 지점의 가맹 네트워크를 마케팅으로 확장한 프로젝트입니다.", stats: [{ val: "7+", label: "전국 지점" }, { val: "전국", label: "커버리지" }] },
+              { cat: "온라인 교육", name: "디지털노마드 하이클래스", quote: "카페 회원 7만 명의 커뮤니티를 가진 온라인 교육 브랜드. 업계 평균의 3배 이상인 CTR 3.93%를 달성하며, 한정된 예산으로도 높은 전환 효율을 증명했습니다.", person: "광고 성과 기준" },
+              { cat: "B2B 지식 서비스", name: "부트스트래퍼", quote: "고단가 B2B 지식 상품을 단 4천만 원 예산으로 ROAS 500%를 달성했습니다. '팔기 어려운 상품'도 메시지 설계가 정확하면 팔린다는 것을 보여준 사례입니다.", person: "ROAS 500% 달성" },
+              { cat: "오프라인 교육", name: "플러스 스피치 학원", quote: "단일 지점에서 시작해 4개 신규 지점을 오픈하며 매출을 6.6배 성장시켰습니다. 무형의 교육 서비스를 지역 기반으로 확장한 대표 사례입니다.", person: "매출 6.6배 성장" },
+              { cat: "가맹 네트워크", name: "라 컴퍼니", quote: "전국 7개 지점의 가맹 네트워크를 마케팅으로 확장한 프로젝트입니다. 브랜드 통일성을 유지하면서 각 지역에 맞는 메시지를 설계해 전국 커버리지를 완성했습니다.", person: "전국 7개 지점 확장" },
             ].map((c) => (
-              <div key={c.name} className="rounded-xl border border-border p-10 hover:border-foreground/20 transition-colors">
-                <span className="text-[13px] text-primary tracking-[0.1em] uppercase">{c.cat}</span>
-                <h3 className="font-serif text-[28px] font-medium text-foreground mt-3 mb-3">{c.name}</h3>
-                <p className="text-[16px] text-muted-foreground leading-[1.9] mb-8">{c.desc}</p>
-                <div className="flex gap-10 pt-6 border-t border-border">
-                  {c.stats.map((s) => (
-                    <div key={s.label}>
-                      <span className="text-[40px] font-serif font-normal text-foreground tracking-[-0.02em]">{s.val}</span>
-                      <span className="block text-[12px] text-muted-foreground tracking-[0.08em] uppercase mt-1">{s.label}</span>
-                    </div>
-                  ))}
+              <Reveal key={c.name}>
+                <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-6 lg:gap-16 py-12 border-t border-border items-start">
+                  {/* Left: brand */}
+                  <div>
+                    <span className="text-[12px] text-muted-foreground tracking-[0.1em] uppercase">{c.cat}</span>
+                    <h3 className="font-serif text-[22px] lg:text-[26px] font-medium text-foreground mt-2">{c.name}</h3>
+                  </div>
+                  {/* Right: quote */}
+                  <div>
+                    <p className="text-[17px] lg:text-[19px] text-foreground leading-[1.85] tracking-[-0.01em]">
+                      "{c.quote}"
+                    </p>
+                    <p className="text-[13px] text-muted-foreground mt-4">{c.person}</p>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
-          </Reveal>
+          </div>
         </div>
       </section>
 
