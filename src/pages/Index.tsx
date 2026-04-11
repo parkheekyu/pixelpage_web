@@ -24,23 +24,19 @@ const Index = () => {
       />
 
       {/* ─── HERO ─── */}
-      <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
-        {/* Video background */}
-        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0" src={heroBg.url} />
-        {/* Dark overlay */}
-        <div className="absolute inset-0 z-[1] bg-black/60" />
+      <section className="relative min-h-screen flex items-center pt-32 pb-20 bg-background overflow-hidden">
         {/* Film grain overlay */}
-        <div className="absolute inset-0 z-[2] pointer-events-none opacity-[0.07] mix-blend-multiply" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
+        <div className="absolute inset-0 z-[1] pointer-events-none opacity-[0.14] mix-blend-multiply" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
         <div className="relative z-10 max-w-[1240px] mx-auto w-full px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
-              <p className="text-[15px] tracking-[0.2em] uppercase text-white/60 mb-6 opacity-0 animate-fade-up stagger-1">
+              <p className="text-[15px] tracking-[0.2em] uppercase text-muted-foreground mb-6 opacity-0 animate-fade-up stagger-1">
                 교육 · 지식 · 경험 · 문화
               </p>
-              <h1 className="font-serif text-[clamp(52px,7.5vw,96px)] font-semibold leading-[1.1] tracking-[-0.03em] text-white mb-7 opacity-0 animate-fade-up stagger-2">
+              <h1 className="font-serif text-[clamp(52px,7.5vw,96px)] font-semibold leading-[1.1] tracking-[-0.03em] text-foreground mb-7 opacity-0 animate-fade-up stagger-2">
                 만질 수 없는 것을<br /><span className="text-primary">파는 일.</span>
               </h1>
-              <p className="text-[20px] text-white/70 leading-[1.85] max-w-[480px] mb-10 opacity-0 animate-fade-up stagger-3">
+              <p className="text-[20px] text-muted-foreground leading-[1.85] max-w-[480px] mb-10 opacity-0 animate-fade-up stagger-3">
                 무형의 가치를 파는 브랜드의 전담 마케팅 파트너.<br />
                 짧은 사이클 안에, 관객이 '한 번 경험해 보고 싶다'고
                 느끼는 그 순간까지 설계합니다.
@@ -49,7 +45,7 @@ const Index = () => {
                 <Link to="/#contact" className="inline-flex items-center gap-2 px-9 py-4 bg-primary text-primary-foreground text-[16px] font-medium tracking-[0.02em] hover:bg-gold-light transition-all rounded-md">
                   무료 상담 신청
                 </Link>
-                <Link to="/#cases" className="inline-flex items-center px-8 py-4 border border-white/30 text-[16px] text-white/80 hover:text-white hover:border-white/50 transition-colors rounded-md">
+                <Link to="/#cases" className="inline-flex items-center px-8 py-4 border border-border text-[16px] text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors rounded-md">
                   성과 보기
                 </Link>
               </div>
