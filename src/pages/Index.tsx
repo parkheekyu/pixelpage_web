@@ -33,7 +33,7 @@ const Index = () => {
               <p className="text-[15px] tracking-[0.2em] uppercase text-muted-foreground mb-6 opacity-0 animate-fade-up stagger-1">
                 교육 · 지식 · 경험 · 문화
               </p>
-              <h1 className="text-[clamp(52px,7.5vw,96px)] font-semibold leading-[1.1] tracking-[-0.03em] text-foreground mb-7 opacity-0 animate-fade-up stagger-2" style={{ fontFamily: "'Ridibatang', serif" }}>
+              <h1 className="text-[clamp(52px,7.5vw,96px)] font-normal leading-[1.1] tracking-[-0.03em] text-foreground mb-7 opacity-0 animate-fade-up stagger-2" style={{ fontFamily: "'Ridibatang', serif" }}>
                 만질 수 없는 것을<br /><span className="text-primary">파는 일.</span>
               </h1>
               <p className="text-[20px] text-muted-foreground leading-[1.85] max-w-[480px] mb-10 opacity-0 animate-fade-up stagger-3">
