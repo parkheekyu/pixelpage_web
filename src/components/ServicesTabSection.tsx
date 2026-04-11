@@ -7,6 +7,8 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "@/components/Reveal";
+import metaLogo from "@/assets/meta-logo.png";
+import charMale from "@/assets/char-male.png";
 
 /* ── Mac Window Shell ── */
 const MacWindow = ({ title, children }: { title: string; children: React.ReactNode }) => (
