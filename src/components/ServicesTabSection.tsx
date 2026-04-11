@@ -2,9 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight, Megaphone, Video, Search, Mail, Globe,
-  TrendingUp, TrendingDown, Eye, MousePointerClick, DollarSign,
-  Play, ThumbsUp, Users, Clock, BarChart3,
-  FileText, ExternalLink, ArrowUpRight,
+  Play, Eye, Clock, BarChart3,
   Send, CheckCheck, MessageSquare,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -25,55 +23,116 @@ const MacWindow = ({ title, children }: { title: string; children: React.ReactNo
   </div>
 );
 
-/* ── 01. 퍼포먼스: 광고 관리자 대시보드 ── */
+/* ── 01. 퍼포먼스: 메타 광고관리자 ── */
 const PerformanceMockup = () => (
-  <MacWindow title="ads-manager.pixelpage.io">
-    <div className="p-5 lg:p-6 text-[13px] lg:text-[14px]">
-      {/* Top metrics */}
-      <div className="grid grid-cols-4 gap-3 mb-5">
-        {[
-          { label: "총 지출", value: "₩34.2M", icon: DollarSign, change: "+12%", up: true },
-          { label: "노출수", value: "2.4M", icon: Eye, change: "+28%", up: true },
-          { label: "클릭률", value: "3.93%", icon: MousePointerClick, change: "+0.8%", up: true },
-          { label: "전환단가", value: "₩4,200", icon: TrendingDown, change: "-18%", up: false },
-        ].map((m) => (
-          <div key={m.label} className="bg-white/5 rounded-lg p-3">
-            <div className="flex items-center gap-1.5 text-neutral-500 mb-1.5">
-              <m.icon className="w-3.5 h-3.5" />
-              <span>{m.label}</span>
-            </div>
-            <div className="text-white font-semibold text-[16px] lg:text-[18px]">{m.value}</div>
-            <div className={`text-[12px] mt-1 flex items-center gap-0.5 ${m.up ? "text-emerald-400" : "text-emerald-400"}`}>
-              {m.up ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
-              {m.change}
-            </div>
-          </div>
-        ))}
+  <MacWindow title="Meta 광고 관리자 — pixelpage">
+    <div className="text-[11px] lg:text-[12px]">
+      {/* Top filter bar */}
+      <div className="flex items-center gap-2 px-4 py-2 bg-[#242526] border-b border-white/5 flex-wrap">
+        <div className="flex items-center gap-1.5">
+          <span className="text-white font-semibold text-[12px]">🔷 캠페인</span>
+          <span className="bg-blue-600 text-white text-[9px] px-1.5 py-0.5 rounded">1개 선택함 ✕</span>
+        </div>
+        <div className="flex items-center gap-1.5 ml-2">
+          <span className="text-neutral-400 text-[12px]">📊 광고 세트</span>
+          <span className="bg-blue-600 text-white text-[9px] px-1.5 py-0.5 rounded">1개 선택함 ✕</span>
+        </div>
+        <div className="flex items-center gap-1.5 ml-2">
+          <span className="text-neutral-400 text-[12px]">📋 광고</span>
+          <span className="bg-blue-600 text-white text-[9px] px-1.5 py-0.5 rounded">1개 선택함 ✕</span>
+        </div>
+        <span className="ml-auto text-neutral-500 text-[10px] hidden lg:inline">최대: 2024. 3. 11.~2026. 4. 11.</span>
       </div>
 
-      {/* Campaign table */}
-      <div className="bg-white/5 rounded-lg overflow-hidden">
-        <div className="grid grid-cols-[1fr_80px_80px_80px_80px] gap-2 px-4 py-2.5 text-neutral-500 border-b border-white/5 text-[12px] uppercase tracking-wider">
-          <span>캠페인</span><span>상태</span><span>예산</span><span>CTR</span><span>ROAS</span>
+      {/* Table header */}
+      <div className="grid grid-cols-[1fr_56px_56px_68px_72px_78px_56px] gap-px px-3 py-2 bg-[#2a2a2a] border-b border-white/5 text-neutral-500 text-[10px] font-medium">
+        <span>캠페인 ↕</span><span>게재</span><span>결과 ↕</span><span>결과당 비용</span><span>예산 ↕</span><span>지출 금액 ↕</span><span>노출 ↕</span>
+      </div>
+
+      {/* Table rows */}
+      {[
+        { name: "260412_브랜드인지_A", on: true, results: "122", cost: "₩7,816", budget: "₩940,000", spent: "₩953,551", imp: "16,897", checked: true },
+        { name: "260412_전환캠페인", on: true, results: "570", cost: "₩4,415", budget: "₩940,000", spent: "₩2,516,573", imp: "55,096", checked: true },
+        { name: "마케팅_리타겟팅", on: true, results: "15,805", cost: "₩93", budget: "₩10,000", spent: "₩1,470,022", imp: "288,562", checked: false },
+        { name: "2600405_리드수집", on: false, results: "598", cost: "₩6,689", budget: "₩1,170,000", spent: "₩4,000,000", imp: "80,157", checked: false },
+        { name: "260329_트래픽_B", on: false, results: "162", cost: "₩6,638", budget: "₩1,060,000", spent: "₩1,075,355", imp: "21,004", checked: false },
+        { name: "260329_트래픽캠페인", on: false, results: "432", cost: "₩6,694", budget: "₩910,000", spent: "₩2,891,714", imp: "47,465", checked: false },
+        { name: "260322_쇼츠대폭발_B", on: false, results: "40", cost: "₩13,479", budget: "₩690,000", spent: "₩539,156", imp: "9,795", checked: false },
+      ].map((c) => (
+        <div key={c.name} className="grid grid-cols-[1fr_56px_56px_68px_72px_78px_56px] gap-px px-3 py-[7px] border-b border-white/[0.04] hover:bg-white/[0.03] transition-colors text-neutral-300">
+          <span className="flex items-center gap-1.5 min-w-0">
+            <div className={`w-3 h-3 rounded-sm border flex-shrink-0 ${c.checked ? 'bg-blue-600 border-blue-600' : 'border-neutral-600'}`} />
+            <div className={`w-5 h-3 rounded-full flex-shrink-0 ${c.on ? 'bg-blue-600' : 'bg-neutral-600'}`}>
+              <div className={`w-2.5 h-2.5 rounded-full bg-white mt-[1px] transition-all ${c.on ? 'ml-[9px]' : 'ml-[1px]'}`} />
+            </div>
+            <span className="text-blue-400 truncate">{c.name}</span>
+          </span>
+          <span className={`flex items-center gap-1 ${c.on ? 'text-emerald-400' : 'text-neutral-500'}`}>
+            <span className={`w-1.5 h-1.5 rounded-full ${c.on ? 'bg-emerald-400' : 'bg-neutral-500'}`} />
+            {c.on ? '활동 중' : '꺼짐'}
+          </span>
+          <span className="text-white">{c.results}</span>
+          <span>{c.cost}</span>
+          <span>{c.budget}</span>
+          <span>{c.spent}</span>
+          <span>{c.imp}</span>
         </div>
+      ))}
+
+      <div className="px-3 py-2 text-neutral-500 text-[10px]">캠페인 281개 결과 ⓘ</div>
+    </div>
+  </MacWindow>
+);
+
+/* ── 02. 브랜디드: 유튜브 채널 페이지 ── */
+const BrandedMockup = () => (
+  <MacWindow title="youtube.com/@pixelpage-studio">
+    <div className="text-[13px] bg-white">
+      {/* Channel header */}
+      <div className="px-5 pt-5 pb-0 border-b border-neutral-200">
+        <div className="flex items-center gap-4">
+          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-violet-500 to-pink-500 flex items-center justify-center text-white font-bold text-[20px] flex-shrink-0">P</div>
+          <div className="min-w-0">
+            <div className="text-neutral-900 font-bold text-[18px] flex items-center gap-1.5">PIXELPAGE Studio <span className="text-neutral-400 text-[14px]">✓</span></div>
+            <div className="text-neutral-500 text-[12px]">@pixelpage-studio · 구독자 2.4만명 · 동영상 86개</div>
+            <div className="text-neutral-500 text-[12px] mt-0.5 truncate">무형 서비스 마케팅 전문 채널입니다. 교육·컨설팅·코칭 비즈니스의...</div>
+          </div>
+        </div>
+        <div className="flex items-center gap-3 mt-3">
+          <button className="bg-neutral-900 text-white text-[13px] px-4 py-1.5 rounded-full font-medium">구독중</button>
+          <button className="bg-neutral-100 text-neutral-700 text-[13px] px-4 py-1.5 rounded-full font-medium">가입</button>
+        </div>
+        {/* Tabs */}
+        <div className="flex gap-6 mt-3 text-[14px]">
+          <span className="text-neutral-900 font-semibold border-b-2 border-neutral-900 pb-2.5">동영상</span>
+          <span className="text-neutral-500 pb-2.5">Shorts</span>
+          <span className="text-neutral-500 pb-2.5">라이브</span>
+          <span className="text-neutral-500 pb-2.5">재생목록</span>
+          <span className="text-neutral-500 pb-2.5">게시물</span>
+        </div>
+      </div>
+
+      {/* Filter chips */}
+      <div className="px-5 pt-3 pb-2 flex gap-2">
+        <span className="bg-neutral-900 text-white text-[12px] px-3 py-1 rounded-lg">최신순</span>
+        <span className="bg-neutral-100 text-neutral-700 text-[12px] px-3 py-1 rounded-lg">회원 전용</span>
+        <span className="bg-neutral-100 text-neutral-700 text-[12px] px-3 py-1 rounded-lg">공개</span>
+      </div>
+
+      {/* Video grid */}
+      <div className="px-5 pb-4 pt-1 grid grid-cols-3 gap-3">
         {[
-          { name: "Meta — 리타겟팅", status: "활성", budget: "₩12M", ctr: "4.2%", roas: "520%", active: true },
-          { name: "Google — 검색", status: "활성", budget: "₩8M", ctr: "3.1%", roas: "480%", active: true },
-          { name: "토스 — 신규 유입", status: "활성", budget: "₩5M", ctr: "5.1%", roas: "390%", active: true },
-          { name: "TikTok — 숏폼", status: "학습중", budget: "₩6M", ctr: "2.8%", roas: "—", active: false },
-          { name: "당근 — 지역 타겟", status: "활성", budget: "₩3M", ctr: "3.5%", roas: "410%", active: true },
-        ].map((c) => (
-          <div key={c.name} className="grid grid-cols-[1fr_80px_80px_80px_80px] gap-2 px-4 py-2.5 text-neutral-300 border-b border-white/[0.03] hover:bg-white/[0.03] transition-colors">
-            <span className="text-white font-medium">{c.name}</span>
-            <span>
-              <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] ${c.active ? "bg-emerald-500/20 text-emerald-400" : "bg-amber-500/20 text-amber-400"}`}>
-                <span className={`w-1.5 h-1.5 rounded-full ${c.active ? "bg-emerald-400" : "bg-amber-400"}`} />
-                {c.status}
-              </span>
-            </span>
-            <span>{c.budget}</span>
-            <span className="text-emerald-400">{c.ctr}</span>
-            <span className="text-amber-400">{c.roas}</span>
+          { title: "온라인 교육, 왜 안 팔릴까? 마케터가 말하는 3가지 핵심", views: "1.4만회", time: "5시간 전", dur: "20:54", color: "from-rose-400 to-orange-400" },
+          { title: "무형 서비스 가격 책정의 비밀 — 고객이 비싸다고 안 느끼게", views: "15만회", time: "7일 전", dur: "15:10", color: "from-blue-400 to-cyan-400" },
+          { title: "코칭 사업 매출 6배 만든 브랜딩 전략 대공개", views: "5.9만회", time: "9일 전", dur: "20:37", color: "from-emerald-400 to-teal-400" },
+        ].map((v) => (
+          <div key={v.title}>
+            <div className={`aspect-video rounded-xl bg-gradient-to-br ${v.color} flex items-center justify-center relative overflow-hidden`}>
+              <Play className="w-8 h-8 text-white/80" />
+              <span className="absolute bottom-1.5 right-1.5 bg-black/80 text-white text-[10px] px-1.5 py-0.5 rounded">{v.dur}</span>
+            </div>
+            <div className="mt-2 text-neutral-900 text-[12px] font-medium leading-tight line-clamp-2">{v.title}</div>
+            <div className="text-neutral-500 text-[11px] mt-1">조회수 {v.views} · {v.time}</div>
           </div>
         ))}
       </div>
@@ -81,97 +140,56 @@ const PerformanceMockup = () => (
   </MacWindow>
 );
 
-/* ── 02. 브랜디드: 유튜브 채널 관리 ── */
-const BrandedMockup = () => (
-  <MacWindow title="studio.youtube.com/channel/analytics">
-    <div className="p-5 lg:p-6 text-[13px] lg:text-[14px]">
-      {/* Channel header */}
-      <div className="flex items-center gap-3 mb-5 pb-4 border-b border-white/10">
-        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center text-white font-bold text-[14px]">P</div>
-        <div>
-          <div className="text-white font-semibold">PIXELPAGE Studio</div>
-          <div className="text-neutral-500 text-[12px]">구독자 24.3K · 영상 86개</div>
+/* ── 03. SEO: 구글 검색 결과 ── */
+const SeoMockup = () => (
+  <MacWindow title="google.com/search?q=무형+서비스+마케팅">
+    <div className="bg-white p-5 lg:p-6 text-[13px]">
+      {/* Google logo + search bar */}
+      <div className="flex items-center gap-3 mb-5">
+        <div className="flex items-center gap-0">
+          <span className="text-[20px] font-bold" style={{ color: '#4285f4' }}>G</span>
+          <span className="text-[20px] font-bold" style={{ color: '#ea4335' }}>o</span>
+          <span className="text-[20px] font-bold" style={{ color: '#fbbc05' }}>o</span>
+          <span className="text-[20px] font-bold" style={{ color: '#4285f4' }}>g</span>
+          <span className="text-[20px] font-bold" style={{ color: '#34a853' }}>l</span>
+          <span className="text-[20px] font-bold" style={{ color: '#ea4335' }}>e</span>
         </div>
-        <div className="ml-auto text-emerald-400 text-[12px] flex items-center gap-1"><TrendingUp className="w-3.5 h-3.5" /> 이번 달 +2,400</div>
+        <div className="flex-1 border border-neutral-300 rounded-full px-4 py-2 text-neutral-800 text-[14px] shadow-sm flex items-center">
+          무형 서비스 마케팅
+          <span className="ml-auto text-neutral-400 text-[16px]">✕</span>
+        </div>
       </div>
 
-      {/* Video list */}
-      <div className="space-y-0">
+      {/* Search results */}
+      <div className="space-y-5">
         {[
-          { title: "[브랜디드] 온라인 교육, 왜 팔리지 않을까?", views: "142K", likes: "3.2K", duration: "12:34", status: "공개", time: "2주 전" },
-          { title: "[숏폼] 3초 만에 사로잡는 교육 광고의 비밀", views: "89K", likes: "2.1K", duration: "0:58", status: "공개", time: "3주 전" },
-          { title: "[브랜디드] 수강생 인터뷰 — 매출 6배의 비결", views: "67K", likes: "1.8K", duration: "8:22", status: "공개", time: "1달 전" },
-          { title: "[숏폼] 무형 서비스 마케팅 5가지 실수", views: "210K", likes: "5.4K", duration: "0:45", status: "공개", time: "1달 전" },
-        ].map((v) => (
-          <div key={v.title} className="flex items-center gap-4 py-3 border-b border-white/[0.05] hover:bg-white/[0.03] transition-colors px-1 rounded">
-            {/* Thumbnail placeholder */}
-            <div className="w-[100px] h-[56px] bg-white/10 rounded flex-shrink-0 flex items-center justify-center">
-              <Play className="w-5 h-5 text-neutral-500" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="text-white font-medium text-[13px] truncate">{v.title}</div>
-              <div className="flex items-center gap-3 mt-1 text-[12px] text-neutral-500">
-                <span className="flex items-center gap-1"><Eye className="w-3 h-3" />{v.views}</span>
-                <span className="flex items-center gap-1"><ThumbsUp className="w-3 h-3" />{v.likes}</span>
-                <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{v.duration}</span>
-                <span>{v.time}</span>
+          { favicon: "P", site: "pixelpage.io", url: "https://pixelpage.io › services", title: "무형 서비스 마케팅 전문 — PIXELPAGE", desc: "교육·컨설팅·코칭 등 보이지 않는 서비스를 파는 마케팅. 퍼포먼스 광고부터 브랜디드 콘텐츠, SEO, CRM까지 원스톱 마케팅 설계.", color: "bg-violet-100 text-violet-700" },
+          { favicon: "P", site: "pixelpage.io", url: "https://pixelpage.io › cases", title: "마케팅 성공 사례 | 매출 6배 성장 비결 — PIXELPAGE", desc: "무형 서비스 업종 마케팅 성공 사례 모음. 온라인 교육 브랜드 A사 매출 6배 성장, 컨설팅 B사 리드 단가 40% 절감 등 실제 데이터 기반 결과.", color: "bg-violet-100 text-violet-700" },
+          { favicon: "b", site: "블로그", url: "https://m.blog.naver.com › pixelpage", title: "무형 서비스 마케팅, 어떻게 시작해야 할까? — 네이버 블로그", desc: "무형 서비스란 만질 수 없는 상품을 의미합니다. 교육, 컨설팅, 코칭 등의 서비스는 일반 제품과 다른 마케팅 전략이 필요합니다...", color: "bg-emerald-100 text-emerald-700" },
+        ].map((r, i) => (
+          <div key={i}>
+            <div className="flex items-center gap-2 mb-1">
+              <div className={`w-6 h-6 rounded-full ${r.color} flex items-center justify-center text-[11px] font-bold flex-shrink-0`}>{r.favicon}</div>
+              <div className="min-w-0">
+                <div className="text-neutral-800 text-[13px] font-medium">{r.site}</div>
+                <div className="text-neutral-500 text-[11px] truncate">{r.url}</div>
               </div>
             </div>
-            <span className="text-[11px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full">{v.status}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  </MacWindow>
-);
-
-/* ── 03. SEO: 검색 순위 트래커 ── */
-const SeoMockup = () => (
-  <MacWindow title="search-console.pixelpage.io">
-    <div className="p-5 lg:p-6 text-[13px] lg:text-[14px]">
-      {/* Summary */}
-      <div className="grid grid-cols-3 gap-3 mb-5">
-        {[
-          { label: "월간 유기적 유입", value: "8,200", change: "+2,410%", color: "text-emerald-400" },
-          { label: "1페이지 키워드", value: "23개", change: "+19", color: "text-sky-400" },
-          { label: "도메인 권한", value: "45", change: "12 → 45", color: "text-amber-400" },
-        ].map((m) => (
-          <div key={m.label} className="bg-white/5 rounded-lg p-3">
-            <div className="text-neutral-500 text-[12px] mb-1">{m.label}</div>
-            <div className="text-white font-semibold text-[18px]">{m.value}</div>
-            <div className={`text-[12px] mt-1 ${m.color}`}>{m.change}</div>
+            <div className="text-[#1a0dab] text-[16px] leading-snug hover:underline cursor-pointer font-medium">{r.title}</div>
+            <div className="text-neutral-600 text-[13px] mt-1 leading-relaxed">{r.desc}</div>
           </div>
         ))}
       </div>
 
-      {/* Keyword rankings table */}
-      <div className="bg-white/5 rounded-lg overflow-hidden">
-        <div className="grid grid-cols-[1fr_60px_60px_60px_80px] gap-2 px-4 py-2.5 text-neutral-500 border-b border-white/5 text-[12px] uppercase tracking-wider">
-          <span>키워드</span><span>이전</span><span>현재</span><span>변동</span><span>플랫폼</span>
-        </div>
-        {[
-          { kw: "온라인 교육 추천", prev: "32", now: "3", platform: "네이버" },
-          { kw: "자기계발 강의", prev: "—", now: "5", platform: "네이버" },
-          { kw: "무형 서비스 마케팅", prev: "48", now: "2", platform: "구글" },
-          { kw: "교육 브랜드 광고", prev: "21", now: "4", platform: "구글" },
-          { kw: "스피치 학원 강남", prev: "15", now: "1", platform: "네이버" },
-        ].map((k) => {
-          const prev = k.prev === "—" ? 100 : parseInt(k.prev);
-          const diff = prev - parseInt(k.now);
-          return (
-            <div key={k.kw} className="grid grid-cols-[1fr_60px_60px_60px_80px] gap-2 px-4 py-2.5 text-neutral-300 border-b border-white/[0.03]">
-              <span className="text-white font-medium flex items-center gap-1.5">
-                <Search className="w-3 h-3 text-neutral-500" />{k.kw}
-              </span>
-              <span className="text-neutral-500">{k.prev}</span>
-              <span className="text-emerald-400 font-semibold">{k.now}위</span>
-              <span className="text-emerald-400 flex items-center gap-0.5">
-                <ArrowUpRight className="w-3 h-3" />+{diff}
-              </span>
-              <span className="text-neutral-400">{k.platform}</span>
-            </div>
-          );
-        })}
+      {/* Related questions */}
+      <div className="mt-5 pt-4 border-t border-neutral-200">
+        <div className="text-neutral-900 font-semibold text-[15px] mb-2">관련 질문</div>
+        {["무형 서비스 마케팅 비용은 얼마인가요?", "교육 사업 마케팅은 어떻게 하나요?", "컨설팅 광고 효과 있나요?"].map((q) => (
+          <div key={q} className="flex items-center justify-between py-2.5 border-b border-neutral-100 text-neutral-700 text-[14px]">
+            <span>{q}</span>
+            <span className="text-neutral-400 text-[12px]">▾</span>
+          </div>
+        ))}
       </div>
     </div>
   </MacWindow>
@@ -203,13 +221,12 @@ const CrmMockup = () => (
         <div className="text-neutral-400 text-[12px] uppercase tracking-wider mb-3">자동화 퍼널 · 온보딩 시퀀스</div>
         <div className="space-y-0">
           {[
-            { step: "1", channel: "카카오", type: "알림톡", msg: "환영합니다! 무료 체험 안내 →", delay: "즉시", sent: "3,210", rate: "92%" },
-            { step: "2", channel: "이메일", type: "시퀀스", msg: "다른 수강생들의 후기를 확인하세요", delay: "48시간 후", sent: "3,048", rate: "71%" },
-            { step: "3", channel: "문자", type: "자동화", msg: "지금 등록하면 20% 할인!", delay: "7일 후", sent: "2,890", rate: "58%" },
-            { step: "4", channel: "이메일", type: "시퀀스", msg: "마지막 기회 — 내일 마감됩니다", delay: "14일 후", sent: "2,692", rate: "44%" },
+            { step: "1", channel: "카카오", msg: "환영합니다! 무료 체험 안내 →", delay: "즉시", sent: "3,210", rate: "92%" },
+            { step: "2", channel: "이메일", msg: "다른 수강생들의 후기를 확인하세요", delay: "48시간 후", sent: "3,048", rate: "71%" },
+            { step: "3", channel: "문자", msg: "지금 등록하면 20% 할인!", delay: "7일 후", sent: "2,890", rate: "58%" },
+            { step: "4", channel: "이메일", msg: "마지막 기회 — 내일 마감됩니다", delay: "14일 후", sent: "2,692", rate: "44%" },
           ].map((s, i) => (
             <div key={s.step} className="flex items-start gap-3 py-3 border-b border-white/[0.05] last:border-0">
-              {/* Step indicator */}
               <div className="flex flex-col items-center">
                 <div className="w-7 h-7 rounded-full bg-primary/20 text-primary flex items-center justify-center text-[12px] font-bold">{s.step}</div>
                 {i < 3 && <div className="w-[1px] h-6 bg-white/10 mt-1" />}
@@ -251,7 +268,7 @@ const WebBuildMockup = () => (
         { text: '      <Hero headline="만질 수 없는 것을 파는 일" />', color: "text-emerald-400" },
         { text: "", color: "" },
         { text: "      {/* 신뢰 지표 — 전환율 +40% */}", color: "text-neutral-500" },
-        { text: "      <Social reviews={142} rating={4.9} />" , color: "text-emerald-400" },
+        { text: "      <Social reviews={142} rating={4.9} />", color: "text-emerald-400" },
         { text: "", color: "" },
         { text: "      {/* 명확한 CTA — 이탈 방지 */}", color: "text-neutral-500" },
         { text: '      <CTA label="무료 상담 신청" variant="primary" />', color: "text-emerald-400" },
