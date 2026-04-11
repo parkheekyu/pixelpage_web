@@ -99,76 +99,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ─── SERVICES ─── */}
-      <section className="py-28 lg:py-36 bg-surface-beige">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
-          <Reveal>
-            <p className="text-[14px] tracking-[0.2em] uppercase text-muted-foreground mb-5">Services</p>
-            <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-medium text-foreground leading-[1.2] tracking-[-0.02em]">
-              5가지 서비스,<br />하나의 마케팅 설계.
-            </h2>
-            <p className="text-[19px] text-muted-foreground mt-4 max-w-[480px] leading-[1.9]">
-              각각 독립적으로 강하고, 함께할 때 가장 강력합니다.
-            </p>
-          </Reveal>
-
-          <div className="mt-16 space-y-0">
-            {[
-              {
-                num: "01", name: "퍼포먼스 마케팅", sub: "Performance Marketing",
-                desc: "Meta · Google · 토스 · 당근 · TikTok — 주요 광고 플랫폼에서 '구매 의향이 있는 사람'을 정밀하게 찾아냅니다.",
-                img: illustPerformance, href: "/services/performance",
-                tags: ["Meta Ads", "Google Ads", "토스애즈", "당근마켓", "TikTok"]
-              },
-              {
-                num: "02", name: "브랜디드 콘텐츠", sub: "Branded Content",
-                desc: "무형을 파는 일은 결국 감각을 번역하는 일입니다. 브랜디드 유튜브와 숏폼으로 24시간 일하는 영업사원을 만듭니다.",
-                img: illustBranded, href: "/services/branded",
-                tags: ["브랜디드 유튜브", "숏폼", "광고 소재 제작"]
-              },
-              {
-                num: "03", name: "검색엔진 최적화", sub: "SEO",
-                desc: "SEO는 돈을 쓰지 않아도 찾아오게 만드는 것입니다. 네이버 생태계 전체를 활용해 콘텐츠 기반 장기 신뢰를 구축합니다.",
-                img: illustSeo, href: "/services/seo",
-                tags: ["네이버 SEO", "구글 SEO"]
-              },
-              {
-                num: "04", name: "CRM 마케팅", sub: "CRM Automation",
-                desc: "퍼포먼스 광고가 관객을 데려온다면, CRM은 그들이 떠나지 않도록 붙잡습니다. 4단계 자동화 퍼널을 설계합니다.",
-                img: illustCrm, href: "/services/crm",
-                tags: ["카카오 알림톡", "이메일 시퀀스", "문자 자동화"]
-              },
-              {
-                num: "05", name: "웹 빌드", sub: "Web Build",
-                desc: "보여주기 위한 웹이 아닌, 파는 웹. 전환이 일어나도록 설계합니다.",
-                img: illustWeb, href: "/services/webbuild",
-                tags: ["랜딩 페이지", "브랜드 사이트", "엔터프라이즈"]
-              },
-            ].map((s, i) => (
-              <Reveal key={s.num}>
-                <Link to={s.href} className={`group grid grid-cols-1 lg:grid-cols-2 gap-10 items-center py-10 border-t border-border transition-colors ${i % 2 === 1 ? 'lg:direction-rtl' : ''}`}>
-                  <div className={i % 2 === 1 ? 'lg:order-2' : ''}>
-                    <span className="text-[14px] tracking-[0.15em] uppercase text-muted-foreground">{s.sub}</span>
-                    <h3 className="font-serif text-[clamp(32px,3.5vw,48px)] font-medium text-foreground mt-2 mb-4">{s.name}</h3>
-                    <p className="text-[18px] text-muted-foreground leading-[1.9] mb-5 max-w-[440px]">{s.desc}</p>
-                    <div className="flex flex-wrap gap-2.5 mb-5">
-                      {s.tags.map(t => (
-                        <span key={t} className="text-[15px] text-foreground/80 bg-surface-beige border border-border px-5 py-2 rounded-full">{t}</span>
-                      ))}
-                    </div>
-                    <span className="inline-flex items-center gap-1.5 text-[15px] font-medium text-primary group-hover:translate-x-1 transition-transform">
-                      자세히 보기 <ArrowRight className="w-4 h-4" />
-                    </span>
-                  </div>
-                  <div className={`flex justify-center ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
-                    <img src={s.img} alt={s.name} className="w-[280px] lg:w-[340px] group-hover:scale-105 transition-transform duration-500" loading="lazy" width={800} height={640} />
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ServicesTabSection />
 
       {/* ─── CASES ─── */}
       <section id="cases" className="py-28 lg:py-36 bg-surface-white">
