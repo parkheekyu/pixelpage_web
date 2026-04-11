@@ -110,6 +110,7 @@ const Index = () => {
         <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
           <Reveal className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
             <div>
+              <img src={iconTrophy} alt="Cases" className="w-10 h-10 mb-5" />
               <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-medium text-foreground leading-[1.2] tracking-[-0.02em]">
                 짧은 기간,<br />또렷한 결과.
               </h2>

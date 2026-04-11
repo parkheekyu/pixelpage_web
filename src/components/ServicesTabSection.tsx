@@ -382,7 +382,7 @@ const ServicesTabSection = () => {
     <section className="py-28 lg:py-36 bg-surface-beige">
       <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
         <Reveal>
-          <p className="text-[14px] tracking-[0.2em] uppercase text-muted-foreground mb-5">Services</p>
+          <img src={iconMovieClapper} alt="Services" className="w-10 h-10 mb-5" />
           <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-medium text-foreground leading-[1.2] tracking-[-0.02em]">
             5가지 서비스,<br />하나의 마케팅 설계.
           </h2>
