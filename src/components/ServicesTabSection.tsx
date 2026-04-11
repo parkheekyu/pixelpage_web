@@ -40,16 +40,10 @@ const PerformanceMockup = () => (
       </div>
 
       <div className="flex-1 min-w-0">
-        {/* Top info banner */}
-        <div className="px-3 py-1.5 bg-[#e7f3ff] border-b border-[#b3d7ff] text-[9px] text-neutral-600 flex items-center gap-1.5">
-          <span className="text-[#1877f2]">ⓘ</span>
-          <span>우리는 결과를 측정하는 방식을 진화하고 있다</span>
-        </div>
-
         {/* Header */}
         <div className="px-3 py-2 border-b border-neutral-200 flex items-center gap-2">
           <span className="text-neutral-900 font-semibold text-[12px]">캠페인</span>
-          <span className="text-neutral-400 text-[9px]">⊕ 재키 (483075199015698)</span>
+          <span className="text-neutral-400 text-[9px]">⊕ 픽셀페이지 (927461038204753)</span>
           <span className="bg-[#e8f5e9] text-emerald-700 text-[9px] px-1.5 py-0.5 rounded-full ml-1 font-medium">85</span>
           <span className="text-neutral-400 text-[9px]">광고 최적화 지수</span>
         </div>
