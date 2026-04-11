@@ -73,7 +73,7 @@ const Index = () => {
         <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
           <Reveal className="text-center">
             <img src={iconOk} alt="Philosophy" className="w-10 h-10 mb-5 mx-auto" />
-            <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-medium text-foreground leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-semibold text-foreground leading-[1.2] tracking-[-0.02em]">
               일반 마케팅 회사와는<br />조금 다릅니다.
             </h2>
           </Reveal>
@@ -113,7 +113,7 @@ const Index = () => {
           <Reveal className="text-center mb-16">
             <div>
               <img src={iconTrophy} alt="Cases" className="w-10 h-10 mb-5 mx-auto" />
-              <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-medium text-foreground leading-[1.2] tracking-[-0.02em]">
+              <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-semibold text-foreground leading-[1.2] tracking-[-0.02em]">
                 짧은 기간,<br />또렷한 결과.
               </h2>
             </div>
@@ -211,7 +211,7 @@ const Index = () => {
         <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
           <Reveal className="text-center">
             <img src={iconCloud} alt="Process" className="w-10 h-10 mb-5 mx-auto" />
-            <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-medium text-foreground leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-semibold text-foreground leading-[1.2] tracking-[-0.02em]">
               어떻게 일하나요?
             </h2>
             <p className="text-[19px] text-muted-foreground mt-4 max-w-[480px] mx-auto leading-[1.9]">
@@ -240,7 +240,7 @@ const Index = () => {
         <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
           <Reveal>
             <img src={iconAt} alt="Contact" className="w-10 h-10 mb-5" />
-            <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-medium text-foreground leading-[1.2] tracking-[-0.02em] mb-5">
+            <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-semibold text-foreground leading-[1.2] tracking-[-0.02em] mb-5">
               한 번 얘기해봐요.
             </h2>
             <p className="text-[19px] text-muted-foreground max-w-[480px] leading-[1.9] mb-10">
