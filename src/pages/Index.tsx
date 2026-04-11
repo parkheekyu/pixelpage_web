@@ -55,16 +55,19 @@ const Index = () => {
                 <div className="blob-shape-1 w-[220px] h-[220px] overflow-hidden shadow-card">
                   <img src={charMale} alt="" className="w-full h-full object-cover scale-110 object-[center_20%]" />
                 </div>
+                <span className="absolute -top-2 -left-8 bg-primary/10 text-primary text-[13px] font-medium px-4 py-1.5 rounded-full backdrop-blur-sm whitespace-nowrap">Meta Business Partner</span>
               </div>
               <div className="absolute bottom-0 right-12 animate-float stagger-4">
                 <div className="blob-shape-2 w-[240px] h-[260px] overflow-hidden shadow-card">
                   <img src={charFemale} alt="" className="w-full h-full object-cover scale-110" />
                 </div>
+                <span className="absolute -bottom-2 right-[-20px] bg-primary/10 text-primary text-[13px] font-medium px-4 py-1.5 rounded-full backdrop-blur-sm whitespace-nowrap">Marketing Design</span>
               </div>
               <div className="absolute top-[28%] left-0 animate-float stagger-6">
                 <div className="blob-shape-3 w-[200px] h-[220px] overflow-hidden shadow-card">
                   <img src={charCurly} alt="" className="w-full h-full object-cover scale-110" />
                 </div>
+                <span className="absolute -bottom-2 -left-4 bg-primary/10 text-primary text-[13px] font-medium px-4 py-1.5 rounded-full backdrop-blur-sm whitespace-nowrap">ROAS 500%</span>
               </div>
             </div>
           </div>
