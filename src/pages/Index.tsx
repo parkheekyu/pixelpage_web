@@ -122,86 +122,27 @@ const Index = () => {
             </p>
           </Reveal>
 
-          {/* Highlight card */}
-          <Reveal>
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-0 rounded-xl overflow-hidden border border-border mb-5">
-              <div className="bg-foreground p-10 lg:p-12 flex flex-col justify-between">
-                <div>
-                  <span className="text-[13px] text-primary tracking-[0.1em] uppercase">온라인 교육</span>
-                  <h3 className="font-serif text-[clamp(28px,3vw,40px)] font-medium text-background mt-3 mb-4">디지털노마드 하이클래스</h3>
-                  <p className="text-[17px] text-background/60 leading-[1.9] max-w-[400px]">
-                    카페 회원 7만 명의 커뮤니티를 가진 온라인 교육 브랜드. 업계 평균의 3배 이상인 CTR을 달성했습니다.
-                  </p>
-                </div>
-                <div className="flex gap-12 mt-10">
-                  <div>
-                    <span className="text-[48px] font-serif font-normal text-background tracking-[-0.03em]">70K<span className="text-[18px] text-background/40 ml-1">+</span></span>
-                    <span className="block text-[12px] text-background/40 tracking-[0.1em] uppercase mt-1">카페 회원</span>
-                  </div>
-                  <div>
-                    <span className="text-[48px] font-serif font-normal text-primary tracking-[-0.03em]">3.93<span className="text-[18px] text-primary/60 ml-0.5">%</span></span>
-                    <span className="block text-[12px] text-background/40 tracking-[0.1em] uppercase mt-1">CTR</span>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-surface-beige p-10 lg:p-12 flex flex-col justify-between">
-                <div>
-                  <span className="text-[13px] text-primary tracking-[0.1em] uppercase">B2B 지식 서비스</span>
-                  <h3 className="font-serif text-[clamp(28px,3vw,40px)] font-medium text-foreground mt-3 mb-4">부트스트래퍼</h3>
-                  <p className="text-[17px] text-muted-foreground leading-[1.9] max-w-[400px]">
-                    고단가 B2B 지식 상품을 단 ₩40M 예산으로 ROAS 500%를 달성하며 수익성을 증명했습니다.
-                  </p>
-                </div>
-                <div className="flex gap-12 mt-10">
-                  <div>
-                    <span className="text-[48px] font-serif font-normal text-foreground tracking-[-0.03em]">500<span className="text-[18px] text-muted-foreground ml-0.5">%</span></span>
-                    <span className="block text-[12px] text-muted-foreground tracking-[0.1em] uppercase mt-1">ROAS</span>
-                  </div>
-                  <div>
-                    <span className="text-[48px] font-serif font-normal text-foreground tracking-[-0.03em]">40<span className="text-[18px] text-muted-foreground ml-0.5">M</span></span>
-                    <span className="block text-[12px] text-muted-foreground tracking-[0.1em] uppercase mt-1">집행 금액</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-
-          {/* Bottom two cards */}
           <Reveal className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div className="rounded-xl border border-border p-10 hover:border-foreground/20 transition-colors">
-              <span className="text-[13px] text-primary tracking-[0.1em] uppercase">오프라인 교육</span>
-              <h3 className="font-serif text-[28px] font-medium text-foreground mt-3 mb-3">플러스 스피치 학원</h3>
-              <p className="text-[16px] text-muted-foreground leading-[1.9] mb-8">
-                단일 지점에서 시작해, 4개 신규 지점을 오픈하며 매출을 6.6배 성장시켰습니다.
-              </p>
-              <div className="flex gap-10 pt-6 border-t border-border">
-                <div>
-                  <span className="text-[40px] font-serif font-normal text-foreground tracking-[-0.02em]">6.6<span className="text-[16px] text-muted-foreground ml-0.5">×</span></span>
-                  <span className="block text-[12px] text-muted-foreground tracking-[0.08em] uppercase mt-1">매출 성장</span>
-                </div>
-                <div>
-                  <span className="text-[40px] font-serif font-normal text-foreground tracking-[-0.02em]">4<span className="text-[16px] text-muted-foreground ml-0.5">+</span></span>
-                  <span className="block text-[12px] text-muted-foreground tracking-[0.08em] uppercase mt-1">신규 지점</span>
-                </div>
-              </div>
-            </div>
-            <div className="rounded-xl border border-border p-10 hover:border-foreground/20 transition-colors">
-              <span className="text-[13px] text-primary tracking-[0.1em] uppercase">가맹 네트워크</span>
-              <h3 className="font-serif text-[28px] font-medium text-foreground mt-3 mb-3">라 컴퍼니</h3>
-              <p className="text-[16px] text-muted-foreground leading-[1.9] mb-8">
-                전국 7개 지점의 가맹 네트워크를 마케팅으로 확장한 프로젝트입니다.
-              </p>
-              <div className="flex gap-10 pt-6 border-t border-border">
-                <div>
-                  <span className="text-[40px] font-serif font-normal text-foreground tracking-[-0.02em]">7<span className="text-[16px] text-muted-foreground ml-0.5">+</span></span>
-                  <span className="block text-[12px] text-muted-foreground tracking-[0.08em] uppercase mt-1">전국 지점</span>
-                </div>
-                <div>
-                  <span className="text-[40px] font-serif font-normal text-foreground tracking-[-0.02em]">전국</span>
-                  <span className="block text-[12px] text-muted-foreground tracking-[0.08em] uppercase mt-1">커버리지</span>
+            {[
+              { cat: "온라인 교육", name: "디지털노마드 하이클래스", desc: "카페 회원 7만 명의 커뮤니티를 가진 온라인 교육 브랜드. 업계 평균의 3배 이상인 CTR을 달성했습니다.", stats: [{ val: "70K+", label: "카페 회원" }, { val: "3.93%", label: "CTR" }] },
+              { cat: "B2B 지식 서비스", name: "부트스트래퍼", desc: "고단가 B2B 지식 상품을 단 ₩40M 예산으로 ROAS 500%를 달성하며 수익성을 증명했습니다.", stats: [{ val: "500%", label: "ROAS" }, { val: "40M", label: "집행 금액" }] },
+              { cat: "오프라인 교육", name: "플러스 스피치 학원", desc: "단일 지점에서 시작해, 4개 신규 지점을 오픈하며 매출을 6.6배 성장시켰습니다.", stats: [{ val: "6.6×", label: "매출 성장" }, { val: "4+", label: "신규 지점" }] },
+              { cat: "가맹 네트워크", name: "라 컴퍼니", desc: "전국 7개 지점의 가맹 네트워크를 마케팅으로 확장한 프로젝트입니다.", stats: [{ val: "7+", label: "전국 지점" }, { val: "전국", label: "커버리지" }] },
+            ].map((c) => (
+              <div key={c.name} className="rounded-xl border border-border p-10 hover:border-foreground/20 transition-colors">
+                <span className="text-[13px] text-primary tracking-[0.1em] uppercase">{c.cat}</span>
+                <h3 className="font-serif text-[28px] font-medium text-foreground mt-3 mb-3">{c.name}</h3>
+                <p className="text-[16px] text-muted-foreground leading-[1.9] mb-8">{c.desc}</p>
+                <div className="flex gap-10 pt-6 border-t border-border">
+                  {c.stats.map((s) => (
+                    <div key={s.label}>
+                      <span className="text-[40px] font-serif font-normal text-foreground tracking-[-0.02em]">{s.val}</span>
+                      <span className="block text-[12px] text-muted-foreground tracking-[0.08em] uppercase mt-1">{s.label}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
+            ))}
           </Reveal>
         </div>
       </section>
