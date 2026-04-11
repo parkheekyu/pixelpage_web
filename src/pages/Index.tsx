@@ -104,38 +104,97 @@ const Index = () => {
       {/* ─── CASES ─── */}
       <section id="cases" className="py-28 lg:py-36 bg-surface-white">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
-          <Reveal>
-            <p className="text-[14px] tracking-[0.2em] uppercase text-muted-foreground mb-5">Case Studies</p>
-            <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-medium text-foreground leading-[1.2] tracking-[-0.02em]">
-              짧은 기간, 또렷한 결과.
-            </h2>
-            <p className="text-[19px] text-muted-foreground mt-4 max-w-[440px] leading-[1.9]">
+          <Reveal className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
+            <div>
+              <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-medium text-foreground leading-[1.2] tracking-[-0.02em]">
+                짧은 기간,<br />또렷한 결과.
+              </h2>
+            </div>
+            <p className="text-[17px] text-muted-foreground max-w-[360px] leading-[1.9] lg:text-right">
               무형 서비스 브랜드와 함께한 실제 성과입니다.
             </p>
           </Reveal>
-          <Reveal className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-5">
-            {[
-              { name: "디지털노마드 하이클래스", cat: "온라인 교육", desc: "카페 회원 7만 명의 커뮤니티를 가진 온라인 교육 브랜드. 업계 평균의 3배 이상인 CTR 3.93%를 달성했습니다.", stats: [{ n: "70,000", u: "+", l: "카페 회원" }, { n: "3.93", u: "%", l: "CTR" }] },
-              { name: "부트스트래퍼", cat: "B2B 지식 서비스", desc: "고단가 B2B 지식 상품을 단 ₩40M 예산으로 ROAS 500%를 달성하며 수익성을 증명했습니다.", stats: [{ n: "500", u: "%", l: "ROAS" }, { n: "40", u: "M", l: "집행 금액" }] },
-              { name: "플러스 스피치 학원", cat: "오프라인 교육", desc: "단일 지점에서 시작해, 4개 신규 지점을 오픈하며 매출을 6.6배 성장시켰습니다.", stats: [{ n: "6.6", u: "×", l: "매출 성장" }, { n: "4", u: "+", l: "신규 지점" }] },
-              { name: "라 컴퍼니", cat: "가맹 네트워크", desc: "전국 7개 지점의 가맹 네트워크를 마케팅으로 확장한 프로젝트입니다.", stats: [{ n: "7", u: "+", l: "전국 지점" }, { n: "전국", u: "", l: "커버리지" }] },
-            ].map((c, i) => (
-              <div key={i} className="border border-border rounded-lg p-9 hover:border-foreground/20 transition-colors">
-                <span className="text-[13px] tracking-[0.08em] uppercase text-primary/70">{c.cat}</span>
-                <h3 className="font-serif text-[32px] font-medium text-foreground mt-2 mb-3">{c.name}</h3>
-                <p className="text-[17px] text-muted-foreground leading-[1.9] mb-7">{c.desc}</p>
-                <div className="flex gap-10 pt-5 border-t border-border">
-                  {c.stats.map((s, j) => (
-                    <div key={j}>
-                      <span className="text-[36px] font-serif font-normal text-foreground tracking-[-0.02em]">
-                        {s.n}<span className="text-[16px] text-muted-foreground ml-0.5">{s.u}</span>
-                      </span>
-                      <span className="block text-[12px] text-muted-foreground tracking-[0.08em] uppercase mt-1">{s.l}</span>
-                    </div>
-                  ))}
+
+          {/* Highlight card */}
+          <Reveal>
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-0 rounded-xl overflow-hidden border border-border mb-5">
+              <div className="bg-foreground p-10 lg:p-12 flex flex-col justify-between">
+                <div>
+                  <span className="text-[13px] text-primary tracking-[0.1em] uppercase">온라인 교육</span>
+                  <h3 className="font-serif text-[clamp(28px,3vw,40px)] font-medium text-background mt-3 mb-4">디지털노마드 하이클래스</h3>
+                  <p className="text-[17px] text-background/60 leading-[1.9] max-w-[400px]">
+                    카페 회원 7만 명의 커뮤니티를 가진 온라인 교육 브랜드. 업계 평균의 3배 이상인 CTR을 달성했습니다.
+                  </p>
+                </div>
+                <div className="flex gap-12 mt-10">
+                  <div>
+                    <span className="text-[48px] font-serif font-normal text-background tracking-[-0.03em]">70K<span className="text-[18px] text-background/40 ml-1">+</span></span>
+                    <span className="block text-[12px] text-background/40 tracking-[0.1em] uppercase mt-1">카페 회원</span>
+                  </div>
+                  <div>
+                    <span className="text-[48px] font-serif font-normal text-primary tracking-[-0.03em]">3.93<span className="text-[18px] text-primary/60 ml-0.5">%</span></span>
+                    <span className="block text-[12px] text-background/40 tracking-[0.1em] uppercase mt-1">CTR</span>
+                  </div>
                 </div>
               </div>
-            ))}
+              <div className="bg-surface-beige p-10 lg:p-12 flex flex-col justify-between">
+                <div>
+                  <span className="text-[13px] text-primary tracking-[0.1em] uppercase">B2B 지식 서비스</span>
+                  <h3 className="font-serif text-[clamp(28px,3vw,40px)] font-medium text-foreground mt-3 mb-4">부트스트래퍼</h3>
+                  <p className="text-[17px] text-muted-foreground leading-[1.9] max-w-[400px]">
+                    고단가 B2B 지식 상품을 단 ₩40M 예산으로 ROAS 500%를 달성하며 수익성을 증명했습니다.
+                  </p>
+                </div>
+                <div className="flex gap-12 mt-10">
+                  <div>
+                    <span className="text-[48px] font-serif font-normal text-foreground tracking-[-0.03em]">500<span className="text-[18px] text-muted-foreground ml-0.5">%</span></span>
+                    <span className="block text-[12px] text-muted-foreground tracking-[0.1em] uppercase mt-1">ROAS</span>
+                  </div>
+                  <div>
+                    <span className="text-[48px] font-serif font-normal text-foreground tracking-[-0.03em]">40<span className="text-[18px] text-muted-foreground ml-0.5">M</span></span>
+                    <span className="block text-[12px] text-muted-foreground tracking-[0.1em] uppercase mt-1">집행 금액</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Bottom two cards */}
+          <Reveal className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="rounded-xl border border-border p-10 hover:border-foreground/20 transition-colors">
+              <span className="text-[13px] text-primary tracking-[0.1em] uppercase">오프라인 교육</span>
+              <h3 className="font-serif text-[28px] font-medium text-foreground mt-3 mb-3">플러스 스피치 학원</h3>
+              <p className="text-[16px] text-muted-foreground leading-[1.9] mb-8">
+                단일 지점에서 시작해, 4개 신규 지점을 오픈하며 매출을 6.6배 성장시켰습니다.
+              </p>
+              <div className="flex gap-10 pt-6 border-t border-border">
+                <div>
+                  <span className="text-[40px] font-serif font-normal text-foreground tracking-[-0.02em]">6.6<span className="text-[16px] text-muted-foreground ml-0.5">×</span></span>
+                  <span className="block text-[12px] text-muted-foreground tracking-[0.08em] uppercase mt-1">매출 성장</span>
+                </div>
+                <div>
+                  <span className="text-[40px] font-serif font-normal text-foreground tracking-[-0.02em]">4<span className="text-[16px] text-muted-foreground ml-0.5">+</span></span>
+                  <span className="block text-[12px] text-muted-foreground tracking-[0.08em] uppercase mt-1">신규 지점</span>
+                </div>
+              </div>
+            </div>
+            <div className="rounded-xl border border-border p-10 hover:border-foreground/20 transition-colors">
+              <span className="text-[13px] text-primary tracking-[0.1em] uppercase">가맹 네트워크</span>
+              <h3 className="font-serif text-[28px] font-medium text-foreground mt-3 mb-3">라 컴퍼니</h3>
+              <p className="text-[16px] text-muted-foreground leading-[1.9] mb-8">
+                전국 7개 지점의 가맹 네트워크를 마케팅으로 확장한 프로젝트입니다.
+              </p>
+              <div className="flex gap-10 pt-6 border-t border-border">
+                <div>
+                  <span className="text-[40px] font-serif font-normal text-foreground tracking-[-0.02em]">7<span className="text-[16px] text-muted-foreground ml-0.5">+</span></span>
+                  <span className="block text-[12px] text-muted-foreground tracking-[0.08em] uppercase mt-1">전국 지점</span>
+                </div>
+                <div>
+                  <span className="text-[40px] font-serif font-normal text-foreground tracking-[-0.02em]">전국</span>
+                  <span className="block text-[12px] text-muted-foreground tracking-[0.08em] uppercase mt-1">커버리지</span>
+                </div>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>
