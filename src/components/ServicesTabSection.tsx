@@ -98,7 +98,7 @@ const BrandedMockup = () => (
       {/* Channel header */}
       <div className="px-5 pt-5 pb-0 border-b border-neutral-200">
         <div className="flex items-center gap-4">
-          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-violet-500 to-pink-500 flex items-center justify-center text-white font-bold text-[20px] flex-shrink-0">P</div>
+          <img src={charMale} alt="PIXELPAGE" className="w-14 h-14 rounded-full object-cover object-[center_20%] flex-shrink-0" />
           <div className="min-w-0">
             <div className="text-neutral-900 font-bold text-[18px] flex items-center gap-1.5">PIXELPAGE Studio <span className="text-neutral-400 text-[14px]">✓</span></div>
             <div className="text-neutral-500 text-[12px]">@pixelpage-studio · 구독자 2.4만명 · 동영상 86개</div>
