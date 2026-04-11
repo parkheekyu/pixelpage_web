@@ -12,6 +12,7 @@ import iconFileForm from "@/assets/icon-file-form.svg";
 import iconCloud from "@/assets/icon-cloud.svg";
 import iconAt from "@/assets/icon-at.svg";
 import iconTrophy from "@/assets/icon-trophy.svg";
+import heroBg from "@/assets/hero-bg.mp4.asset.json";
 
 const Index = () => {
   return (
@@ -23,9 +24,13 @@ const Index = () => {
       />
 
       {/* ─── HERO ─── */}
-      <section className="relative min-h-screen flex items-center pt-32 pb-20 bg-background overflow-hidden">
+      <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
+        {/* Video background */}
+        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0" src={heroBg.url} />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 z-[1] bg-black/60" />
         {/* Film grain overlay */}
-        <div className="absolute inset-0 z-[1] pointer-events-none opacity-[0.07] mix-blend-multiply" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
+        <div className="absolute inset-0 z-[2] pointer-events-none opacity-[0.07] mix-blend-multiply" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
         <div className="relative z-10 max-w-[1240px] mx-auto w-full px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
