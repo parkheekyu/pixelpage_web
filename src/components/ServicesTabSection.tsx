@@ -202,55 +202,55 @@ const SeoMockup = () => (
   </MacWindow>
 );
 
-/* ── 04. CRM: 자동화 메시지 관리 ── */
+/* ── 04. CRM: 자동화 메시지 관리 (밝은 인터페이스) ── */
 const CrmMockup = () => (
   <MacWindow title="crm-automation.pixelpage.io">
-    <div className="p-5 lg:p-6 text-[13px] lg:text-[14px]">
+    <div className="p-5 lg:p-6 text-[13px] lg:text-[14px] bg-white">
       {/* Funnel stats */}
       <div className="grid grid-cols-4 gap-3 mb-5">
         {[
-          { label: "활성 시퀀스", value: "4", icon: Send },
-          { label: "발송 완료", value: "12,840", icon: CheckCheck },
-          { label: "오픈율", value: "68.2%", icon: Eye },
-          { label: "전환율", value: "4.8%", icon: BarChart3 },
+          { label: "활성 시퀀스", value: "4", icon: Send, color: "text-[#1877f2]" },
+          { label: "발송 완료", value: "12,840", icon: CheckCheck, color: "text-emerald-600" },
+          { label: "오픈율", value: "68.2%", icon: Eye, color: "text-amber-600" },
+          { label: "전환율", value: "4.8%", icon: BarChart3, color: "text-violet-600" },
         ].map((m) => (
-          <div key={m.label} className="bg-white/5 rounded-lg p-3">
+          <div key={m.label} className="bg-[#f5f7fa] rounded-lg p-3 border border-neutral-100">
             <div className="flex items-center gap-1.5 text-neutral-500 text-[12px] mb-1">
               <m.icon className="w-3.5 h-3.5" />{m.label}
             </div>
-            <div className="text-white font-semibold text-[18px]">{m.value}</div>
+            <div className={`font-semibold text-[18px] ${m.color}`}>{m.value}</div>
           </div>
         ))}
       </div>
 
       {/* Automation flow */}
-      <div className="bg-white/5 rounded-lg p-4">
-        <div className="text-neutral-400 text-[12px] uppercase tracking-wider mb-3">자동화 퍼널 · 온보딩 시퀀스</div>
+      <div className="bg-[#f5f7fa] rounded-lg p-4 border border-neutral-100">
+        <div className="text-neutral-500 text-[12px] uppercase tracking-wider mb-3 font-medium">자동화 퍼널 · 온보딩 시퀀스</div>
         <div className="space-y-0">
           {[
-            { step: "1", channel: "카카오", msg: "환영합니다! 무료 체험 안내 →", delay: "즉시", sent: "3,210", rate: "92%" },
-            { step: "2", channel: "이메일", msg: "다른 수강생들의 후기를 확인하세요", delay: "48시간 후", sent: "3,048", rate: "71%" },
-            { step: "3", channel: "문자", msg: "지금 등록하면 20% 할인!", delay: "7일 후", sent: "2,890", rate: "58%" },
-            { step: "4", channel: "이메일", msg: "마지막 기회 — 내일 마감됩니다", delay: "14일 후", sent: "2,692", rate: "44%" },
+            { step: "1", channel: "카카오", msg: "환영합니다! 무료 체험 안내 →", delay: "즉시", sent: "3,210", rate: "92%", chColor: "bg-[#fee500] text-neutral-800" },
+            { step: "2", channel: "이메일", msg: "다른 수강생들의 후기를 확인하세요", delay: "48시간 후", sent: "3,048", rate: "71%", chColor: "bg-blue-50 text-blue-700" },
+            { step: "3", channel: "문자", msg: "지금 등록하면 20% 할인!", delay: "7일 후", sent: "2,890", rate: "58%", chColor: "bg-emerald-50 text-emerald-700" },
+            { step: "4", channel: "이메일", msg: "마지막 기회 — 내일 마감됩니다", delay: "14일 후", sent: "2,692", rate: "44%", chColor: "bg-blue-50 text-blue-700" },
           ].map((s, i) => (
-            <div key={s.step} className="flex items-start gap-3 py-3 border-b border-white/[0.05] last:border-0">
+            <div key={s.step} className="flex items-start gap-3 py-3 border-b border-neutral-100 last:border-0">
               <div className="flex flex-col items-center">
-                <div className="w-7 h-7 rounded-full bg-primary/20 text-primary flex items-center justify-center text-[12px] font-bold">{s.step}</div>
-                {i < 3 && <div className="w-[1px] h-6 bg-white/10 mt-1" />}
+                <div className="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-[12px] font-bold">{s.step}</div>
+                {i < 3 && <div className="w-[1px] h-6 bg-neutral-200 mt-1" />}
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
-                  <span className="text-[11px] bg-sky-500/20 text-sky-400 px-2 py-0.5 rounded">{s.channel}</span>
-                  <span className="text-[11px] text-neutral-500">{s.delay}</span>
+                  <span className={`text-[11px] ${s.chColor} px-2 py-0.5 rounded font-medium`}>{s.channel}</span>
+                  <span className="text-[11px] text-neutral-400">{s.delay}</span>
                 </div>
-                <div className="text-white text-[13px] mt-1 flex items-center gap-1.5">
-                  <MessageSquare className="w-3.5 h-3.5 text-neutral-500 flex-shrink-0" />
+                <div className="text-neutral-800 text-[13px] mt-1 flex items-center gap-1.5">
+                  <MessageSquare className="w-3.5 h-3.5 text-neutral-400 flex-shrink-0" />
                   <span className="truncate">{s.msg}</span>
                 </div>
               </div>
               <div className="text-right text-[12px] flex-shrink-0">
-                <div className="text-neutral-400">{s.sent}건</div>
-                <div className="text-emerald-400">오픈 {s.rate}</div>
+                <div className="text-neutral-500">{s.sent}건</div>
+                <div className="text-emerald-600 font-medium">오픈 {s.rate}</div>
               </div>
             </div>
           ))}
