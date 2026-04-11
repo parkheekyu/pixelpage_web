@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
 import ServicesTabSection from "@/components/ServicesTabSection";
+import PhilosophySection from "@/components/PhilosophySection";
 import charMale from "@/assets/char-male.png";
 import charFemale from "@/assets/char-female.png";
 import charCurly from "@/assets/char-curly.png";
