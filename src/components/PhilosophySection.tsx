@@ -6,7 +6,7 @@ import metaLogo from "@/assets/meta-ads-logo.png";
 
 /* ── Container: 통일된 둥근 박스 ── */
 const MockupBox = ({ children }: { children: React.ReactNode }) => (
-  <div className="rounded-2xl border border-neutral-200 bg-white shadow-card overflow-hidden max-w-[520px] mx-auto">
+  <div className="rounded-2xl border border-neutral-200 bg-white shadow-card overflow-hidden mx-auto">
     {children}
   </div>
 );
@@ -63,39 +63,6 @@ const NotionMockup = () => {
   return (
     <MockupBox>
       <div ref={ref} className="p-5 lg:p-7">
-        {/* Page icon */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={phase >= 1 ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.3, type: "spring", damping: 20 }}
-          className="mb-4"
-        >
-          <div className="w-11 h-11 rounded-lg bg-gradient-to-br from-indigo-900 to-indigo-600 flex items-center justify-center shadow-sm">
-            <span className="text-[18px]">✦</span>
-          </div>
-        </motion.div>
-
-        {/* Title with typing cursor */}
-        <div className="mb-5 min-h-[32px]">
-          <h4 className="text-[20px] font-bold text-neutral-900 tracking-tight">
-            {titleText}
-            {phase >= 2 && phase < 3 && (
-              <motion.span
-                animate={{ opacity: [1, 0] }}
-                transition={{ duration: 0.6, repeat: Infinity, repeatType: "reverse" }}
-                className="inline-block w-[2px] h-[20px] bg-neutral-900 ml-0.5 align-middle"
-              />
-            )}
-          </h4>
-        </div>
-
-        {/* Divider */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={phase >= 3 ? { scaleX: 1 } : {}}
-          transition={{ duration: 0.3 }}
-          className="border-t border-neutral-100 mb-5 origin-left"
-        />
 
         {/* Section: 시장 조사 · USP 개발 */}
         <motion.div
