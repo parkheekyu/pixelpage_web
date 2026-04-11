@@ -90,14 +90,14 @@ const PerformanceMockup = () => (
 
         {/* Table rows */}
         {[
-          { name: "260412_다된다운 - B", on: true, results: "122", cost: "₩7,816", budget: "₩940,000", spent: "₩953,551", imp: "16,897", checked: true, badge: "추천 2개" },
-          { name: "260412_다된다운", on: true, results: "570", cost: "₩4,415", budget: "₩940,000", spent: "₩2,516,573", imp: "55,096", checked: false, badge: "추천 2개" },
-          { name: "마케팅_참여", on: true, results: "15,805", cost: "₩93", budget: "₩10,000", spent: "₩1,470,022", imp: "288,562", checked: false, badge: "⚠ 경고 1개", badgeColor: true },
-          { name: "2600405_꽃디순디", on: false, results: "598", cost: "₩6,689", budget: "₩1,170,000", spent: "₩4,000,000", imp: "80,157", checked: false },
-          { name: "260329_텍사스홀덤 - B", on: false, results: "162", cost: "₩6,638", budget: "₩1,060,000", spent: "₩1,075,355", imp: "21,004", checked: false },
-          { name: "260329_텍사스홀덤", on: false, results: "432", cost: "₩6,694", budget: "₩910,000", spent: "₩2,891,714", imp: "47,465", checked: false },
-          { name: "260322_쇼츠대폭발 - B", on: false, results: "40", cost: "₩13,479", budget: "₩690,000", spent: "₩539,156", imp: "9,795", checked: false },
-          { name: "260322_쇼츠대폭발", on: false, results: "669", cost: "₩6,856", budget: "₩1,060,000", spent: "₩4,586,756", imp: "99,086", checked: false },
+          { name: "260412_스피치특강_전환 - B", on: true, results: "122", cost: "₩7,816", budget: "₩940,000", spent: "₩953,551", imp: "16,897", checked: true, badge: "추천 2개" },
+          { name: "260412_스피치특강_전환", on: true, results: "570", cost: "₩4,415", budget: "₩940,000", spent: "₩2,516,573", imp: "55,096", checked: false, badge: "추천 2개" },
+          { name: "브랜드_인지도_참여", on: true, results: "15,805", cost: "₩93", budget: "₩10,000", spent: "₩1,470,022", imp: "288,562", checked: false, badge: "⚠ 경고 1개", badgeColor: true },
+          { name: "260405_노마드클래스_리타겟", on: false, results: "598", cost: "₩6,689", budget: "₩1,170,000", spent: "₩4,000,000", imp: "80,157", checked: false },
+          { name: "260329_B2B_부트캠프 - B", on: false, results: "162", cost: "₩6,638", budget: "₩1,060,000", spent: "₩1,075,355", imp: "21,004", checked: false },
+          { name: "260329_B2B_부트캠프", on: false, results: "432", cost: "₩6,694", budget: "₩910,000", spent: "₩2,891,714", imp: "47,465", checked: false },
+          { name: "260322_숏폼_바이럴 - B", on: false, results: "40", cost: "₩13,479", budget: "₩690,000", spent: "₩539,156", imp: "9,795", checked: false },
+          { name: "260322_숏폼_바이럴", on: false, results: "669", cost: "₩6,856", budget: "₩1,060,000", spent: "₩4,586,756", imp: "99,086", checked: false },
         ].map((c) => (
           <div key={c.name} className={`grid grid-cols-[16px_20px_1fr_52px_52px_62px_62px_72px_52px] gap-px px-3 py-[6px] border-b border-neutral-100 hover:bg-neutral-50 transition-colors text-neutral-700 ${c.checked ? 'bg-[#e7f3ff]' : ''}`}>
             <span className="flex items-center">
