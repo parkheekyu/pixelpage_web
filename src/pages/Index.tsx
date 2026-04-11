@@ -12,7 +12,7 @@ import iconFileForm from "@/assets/icon-file-form.svg";
 import iconCloud from "@/assets/icon-cloud.svg";
 import iconAt from "@/assets/icon-at.svg";
 import iconTrophy from "@/assets/icon-trophy.svg";
-import heroBg from "@/assets/hero-bg.mp4.asset.json";
+
 
 const Index = () => {
   return (
