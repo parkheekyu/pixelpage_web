@@ -26,14 +26,14 @@ const Index = () => {
       {/* ─── HERO ─── */}
       <section className="relative min-h-screen flex items-center pt-32 pb-20 bg-background overflow-hidden">
         {/* Film grain overlay */}
-        <div className="absolute inset-0 z-[1] pointer-events-none opacity-[0.14] mix-blend-multiply" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
+        <div className="absolute inset-0 z-[1] pointer-events-none opacity-[0.105] mix-blend-multiply" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
         <div className="relative z-10 max-w-[1240px] mx-auto w-full px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
               <p className="text-[15px] tracking-[0.2em] uppercase text-muted-foreground mb-6 opacity-0 animate-fade-up stagger-1">
                 교육 · 지식 · 경험 · 문화
               </p>
-              <h1 className="font-serif text-[clamp(52px,7.5vw,96px)] font-semibold leading-[1.1] tracking-[-0.03em] text-foreground mb-7 opacity-0 animate-fade-up stagger-2">
+              <h1 className="text-[clamp(52px,7.5vw,96px)] font-semibold leading-[1.1] tracking-[-0.03em] text-foreground mb-7 opacity-0 animate-fade-up stagger-2" style={{ fontFamily: "'Ridibatang', serif" }}>
                 만질 수 없는 것을<br /><span className="text-primary">파는 일.</span>
               </h1>
               <p className="text-[20px] text-muted-foreground leading-[1.85] max-w-[480px] mb-10 opacity-0 animate-fade-up stagger-3">
