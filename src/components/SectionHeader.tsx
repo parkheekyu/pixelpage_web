@@ -11,7 +11,7 @@ const SectionHeader = ({ label, title, subtitle, dark = false }: SectionHeaderPr
   <div className="mb-12">
     <p className="font-display text-[11px] tracking-[0.25em] uppercase text-gold mb-5">{label}</p>
     <h2
-      className={`font-serif text-[clamp(36px,5vw,64px)] font-normal leading-[1.2] tracking-tight ${
+      className={`font-serif text-[clamp(36px,5vw,64px)] font-medium leading-[1.2] tracking-tight ${
         dark ? "text-cream" : "text-foreground"
       }`}
       dangerouslySetInnerHTML={{ __html: title }}
