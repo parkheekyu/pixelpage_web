@@ -9,6 +9,8 @@ import charCurly from "@/assets/char-curly.png";
 import iconOk from "@/assets/icon-ok.svg";
 import iconRocket from "@/assets/icon-rocket.svg";
 import iconFileForm from "@/assets/icon-file-form.svg";
+import iconCloud from "@/assets/icon-cloud.svg";
+import iconAt from "@/assets/icon-at.svg";
 import iconTrophy from "@/assets/icon-trophy.svg";
 
 const Index = () => {
@@ -208,7 +210,7 @@ const Index = () => {
       <section className="py-28 lg:py-36 bg-background">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
           <Reveal className="text-center">
-            <img src={iconRocket} alt="Process" className="w-10 h-10 mb-5 mx-auto" />
+            <img src={iconCloud} alt="Process" className="w-10 h-10 mb-5 mx-auto" />
             <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-medium text-foreground leading-[1.2] tracking-[-0.02em]">
               어떻게 일하나요?
             </h2>
@@ -236,12 +238,12 @@ const Index = () => {
       {/* ─── CONTACT ─── */}
       <section id="contact" className="py-28 lg:py-36 bg-surface-beige">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
-          <Reveal className="text-center">
-            <img src={iconFileForm} alt="Contact" className="w-10 h-10 mb-5 mx-auto" />
+          <Reveal>
+            <img src={iconAt} alt="Contact" className="w-10 h-10 mb-5" />
             <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-medium text-foreground leading-[1.2] tracking-[-0.02em] mb-5">
               한 번 얘기해봐요.
             </h2>
-            <p className="text-[19px] text-muted-foreground max-w-[480px] mx-auto leading-[1.9] mb-10">
+            <p className="text-[19px] text-muted-foreground max-w-[480px] leading-[1.9] mb-10">
               지금 당장 계약이 목표가 아닙니다. 브랜드를 함께 진단하고, 어떻게 팔 수 있는지 생각해 보는 것부터 시작합니다.
             </p>
             <a href="mailto:contact@pixelpage.co.kr" className="block font-serif text-[30px] font-medium text-foreground/80 hover:text-primary transition-colors mb-2">
