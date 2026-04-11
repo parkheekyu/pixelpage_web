@@ -443,7 +443,7 @@ const ServicesTabSection = () => {
                   </p>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {active.tags.map((t) => (
-                      <span key={t} className="text-[14px] text-foreground/80 bg-surface-beige border border-border px-4 py-1.5 rounded-full">
+                      <span key={t} className="text-[14px] text-primary-foreground bg-primary px-4 py-1.5 rounded-full">
                         {t}
                       </span>
                     ))}
