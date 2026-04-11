@@ -1,5 +1,5 @@
-import { motion, useInView, useAnimation } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import Reveal from "@/components/Reveal";
 import iconOk from "@/assets/icon-ok.svg";
 import metaLogo from "@/assets/meta-ads-logo.png";
@@ -11,41 +11,10 @@ const MockupBox = ({ children }: { children: React.ReactNode }) => (
   </div>
 );
 
-/* ── Typing effect hook ── */
-const useTypingEffect = (text: string, startTyping: boolean, speed = 45) => {
-  const [displayed, setDisplayed] = useState("");
-  useEffect(() => {
-    if (!startTyping) { setDisplayed(""); return; }
-    let i = 0;
-    const interval = setInterval(() => {
-      i++;
-      setDisplayed(text.slice(0, i));
-      if (i >= text.length) clearInterval(interval);
-    }, speed);
-    return () => clearInterval(interval);
-  }, [text, startTyping, speed]);
-  return displayed;
-};
-
-/* ── 1. Notion 페이지 목업 (타이핑 애니메이션) ── */
+/* ── 1. Notion 페이지 목업 ── */
 const NotionMockup = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
-  const [phase, setPhase] = useState(0);
-
-  useEffect(() => {
-    if (!inView) return;
-    // phase 0: initial render
-    // phase 1: page icon appears
-    // phase 2: title typing
-    // phase 3: content appears
-    const t1 = setTimeout(() => setPhase(1), 300);
-    const t2 = setTimeout(() => setPhase(2), 800);
-    const t3 = setTimeout(() => setPhase(3), 2200);
-    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
-  }, [inView]);
-
-  const titleText = useTypingEffect("차별화 전략", phase >= 2, 80);
 
   const contentItems = [
     { icon: "⭐", text: "브랜드 전략 (USP 개발)" },
@@ -67,8 +36,8 @@ const NotionMockup = () => {
         {/* Section: 시장 조사 · USP 개발 */}
         <motion.div
           initial={{ opacity: 0, y: 8 }}
-          animate={phase >= 3 ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.35, delay: 0.1 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.35, delay: 0.15 }}
           className="mb-4"
         >
           <div className="bg-[#fbf3db] px-4 py-2 rounded-md border-l-[3px] border-[#e8c44a] mb-2">
@@ -97,8 +66,8 @@ const NotionMockup = () => {
         {/* Section: 메시지 프레임워크 */}
         <motion.div
           initial={{ opacity: 0, y: 8 }}
-          animate={phase >= 3 ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.35, delay: 0.6 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.35, delay: 0.5 }}
         >
           <div className="px-1 mb-2">
             <span className="text-[14px] font-semibold text-neutral-800">메시지 프레임워크</span>
@@ -108,8 +77,8 @@ const NotionMockup = () => {
               <motion.div
                 key={item.text}
                 initial={{ opacity: 0, x: -8 }}
-                animate={phase >= 3 ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.25, delay: 0.75 + i * 0.1 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.25, delay: 0.65 + i * 0.1 }}
                 className="flex items-center gap-2 py-[3px] pl-5"
               >
                 <span className="text-[12px]">{item.icon}</span>
