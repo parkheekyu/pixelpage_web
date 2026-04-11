@@ -1,0 +1,365 @@
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import Reveal from "@/components/Reveal";
+import iconOk from "@/assets/icon-ok.svg";
+
+/* ── Container: 통일된 둥근 박스 ── */
+const MockupBox = ({ children }: { children: React.ReactNode }) => (
+  <div className="rounded-2xl border border-neutral-200 bg-white shadow-card overflow-hidden">
+    {children}
+  </div>
+);
+
+/* ── 1. Notion 페이지 목업 ── */
+const NotionMockup = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  return (
+    <MockupBox>
+      <div ref={ref} className="p-5 lg:p-7">
+        {/* Page icon + title */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.4, delay: 0.15 }}
+          className="mb-5"
+        >
+          <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-900 to-indigo-600 flex items-center justify-center mb-3 shadow-sm">
+            <span className="text-[20px]">✦</span>
+          </div>
+          <h4 className="text-[20px] font-bold text-neutral-900 tracking-tight">차별화 전략</h4>
+        </motion.div>
+
+        {/* Divider */}
+        <div className="border-t border-neutral-100 mb-5" />
+
+        {/* Section: 1. 브랜드 전략 */}
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.35, delay: 0.3 }}
+          className="mb-4"
+        >
+          <div className="bg-[#fbf3db] px-4 py-2 rounded-md border-l-[3px] border-[#e8c44a] mb-2">
+            <span className="text-[14px] font-semibold text-neutral-800">1. 시장 조사 · USP 개발</span>
+          </div>
+          <div className="bg-[#e8f0fe] rounded-md px-4 py-3">
+            <div className="flex items-center gap-2 mb-2.5">
+              <span className="text-[13px]">🧑‍💼</span>
+              <span className="text-[13px] font-semibold text-neutral-800">브랜드 전략 워크스페이스</span>
+            </div>
+            {[
+              { icon: "⭐", text: "브랜드 전략 (USP 개발)" },
+              { icon: "🎯", text: "콘텐츠 전략 · 메시지 설계" },
+              { icon: "📂", text: "채널 기획 · 타겟 세그먼트" },
+              { icon: "❗", text: "[필독] 경쟁사 분석 리포트" },
+            ].map((item, i) => (
+              <motion.div
+                key={item.text}
+                initial={{ opacity: 0, x: -6 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.25, delay: 0.45 + i * 0.08 }}
+                className="flex items-center gap-2 py-[3px] pl-5"
+              >
+                <span className="text-[12px]">{item.icon}</span>
+                <span className="text-[13px] text-neutral-600">{item.text}</span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Section: 메시지 프레임워크 */}
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.35, delay: 0.7 }}
+        >
+          <div className="px-1 mb-2">
+            <span className="text-[14px] font-semibold text-neutral-800">메시지 프레임워크</span>
+          </div>
+          <div className="bg-[#e8f0fe] rounded-md px-4 py-3">
+            {[
+              { icon: "📄", text: "고객 페르소나 정의" },
+              { icon: "📄", text: "핵심 메시지 프레임워크" },
+              { icon: "📄", text: "포지셔닝 맵 · 차별화 전략" },
+            ].map((item, i) => (
+              <motion.div
+                key={item.text}
+                initial={{ opacity: 0, x: -6 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.25, delay: 0.85 + i * 0.08 }}
+                className="flex items-center gap-2 py-[3px] pl-5"
+              >
+                <span className="text-[12px]">{item.icon}</span>
+                <span className="text-[13px] text-neutral-600">{item.text}</span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Section: 채널 */}
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.35, delay: 1.0 }}
+          className="mt-4"
+        >
+          <div className="px-1 mb-2">
+            <span className="text-[14px] font-semibold text-neutral-800">채널 전략</span>
+          </div>
+          <div className="px-4 space-y-1">
+            {[
+              { icon: "📷", text: "Instagram (@brand_official)", color: "text-neutral-700" },
+              { icon: "▶", text: "YouTube 브랜드 채널", color: "text-neutral-700" },
+              { icon: "📌", text: "네이버 카페 · 블로그", color: "text-neutral-400" },
+            ].map((item, i) => (
+              <motion.div
+                key={item.text}
+                initial={{ opacity: 0, x: -6 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.25, delay: 1.1 + i * 0.08 }}
+                className={`flex items-center gap-2 py-[2px] ${item.color}`}
+              >
+                <span className="text-[12px]">{item.icon}</span>
+                <span className="text-[13px]">{item.text}</span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </MockupBox>
+  );
+};
+
+/* ── 2. Google Sheets 목업 ── */
+const SpreadsheetMockup = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  const headers = ["", "A", "B", "C", "D", "E", "F", "G"];
+  const headerLabels = ["", "collected_date", "channel_name", "followers", "type", "likes", "engagement(%)", "videoPlayCount"];
+
+  const rows = [
+    { n: "2260", cells: ["2026-03-06", "aim_ing_", "100,865", "Sidecar", "247", "0.26%", "0"] },
+    { n: "2261", cells: ["2026-03-06", "soraofficial", "277,782", "Video", "143", "0.06%", "5,612"] },
+    { n: "2262", cells: ["2026-03-06", "storyboard.co.th", "175,382", "Video", "111", "0.07%", "7,702"] },
+    { n: "2263", cells: ["2026-03-06", "aim_ing_", "100,865", "Sidecar", "81", "0.08%", "0"] },
+    { n: "2264", cells: ["2026-03-06", "ai_ing_", "46,036", "Sidecar", "68", "0.15%", "0"] },
+    { n: "2265", cells: ["2026-03-06", "aim_ing_", "100,865", "Sidecar", "39", "0.04%", "0"] },
+    { n: "2266", cells: ["2026-03-07", "aitrendz.xyz", "321,993", "Video", "-1", "0.02%", "6,092"] },
+    { n: "2267", cells: ["2026-03-07", "aitrendz.xyz", "321,993", "Video", "-1", "0.01%", "7,012"] },
+    { n: "2268", cells: ["2026-03-07", "ai.trend.kr", "105,288", "Video", "15,956", "15.19%", "497,997"], highlight: true },
+    { n: "2269", cells: ["2026-03-07", "openai", "4,165,499", "Sidecar", "8,977", "0.23%", "0"] },
+    { n: "2270", cells: ["2026-03-07", "claudeai", "416,673", "Video", "7,569", "1.85%", "233,579"] },
+    { n: "2271", cells: ["2026-03-07", "meta.ai", "3,586,218", "Video", "4,480", "0.13%", "1,333,408"] },
+  ];
+
+  const typeColor = (t: string) =>
+    t === "Sidecar" ? "bg-[#f4c77b]/80 text-neutral-800" :
+    t === "Video" ? "bg-[#6ba4e0] text-white" :
+    "bg-neutral-100 text-neutral-600";
+
+  return (
+    <MockupBox>
+      <div ref={ref}>
+        {/* Sheets top bar */}
+        <div className="flex items-center gap-2.5 px-4 py-2 bg-[#f0f4f8] border-b border-neutral-200">
+          <div className="w-6 h-6 rounded bg-[#0f9d58] flex items-center justify-center flex-shrink-0">
+            <span className="text-white text-[11px] font-bold">S</span>
+          </div>
+          <span className="text-[13px] font-medium text-neutral-700">레드캣픽_인스타수집</span>
+          <div className="ml-auto flex items-center gap-2 text-[11px] text-neutral-400">
+            <span>파일</span><span>수정</span><span>보기</span><span>삽입</span>
+          </div>
+        </div>
+
+        {/* Formula bar */}
+        <div className="flex items-center gap-2 px-3 py-1 bg-white border-b border-neutral-200 text-[11px] text-neutral-500">
+          <span className="bg-neutral-100 px-2 py-0.5 rounded text-[10px] font-mono">A1</span>
+          <span className="text-neutral-300">|</span>
+          <span className="italic">fx</span>
+          <span className="text-neutral-700 font-mono">collected_date</span>
+        </div>
+
+        {/* Column headers */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.3, delay: 0.15 }}
+          className="grid grid-cols-[32px_repeat(7,1fr)] text-[9px] lg:text-[10px] font-bold text-neutral-600 bg-[#f8f9fa] border-b border-neutral-300"
+        >
+          {headers.map((h, i) => (
+            <div key={i} className="px-1.5 py-1.5 border-r border-neutral-200 text-center">{h}</div>
+          ))}
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.3, delay: 0.2 }}
+          className="grid grid-cols-[32px_repeat(7,1fr)] text-[8px] lg:text-[9px] font-semibold text-neutral-700 bg-[#e8f0fe] border-b border-neutral-300"
+        >
+          {headerLabels.map((h, i) => (
+            <div key={i} className={`px-1.5 py-1.5 border-r border-neutral-200 truncate ${i === 0 ? 'bg-[#f8f9fa] text-center' : ''}`}>
+              {i === 0 ? "1" : h}
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Data rows */}
+        <div className="max-h-[320px] overflow-hidden">
+          {rows.map((row, i) => (
+            <motion.div
+              key={row.n}
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.2, delay: 0.25 + i * 0.06 }}
+              className={`grid grid-cols-[32px_repeat(7,1fr)] text-[8px] lg:text-[9px] border-b border-neutral-100 ${row.highlight ? 'bg-emerald-50 border-b-emerald-400 border-b-2' : 'hover:bg-blue-50/20'}`}
+            >
+              <div className="px-1.5 py-1 bg-[#f8f9fa] border-r border-neutral-200 text-neutral-400 text-center font-mono">{row.n}</div>
+              {row.cells.map((cell, j) => (
+                <div key={j} className={`px-1.5 py-1 border-r border-neutral-100 truncate ${j === 3 ? '' : ''} ${row.highlight && j === 5 ? 'text-emerald-700 font-bold' : 'text-neutral-700'} ${j === 1 ? 'text-blue-600' : ''}`}>
+                  {j === 3 ? (
+                    <span className={`text-[7px] lg:text-[8px] px-1.5 py-0.5 rounded ${typeColor(cell)}`}>{cell}</span>
+                  ) : cell}
+                </div>
+              ))}
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </MockupBox>
+  );
+};
+
+/* ── 3. 메타 광고 알림 팝업 (Apple 스타일, 정갈하게 세로 스택) ── */
+const MetaNotificationsMockup = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  const notifications = [
+    { percent: "83%", time: "오전 12:37" },
+    { percent: "80%", time: "오전 12:47" },
+    { percent: "79%", time: "오전 12:51" },
+    { percent: "73%", time: "오전 12:55" },
+    { percent: "70%", time: "오후 1:00" },
+    { percent: "65%", time: "오전 12:08" },
+  ];
+
+  return (
+    <MockupBox>
+      <div ref={ref} className="bg-neutral-100/80 p-4 lg:p-5 space-y-2.5">
+        {notifications.map((n, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 16, scale: 0.97 }}
+            animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+            transition={{
+              duration: 0.4,
+              delay: 0.2 + i * 0.18,
+              type: "spring",
+              damping: 25,
+              stiffness: 250,
+            }}
+          >
+            {/* Notification header */}
+            <div className="flex items-center justify-between px-4 pt-3 pb-0">
+              <span className="text-[12px] font-semibold text-neutral-500 tracking-tight">광고 관리자</span>
+              <div className="flex items-center gap-2">
+                <span className="text-[11px] text-neutral-400">˅ 간략히 보기</span>
+                <span className="text-[12px] text-neutral-400">✕</span>
+              </div>
+            </div>
+            {/* Notification body */}
+            <div className="bg-white/95 rounded-2xl shadow-sm border border-neutral-200/50 mx-0 px-4 py-3 flex items-center gap-3 mt-1">
+              {/* Meta icon */}
+              <div className="w-10 h-10 rounded-[10px] bg-gradient-to-br from-[#4facfe] to-[#43e97b] flex items-center justify-center flex-shrink-0">
+                <svg viewBox="0 0 24 24" className="w-5 h-5 text-white" fill="currentColor">
+                  <circle cx="12" cy="12" r="10" fill="white" opacity="0.3" />
+                  <circle cx="12" cy="12" r="6" fill="white" opacity="0.6" />
+                </svg>
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-[15px]">👍</span>
+                    <span className="text-[13px] font-semibold text-neutral-800">광고 성과가 좋습니다</span>
+                  </div>
+                  <span className="text-[11px] text-neutral-400 flex-shrink-0 ml-2">{n.time}</span>
+                </div>
+                <p className="text-[12px] text-neutral-500 mt-0.5">
+                  결과당 비용이 동종 업계보다 <span className="font-semibold text-neutral-700">{n.percent}</span> 낮습니다.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </MockupBox>
+  );
+};
+
+/* ── Philosophy Section ── */
+const PhilosophySection = () => {
+  const rows = [
+    {
+      num: "01",
+      title: "하나의 메시지를 만듭니다.",
+      body: "철저한 시장 조사와 경쟁사 분석으로 브랜드만의 USP를 개발합니다. 타겟을 정밀하게 세분화하고, 시장 안에서 단 하나의 차별화된 메시지를 설계합니다. 전략 없는 마케팅은 예산 낭비입니다.",
+      mockup: <NotionMockup />,
+      imageFirst: true,
+    },
+    {
+      num: "02",
+      title: "사람들이 반응하는\n포맷을 찾습니다.",
+      body: "자체 데이터 수집·분석 기술로 지금 가장 트렌디하고, 사람들이 실제로 반응하는 콘텐츠 유형을 선별합니다. 감이 아니라 데이터로 포맷을 결정합니다.",
+      mockup: <SpreadsheetMockup />,
+      imageFirst: false,
+    },
+    {
+      num: "03",
+      title: "동종 업계보다\n나은 결과를 만듭니다.",
+      body: "이렇게 설계된 전략과 포맷으로 광고를 집행하면, 결과는 따라옵니다. 함께한 브랜드들은 동종 업계 평균보다 꾸준히 낮은 결과당 비용을 기록하고 있습니다.",
+      mockup: <MetaNotificationsMockup />,
+      imageFirst: true,
+    },
+  ];
+
+  return (
+    <section className="py-28 lg:py-36 bg-surface-white border-t border-border">
+      <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
+        <Reveal className="text-center mb-20 lg:mb-28">
+          <img src={iconOk} alt="Philosophy" className="w-10 h-10 mb-5 mx-auto" />
+          <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-semibold text-foreground leading-[1.2] tracking-[-0.02em]">
+            일반 마케팅 회사와는<br />조금 다릅니다.
+          </h2>
+        </Reveal>
+
+        <div className="space-y-24 lg:space-y-36">
+          {rows.map((row) => (
+            <Reveal key={row.num}>
+              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center`}>
+                {/* Image side */}
+                <div className={`${row.imageFirst ? 'lg:order-1' : 'lg:order-2'}`}>
+                  {row.mockup}
+                </div>
+                {/* Text side */}
+                <div className={`${row.imageFirst ? 'lg:order-2' : 'lg:order-1'}`}>
+                  <span className="text-[13px] text-primary tracking-[0.15em] uppercase font-medium">{row.num}</span>
+                  <h3 className="font-serif text-[clamp(26px,3.5vw,36px)] font-semibold text-foreground mt-3 mb-5 leading-[1.35] tracking-[-0.01em] whitespace-pre-line">
+                    {row.title}
+                  </h3>
+                  <p className="text-[17px] text-muted-foreground leading-[2] max-w-[460px]">
+                    {row.body}
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default PhilosophySection;
