@@ -202,8 +202,6 @@ const MetaNotificationsMockup = () => {
     { percent: "80%", time: "오전 12:47" },
     { percent: "79%", time: "오전 12:51" },
     { percent: "73%", time: "오전 12:55" },
-    { percent: "70%", time: "오후 1:00" },
-    { percent: "65%", time: "오전 12:08" },
   ];
 
   return (
@@ -261,21 +259,21 @@ const PhilosophySection = () => {
     {
       num: "01",
       title: "하나의 메시지를 만듭니다.",
-      body: "철저한 시장 조사와 경쟁사 분석으로 브랜드만의 USP를 개발합니다. 타겟을 정밀하게 세분화하고, 시장 안에서 단 하나의 차별화된 메시지를 설계합니다. 전략 없는 마케팅은 예산 낭비입니다.",
+      body: "눈에 보이지 않는 서비스일수록, 고객이 '왜 이걸 선택해야 하는지'가 명확해야 합니다. 철저한 시장 조사와 경쟁사 분석으로 브랜드만의 USP를 개발하고, 타겟을 정밀하게 세분화하여 단 하나의 차별화된 메시지를 설계합니다.",
       mockup: <NotionMockup />,
       imageFirst: true,
     },
     {
       num: "02",
       title: "사람들이 반응하는\n포맷을 찾습니다.",
-      body: "자체 데이터 수집·분석 기술로 지금 가장 트렌디하고, 사람들이 실제로 반응하는 콘텐츠 유형을 선별합니다. 감이 아니라 데이터로 포맷을 결정합니다.",
+      body: "무형의 가치를 전달하려면, 사람들이 실제로 멈춰서 보는 포맷이어야 합니다. 자체 데이터 수집·분석 기술로 지금 가장 반응이 높은 콘텐츠 유형을 선별합니다. 감이 아니라 데이터로 결정합니다.",
       mockup: <SpreadsheetMockup />,
       imageFirst: false,
     },
     {
       num: "03",
       title: "동종 업계보다\n나은 결과를 만듭니다.",
-      body: "이렇게 설계된 전략과 포맷으로 광고를 집행하면, 결과는 따라옵니다. 함께한 브랜드들은 동종 업계 평균보다 꾸준히 낮은 결과당 비용을 기록하고 있습니다.",
+      body: "보이지 않는 상품도 제대로 된 전략과 포맷이면 팔립니다. 함께한 브랜드들은 동종 업계 평균보다 꾸준히 낮은 결과당 비용을 기록하고 있습니다.",
       mockup: <MetaNotificationsMockup />,
       imageFirst: true,
     },
@@ -301,7 +299,7 @@ const PhilosophySection = () => {
                 </div>
                 {/* Text side */}
                 <div className={`${row.imageFirst ? 'lg:order-2' : 'lg:order-1'}`}>
-                  <span className="text-[13px] text-primary tracking-[0.15em] uppercase font-medium">{row.num}</span>
+                  <span className="text-[28px] lg:text-[36px] font-serif font-bold text-primary/20 tracking-tight">{row.num}</span>
                   <h3 className="font-serif text-[clamp(26px,3.5vw,36px)] font-semibold text-foreground mt-3 mb-5 leading-[1.35] tracking-[-0.01em] whitespace-pre-line">
                     {row.title}
                   </h3>
