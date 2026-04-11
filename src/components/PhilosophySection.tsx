@@ -1,44 +1,107 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, useAnimation } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
 import Reveal from "@/components/Reveal";
 import iconOk from "@/assets/icon-ok.svg";
+import metaLogo from "@/assets/meta-ads-logo.png";
 
 /* ── Container: 통일된 둥근 박스 ── */
 const MockupBox = ({ children }: { children: React.ReactNode }) => (
-  <div className="rounded-2xl border border-neutral-200 bg-white shadow-card overflow-hidden">
+  <div className="rounded-2xl border border-neutral-200 bg-white shadow-card overflow-hidden max-w-[520px] mx-auto">
     {children}
   </div>
 );
 
-/* ── 1. Notion 페이지 목업 ── */
+/* ── Typing effect hook ── */
+const useTypingEffect = (text: string, startTyping: boolean, speed = 45) => {
+  const [displayed, setDisplayed] = useState("");
+  useEffect(() => {
+    if (!startTyping) { setDisplayed(""); return; }
+    let i = 0;
+    const interval = setInterval(() => {
+      i++;
+      setDisplayed(text.slice(0, i));
+      if (i >= text.length) clearInterval(interval);
+    }, speed);
+    return () => clearInterval(interval);
+  }, [text, startTyping, speed]);
+  return displayed;
+};
+
+/* ── 1. Notion 페이지 목업 (타이핑 애니메이션) ── */
 const NotionMockup = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const [phase, setPhase] = useState(0);
+
+  useEffect(() => {
+    if (!inView) return;
+    // phase 0: initial render
+    // phase 1: page icon appears
+    // phase 2: title typing
+    // phase 3: content appears
+    const t1 = setTimeout(() => setPhase(1), 300);
+    const t2 = setTimeout(() => setPhase(2), 800);
+    const t3 = setTimeout(() => setPhase(3), 2200);
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
+  }, [inView]);
+
+  const titleText = useTypingEffect("차별화 전략", phase >= 2, 80);
+
+  const contentItems = [
+    { icon: "⭐", text: "브랜드 전략 (USP 개발)" },
+    { icon: "🎯", text: "콘텐츠 전략 · 메시지 설계" },
+    { icon: "📂", text: "채널 기획 · 타겟 세그먼트" },
+    { icon: "❗", text: "[필독] 경쟁사 분석 리포트" },
+  ];
+
+  const frameworkItems = [
+    { icon: "📄", text: "고객 페르소나 정의" },
+    { icon: "📄", text: "핵심 메시지 프레임워크" },
+    { icon: "📄", text: "포지셔닝 맵 · 차별화 전략" },
+  ];
 
   return (
     <MockupBox>
       <div ref={ref} className="p-5 lg:p-7">
-        {/* Page icon + title */}
+        {/* Page icon */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.4, delay: 0.15 }}
-          className="mb-5"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={phase >= 1 ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.3, type: "spring", damping: 20 }}
+          className="mb-4"
         >
-          <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-900 to-indigo-600 flex items-center justify-center mb-3 shadow-sm">
-            <span className="text-[20px]">✦</span>
+          <div className="w-11 h-11 rounded-lg bg-gradient-to-br from-indigo-900 to-indigo-600 flex items-center justify-center shadow-sm">
+            <span className="text-[18px]">✦</span>
           </div>
-          <h4 className="text-[20px] font-bold text-neutral-900 tracking-tight">차별화 전략</h4>
         </motion.div>
 
-        {/* Divider */}
-        <div className="border-t border-neutral-100 mb-5" />
+        {/* Title with typing cursor */}
+        <div className="mb-5 min-h-[32px]">
+          <h4 className="text-[20px] font-bold text-neutral-900 tracking-tight">
+            {titleText}
+            {phase >= 2 && phase < 3 && (
+              <motion.span
+                animate={{ opacity: [1, 0] }}
+                transition={{ duration: 0.6, repeat: Infinity, repeatType: "reverse" }}
+                className="inline-block w-[2px] h-[20px] bg-neutral-900 ml-0.5 align-middle"
+              />
+            )}
+          </h4>
+        </div>
 
-        {/* Section: 1. 브랜드 전략 */}
+        {/* Divider */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={phase >= 3 ? { scaleX: 1 } : {}}
+          transition={{ duration: 0.3 }}
+          className="border-t border-neutral-100 mb-5 origin-left"
+        />
+
+        {/* Section: 시장 조사 · USP 개발 */}
         <motion.div
           initial={{ opacity: 0, y: 8 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.35, delay: 0.3 }}
+          animate={phase >= 3 ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.35, delay: 0.1 }}
           className="mb-4"
         >
           <div className="bg-[#fbf3db] px-4 py-2 rounded-md border-l-[3px] border-[#e8c44a] mb-2">
@@ -49,17 +112,12 @@ const NotionMockup = () => {
               <span className="text-[13px]">🧑‍💼</span>
               <span className="text-[13px] font-semibold text-neutral-800">브랜드 전략 워크스페이스</span>
             </div>
-            {[
-              { icon: "⭐", text: "브랜드 전략 (USP 개발)" },
-              { icon: "🎯", text: "콘텐츠 전략 · 메시지 설계" },
-              { icon: "📂", text: "채널 기획 · 타겟 세그먼트" },
-              { icon: "❗", text: "[필독] 경쟁사 분석 리포트" },
-            ].map((item, i) => (
+            {contentItems.map((item, i) => (
               <motion.div
                 key={item.text}
-                initial={{ opacity: 0, x: -6 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.25, delay: 0.45 + i * 0.08 }}
+                initial={{ opacity: 0, x: -8 }}
+                animate={phase >= 3 ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.25, delay: 0.25 + i * 0.1 }}
                 className="flex items-center gap-2 py-[3px] pl-5"
               >
                 <span className="text-[12px]">{item.icon}</span>
@@ -72,57 +130,23 @@ const NotionMockup = () => {
         {/* Section: 메시지 프레임워크 */}
         <motion.div
           initial={{ opacity: 0, y: 8 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.35, delay: 0.7 }}
+          animate={phase >= 3 ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.35, delay: 0.6 }}
         >
           <div className="px-1 mb-2">
             <span className="text-[14px] font-semibold text-neutral-800">메시지 프레임워크</span>
           </div>
           <div className="bg-[#e8f0fe] rounded-md px-4 py-3">
-            {[
-              { icon: "📄", text: "고객 페르소나 정의" },
-              { icon: "📄", text: "핵심 메시지 프레임워크" },
-              { icon: "📄", text: "포지셔닝 맵 · 차별화 전략" },
-            ].map((item, i) => (
+            {frameworkItems.map((item, i) => (
               <motion.div
                 key={item.text}
-                initial={{ opacity: 0, x: -6 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.25, delay: 0.85 + i * 0.08 }}
+                initial={{ opacity: 0, x: -8 }}
+                animate={phase >= 3 ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.25, delay: 0.75 + i * 0.1 }}
                 className="flex items-center gap-2 py-[3px] pl-5"
               >
                 <span className="text-[12px]">{item.icon}</span>
                 <span className="text-[13px] text-neutral-600">{item.text}</span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Section: 채널 */}
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.35, delay: 1.0 }}
-          className="mt-4"
-        >
-          <div className="px-1 mb-2">
-            <span className="text-[14px] font-semibold text-neutral-800">채널 전략</span>
-          </div>
-          <div className="px-4 space-y-1">
-            {[
-              { icon: "📷", text: "Instagram (@brand_official)", color: "text-neutral-700" },
-              { icon: "▶", text: "YouTube 브랜드 채널", color: "text-neutral-700" },
-              { icon: "📌", text: "네이버 카페 · 블로그", color: "text-neutral-400" },
-            ].map((item, i) => (
-              <motion.div
-                key={item.text}
-                initial={{ opacity: 0, x: -6 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.25, delay: 1.1 + i * 0.08 }}
-                className={`flex items-center gap-2 py-[2px] ${item.color}`}
-              >
-                <span className="text-[12px]">{item.icon}</span>
-                <span className="text-[13px]">{item.text}</span>
               </motion.div>
             ))}
           </div>
@@ -218,7 +242,7 @@ const SpreadsheetMockup = () => {
             >
               <div className="px-1.5 py-1 bg-[#f8f9fa] border-r border-neutral-200 text-neutral-400 text-center font-mono">{row.n}</div>
               {row.cells.map((cell, j) => (
-                <div key={j} className={`px-1.5 py-1 border-r border-neutral-100 truncate ${j === 3 ? '' : ''} ${row.highlight && j === 5 ? 'text-emerald-700 font-bold' : 'text-neutral-700'} ${j === 1 ? 'text-blue-600' : ''}`}>
+                <div key={j} className={`px-1.5 py-1 border-r border-neutral-100 truncate ${row.highlight && j === 5 ? 'text-emerald-700 font-bold' : 'text-neutral-700'} ${j === 1 ? 'text-blue-600' : ''}`}>
                   {j === 3 ? (
                     <span className={`text-[7px] lg:text-[8px] px-1.5 py-0.5 rounded ${typeColor(cell)}`}>{cell}</span>
                   ) : cell}
@@ -232,7 +256,7 @@ const SpreadsheetMockup = () => {
   );
 };
 
-/* ── 3. 메타 광고 알림 팝업 (Apple 스타일, 정갈하게 세로 스택) ── */
+/* ── 3. 메타 광고 알림 팝업 ── */
 const MetaNotificationsMockup = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
@@ -248,52 +272,48 @@ const MetaNotificationsMockup = () => {
 
   return (
     <MockupBox>
-      <div ref={ref} className="bg-neutral-100/80 p-4 lg:p-5 space-y-2.5">
-        {notifications.map((n, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 16, scale: 0.97 }}
-            animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-            transition={{
-              duration: 0.4,
-              delay: 0.2 + i * 0.18,
-              type: "spring",
-              damping: 25,
-              stiffness: 250,
-            }}
-          >
-            {/* Notification header */}
-            <div className="flex items-center justify-between px-4 pt-3 pb-0">
-              <span className="text-[12px] font-semibold text-neutral-500 tracking-tight">광고 관리자</span>
-              <div className="flex items-center gap-2">
-                <span className="text-[11px] text-neutral-400">˅ 간략히 보기</span>
-                <span className="text-[12px] text-neutral-400">✕</span>
-              </div>
-            </div>
-            {/* Notification body */}
-            <div className="bg-white/95 rounded-2xl shadow-sm border border-neutral-200/50 mx-0 px-4 py-3 flex items-center gap-3 mt-1">
-              {/* Meta icon */}
-              <div className="w-10 h-10 rounded-[10px] bg-gradient-to-br from-[#4facfe] to-[#43e97b] flex items-center justify-center flex-shrink-0">
-                <svg viewBox="0 0 24 24" className="w-5 h-5 text-white" fill="currentColor">
-                  <circle cx="12" cy="12" r="10" fill="white" opacity="0.3" />
-                  <circle cx="12" cy="12" r="6" fill="white" opacity="0.6" />
-                </svg>
-              </div>
+      <div ref={ref} className="bg-neutral-50">
+        {/* 광고 관리자 header */}
+        <div className="flex items-center justify-between px-5 py-3 border-b border-neutral-200">
+          <div className="flex items-center gap-2">
+            <img src={metaLogo} alt="Meta" className="w-5 h-5 rounded" />
+            <span className="text-[13px] font-semibold text-neutral-700">광고 관리자</span>
+          </div>
+          <span className="text-[11px] text-neutral-400">˅ 간략히 보기</span>
+        </div>
+
+        {/* Notification cards */}
+        <div className="p-3 space-y-2">
+          {notifications.map((n, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20, scale: 0.97 }}
+              animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+              transition={{
+                duration: 0.4,
+                delay: 0.15 + i * 0.15,
+                type: "spring",
+                damping: 22,
+                stiffness: 220,
+              }}
+              className="bg-white rounded-xl px-4 py-3 flex items-center gap-3 border border-neutral-100 shadow-sm"
+            >
+              <img src={metaLogo} alt="Meta" className="w-9 h-9 rounded-lg flex-shrink-0" />
               <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
-                    <span className="text-[15px]">👍</span>
-                    <span className="text-[13px] font-semibold text-neutral-800">광고 성과가 좋습니다</span>
+                    <span className="text-[14px]">👍</span>
+                    <span className="text-[12px] font-semibold text-neutral-800">광고 성과가 좋습니다</span>
                   </div>
-                  <span className="text-[11px] text-neutral-400 flex-shrink-0 ml-2">{n.time}</span>
+                  <span className="text-[10px] text-neutral-400 flex-shrink-0 ml-2">{n.time}</span>
                 </div>
-                <p className="text-[12px] text-neutral-500 mt-0.5">
+                <p className="text-[11px] text-neutral-500 mt-0.5">
                   결과당 비용이 동종 업계보다 <span className="font-semibold text-neutral-700">{n.percent}</span> 낮습니다.
                 </p>
               </div>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </MockupBox>
   );
@@ -338,7 +358,7 @@ const PhilosophySection = () => {
         <div className="space-y-24 lg:space-y-36">
           {rows.map((row) => (
             <Reveal key={row.num}>
-              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center`}>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
                 {/* Image side */}
                 <div className={`${row.imageFirst ? 'lg:order-1' : 'lg:order-2'}`}>
                   {row.mockup}
