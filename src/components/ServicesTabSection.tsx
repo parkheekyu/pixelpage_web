@@ -1,4 +1,5 @@
 import { useState } from "react";
+import iconMovieClapper from "@/assets/icon-movie-clapper.svg";
 import { Link } from "react-router-dom";
 import {
   ArrowRight, Megaphone, Video, Search, Mail, Globe,
