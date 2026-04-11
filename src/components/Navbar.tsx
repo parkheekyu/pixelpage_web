@@ -56,7 +56,7 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center gap-10">
           {navItems.map((item) => (
             <div key={item.label} className="relative group">
-              <Link to={item.href} className={`text-[14px] font-normal transition-colors ${useLight ? "text-cream/70 hover:text-cream" : "text-foreground/70 hover:text-foreground"}`}>
+              <Link to={item.href} className={`text-[15.5px] font-normal transition-colors ${useLight ? "text-cream/70 hover:text-cream" : "text-foreground/70 hover:text-foreground"}`}>
                 {item.label}
               </Link>
               {item.dropdown && (
