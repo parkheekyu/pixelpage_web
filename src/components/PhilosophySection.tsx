@@ -52,7 +52,7 @@ const NotionMockup = () => {
               <motion.div
                 key={item.text}
                 initial={{ opacity: 0, x: -8 }}
-                animate={phase >= 3 ? { opacity: 1, x: 0 } : {}}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.25, delay: 0.25 + i * 0.1 }}
                 className="flex items-center gap-2 py-[3px] pl-5"
               >
