@@ -122,34 +122,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ─── HOW WE WORK ─── */}
-      <section className="py-28 lg:py-36 bg-background">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
-          <Reveal className="text-center">
-            <img src={iconCloud} alt="Process" className="w-10 h-10 mb-5 mx-auto" />
-            <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-semibold text-foreground leading-[1.2] tracking-[-0.02em]">
-              어떻게 일하나요?
-            </h2>
-            <p className="text-[19px] text-muted-foreground mt-4 max-w-[480px] mx-auto leading-[1.9]">
-              계약 전 무료 상담에서 브랜드를 함께 진단하고, 최적의 서비스 조합을 설계합니다.
-            </p>
-          </Reveal>
-          <Reveal className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
-            {[
-              { s: "01", t: "브랜드 진단", d: "무형 서비스의 핵심 가치, 기존 마케팅 자산, 경쟁 환경을 분석합니다." },
-              { s: "02", t: "채널 · 퍼널 설계", d: "5가지 서비스 중 최적의 조합을 설계합니다. 예산 배분, KPI, 타임라인을 함께 정합니다." },
-              { s: "03", t: "집행 · 크리에이티브", d: "서사형 광고 소재를 제작하고, A/B 테스트를 반복하며 최적화합니다." },
-              { s: "04", t: "스케일업 · 확장", d: "검증된 소재와 채널을 기반으로 빠르게 스케일업합니다." },
-            ].map(p => (
-              <div key={p.s} className="border-t border-border pt-7 pr-6 pb-7">
-                <span className="text-[13px] text-primary tracking-[0.1em]">{p.s}</span>
-                <h3 className="text-[19px] font-medium text-foreground mt-3 mb-3">{p.t}</h3>
-                <p className="text-[17px] text-muted-foreground leading-[1.9]">{p.d}</p>
-              </div>
-            ))}
-          </Reveal>
-        </div>
-      </section>
+      {/* ─── WHY WE DELIVER ─── */}
+      <PhilosophySection />
 
       {/* ─── CONTACT ─── */}
       <section id="contact" className="py-28 lg:py-36 bg-surface-beige">
