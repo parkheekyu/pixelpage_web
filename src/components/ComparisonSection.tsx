@@ -58,7 +58,7 @@ const AgencyFunnel = () => {
         transition={{ duration: 0.3, delay: 0.7 }}
         className="mt-6 text-center"
       >
-        <span className="text-[15px] text-muted-foreground/60 bg-secondary px-4 py-2 rounded-full">
+        <span className="text-[15px] font-medium text-muted-foreground bg-secondary px-4 py-2 rounded-full">
           클릭 이후는 알아서 하세요 👋
         </span>
       </motion.div>
