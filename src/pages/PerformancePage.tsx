@@ -5,6 +5,7 @@ import PageMeta from "@/components/PageMeta";
 import illustHero from "@/assets/illust-performance-hero.png";
 import iconOk from "@/assets/icon-ok.svg";
 import iconRocket from "@/assets/icon-rocket.svg";
+import iconFileForm from "@/assets/icon-file-form.svg";
 import iconTrophy from "@/assets/icon-trophy.svg";
 import {
   CampaignStructureMockup,
