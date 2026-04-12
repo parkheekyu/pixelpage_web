@@ -1,7 +1,5 @@
 import { ArrowRight, ArrowLeft, AlertTriangle, TrendingUp, Layers, BarChart3, Video } from "lucide-react";
 import { Link } from "react-router-dom";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
 import illustHero from "@/assets/illust-performance-hero.png";
@@ -9,12 +7,13 @@ import perfStructure from "@/assets/perf-structure.png";
 import perfOverlap from "@/assets/perf-overlap.png";
 import perfScaling from "@/assets/perf-scaling.png";
 import perfLifecycle from "@/assets/perf-lifecycle.png";
+import iconOk from "@/assets/icon-ok.svg";
 import iconRocket from "@/assets/icon-rocket.svg";
+import iconTrophy from "@/assets/icon-trophy.svg";
 
 /* ─────────────── Section 01 · Hero ─────────────── */
 const HeroSection = () => (
   <section className="relative min-h-screen flex items-center pt-32 pb-20 bg-dark overflow-hidden">
-    {/* Film grain */}
     <div className="absolute inset-0 z-[1] pointer-events-none opacity-[0.105] mix-blend-multiply" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
     <div className="relative z-10 max-w-[1240px] mx-auto w-full px-6 lg:px-12">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
@@ -22,7 +21,7 @@ const HeroSection = () => (
           <Link to="/" className="inline-flex items-center gap-1.5 text-[12px] text-cream/50 hover:text-primary transition-colors mb-10 opacity-0 animate-fade-up stagger-1">
             <ArrowLeft className="w-3 h-3" /> 홈으로
           </Link>
-          <p className="text-[15px] tracking-[0.2em] uppercase text-primary mb-6 opacity-0 animate-fade-up stagger-1">
+          <p className="text-[15px] tracking-[0.2em] uppercase text-cream/40 mb-6 opacity-0 animate-fade-up stagger-1">
             Performance Marketing
           </p>
           <h1 className="font-serif text-[clamp(52px,7.5vw,96px)] font-semibold leading-[1.1] tracking-[-0.03em] text-cream mb-7 opacity-0 animate-fade-up stagger-2">
@@ -38,7 +37,6 @@ const HeroSection = () => (
               지금 무료 광고 진단 받기
             </a>
           </div>
-          {/* Trust anchors */}
           <div className="flex flex-wrap gap-10 opacity-0 animate-fade-up stagger-5">
             {[
               { n: "12억+", l: "누적 광고비 운용" },
@@ -52,7 +50,7 @@ const HeroSection = () => (
             ))}
           </div>
         </div>
-        <div className="hidden lg:flex justify-center items-center relative">
+        <div className="hidden lg:flex justify-center items-center">
           <div className="animate-float">
             <img src={illustHero} alt="퍼포먼스 마케팅" className="w-[400px]" width={1024} height={1024} />
           </div>
@@ -106,62 +104,91 @@ const PainSection = () => {
   );
 };
 
-/* ─────────────── Section 03 · Structure ─────────────── */
+/* ─────────────── Section 03 · Structure (교육 섹션) ─────────────── */
 const StructureSection = () => {
-  const matrix = [
-    { ctr: "High", cpa: "Low", action: "전력 스케일", desc: "예산 올려라", bg: "bg-primary/10", border: "border-primary/20", text: "text-primary" },
-    { ctr: "High", cpa: "High", action: "타겟 조정", desc: "입찰 경쟁이 문제", bg: "bg-gold/10", border: "border-gold/20", text: "text-gold" },
-    { ctr: "Low", cpa: "Low", action: "소재 교체", desc: "새 소재 투입", bg: "bg-muted", border: "border-border", text: "text-muted-foreground" },
-    { ctr: "Low", cpa: "High", action: "즉시 중지", desc: "끄고 점검", bg: "bg-destructive/10", border: "border-destructive/20", text: "text-destructive" },
+  const articles = [
+    {
+      title: "캠페인, 광고세트, 광고\n3단 구조를 먼저 이해하라",
+      body: "메타 광고는 캠페인·광고세트·광고 세 단계로 나뉩니다. 이 구조를 모르면 테스트도, 최적화도, 예산 분배도 감으로 하게 됩니다. 구조가 곧 실험 설계입니다.",
+      image: perfStructure,
+      imageAlt: "캠페인 3단 구조",
+      imageFirst: true,
+    },
+    {
+      title: "광고 세트를 나눴는데\n왜 성과가 안 나올까?",
+      body: "타겟을 세분화했는데 오히려 CPA가 올라갑니다. 내 광고끼리 같은 사람을 놓고 경쟁하고 있기 때문입니다. 오디언스 오버랩을 모르면 예산을 쪼갤수록 비효율이 커집니다.",
+      image: perfOverlap,
+      imageAlt: "오디언스 오버랩 문제",
+      imageFirst: false,
+    },
+    {
+      title: "예산을 올리면\n성과도 같이 오를까?",
+      body: "잘 되는 캠페인의 예산을 올리면 성과도 비례해서 오를 것 같지만, 현실은 다릅니다. 단계별로 어떤 일이 벌어지는지 알아야 예산을 안전하게 키울 수 있습니다.",
+      image: perfScaling,
+      imageAlt: "예산 스케일링 타임라인",
+      imageFirst: true,
+    },
+    {
+      title: "왜 잘되던 광고가\n갑자기 죽을까?",
+      body: "모든 광고 소재에는 수명이 있습니다. 성과가 좋을수록 빠르게 소진되고, 그 타이밍을 놓치면 예산만 낭비됩니다. 이 구조를 알면 죽기 전에 다음 판을 준비할 수 있습니다.",
+      image: perfLifecycle,
+      imageAlt: "소재 성과 생애주기",
+      imageFirst: false,
+    },
   ];
 
   return (
     <section className="py-28 lg:py-36 bg-background">
       <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
-        <Reveal className="text-center mb-16 lg:mb-20">
+        <Reveal className="text-center mb-20 lg:mb-28">
           <img src={iconRocket} alt="" className="w-10 h-10 mb-5 mx-auto" />
           <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-semibold text-foreground leading-[1.2] tracking-[-0.02em]">
-            캠페인 → 광고세트 → 광고<br />이 구조가 곧 전략입니다
+            대부분의 광고 실패는<br />세팅 문제가 아닙니다.
           </h2>
-          <p className="text-[17px] text-muted-foreground max-w-[560px] mx-auto leading-[1.9] mt-6">
-            대부분의 광고 실패는 세팅 문제가 아닙니다.<br />
+          <p className="text-[17px] text-muted-foreground max-w-[520px] mx-auto leading-[1.9] mt-6">
             구조 이해 없이 최적화를 시도한 결과입니다.
           </p>
         </Reveal>
 
-        {/* Campaign structure image */}
-        <Reveal className="mb-12">
-          <div className="rounded-2xl overflow-hidden border border-border bg-card shadow-card">
-            <img src={perfStructure} alt="캠페인 3단 구조" className="w-full" loading="lazy" />
-          </div>
-        </Reveal>
-
-        {/* Supporting visuals */}
-        <Reveal className="mb-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="rounded-2xl overflow-hidden border border-border bg-card shadow-card">
-              <img src={perfOverlap} alt="오디언스 오버랩 문제" className="w-full" loading="lazy" />
-            </div>
-            <div className="rounded-2xl overflow-hidden border border-border bg-card shadow-card">
-              <img src={perfLifecycle} alt="소재 성과 생애주기" className="w-full" loading="lazy" />
-            </div>
-          </div>
-        </Reveal>
-
-        {/* Scaling */}
-        <Reveal className="mb-20">
-          <div className="rounded-2xl overflow-hidden border border-border bg-card shadow-card max-w-[800px] mx-auto">
-            <img src={perfScaling} alt="예산 스케일링 타임라인" className="w-full" loading="lazy" />
-          </div>
-        </Reveal>
+        <div className="space-y-24 lg:space-y-36">
+          {articles.map((article, idx) => (
+            <Reveal key={idx}>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                {/* Image */}
+                <div className={article.imageFirst ? "lg:order-1" : "lg:order-2"}>
+                  <div className="rounded-2xl overflow-hidden border border-border bg-card shadow-card">
+                    <img src={article.image} alt={article.imageAlt} className="w-full" loading="lazy" />
+                  </div>
+                </div>
+                {/* Text */}
+                <div className={article.imageFirst ? "lg:order-2" : "lg:order-1"}>
+                  <span className="text-[28px] lg:text-[36px] font-serif font-bold text-primary/20 tracking-tight">
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="font-serif text-[clamp(26px,3.5vw,36px)] font-semibold text-foreground mt-3 mb-5 leading-[1.35] tracking-[-0.01em] whitespace-pre-line">
+                    {article.title}
+                  </h3>
+                  <p className="text-[17px] text-muted-foreground leading-[2] max-w-[460px]">
+                    {article.body}
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
 
         {/* CTR × CPA Matrix */}
-        <Reveal className="text-center">
+        <Reveal className="mt-24 lg:mt-36 text-center">
           <h3 className="font-serif text-[clamp(26px,3.5vw,36px)] font-semibold text-foreground mb-10 tracking-[-0.01em]">
             CTR × CPA 판단 매트릭스
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-[640px] mx-auto">
-            {matrix.map(m => (
+            {[
+              { ctr: "High", cpa: "Low", action: "전력 스케일", desc: "예산 올려라", bg: "bg-primary/10", border: "border-primary/20", text: "text-primary" },
+              { ctr: "High", cpa: "High", action: "타겟 조정", desc: "입찰 경쟁이 문제", bg: "bg-gold/10", border: "border-gold/20", text: "text-gold" },
+              { ctr: "Low", cpa: "Low", action: "소재 교체", desc: "새 소재 투입", bg: "bg-secondary", border: "border-border", text: "text-muted-foreground" },
+              { ctr: "Low", cpa: "High", action: "즉시 중지", desc: "끄고 점검", bg: "bg-destructive/10", border: "border-destructive/20", text: "text-destructive" },
+            ].map(m => (
               <div key={m.action} className={`rounded-xl border p-6 text-left ${m.bg} ${m.border}`}>
                 <span className={`text-[12px] font-medium ${m.text} opacity-70`}>CTR {m.ctr} · CPA {m.cpa}</span>
                 <h4 className={`text-[18px] font-bold mt-2 mb-1 ${m.text}`}>{m.action}</h4>
@@ -185,14 +212,14 @@ const DifferentiationSection = () => {
   ];
 
   return (
-    <section className="py-28 lg:py-36 bg-dark">
+    <section className="py-28 lg:py-36 bg-surface-beige">
       <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
         <Reveal className="text-center mb-16 lg:mb-20">
-          <p className="font-display text-[13px] tracking-[0.25em] uppercase text-primary mb-6">Why Us</p>
-          <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-semibold text-cream leading-[1.2] tracking-[-0.02em]">
+          <img src={iconOk} alt="" className="w-10 h-10 mb-5 mx-auto" />
+          <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-semibold text-foreground leading-[1.2] tracking-[-0.02em]">
             소재 한 장부터<br />월 억 단위 예산 운용까지
           </h2>
-          <p className="text-[17px] text-cream/40 max-w-[480px] mx-auto leading-[1.9] mt-6">
+          <p className="text-[17px] text-muted-foreground max-w-[480px] mx-auto leading-[1.9] mt-6">
             단순 집행을 넘어선 압도적 범위. 이 팀 하나면 됩니다.
           </p>
         </Reveal>
@@ -200,12 +227,12 @@ const DifferentiationSection = () => {
         <Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {items.map(item => (
-              <div key={item.t} className="border border-cream/10 rounded-xl p-8 hover:bg-cream/5 transition-colors">
-                <div className="w-10 h-10 rounded-lg bg-primary/15 flex items-center justify-center text-primary mb-5">
+              <div key={item.t} className="border border-border rounded-2xl p-8 bg-card shadow-card hover:shadow-card-hover transition-shadow">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-5">
                   {item.icon}
                 </div>
-                <h4 className="text-[18px] font-semibold text-cream mb-3">{item.t}</h4>
-                <p className="text-[15px] text-cream/45 leading-[1.9]">{item.d}</p>
+                <h4 className="text-[18px] font-semibold text-foreground mb-3">{item.t}</h4>
+                <p className="text-[15px] text-muted-foreground leading-[1.9]">{item.d}</p>
               </div>
             ))}
           </div>
@@ -233,14 +260,13 @@ const SocialProofSection = () => {
     <section className="py-28 lg:py-36 bg-surface-white">
       <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
         <Reveal className="text-center mb-16 lg:mb-20">
-          <p className="font-display text-[13px] tracking-[0.25em] uppercase text-primary mb-6">Results</p>
+          <img src={iconTrophy} alt="" className="w-10 h-10 mb-5 mx-auto" />
           <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-semibold text-foreground leading-[1.2] tracking-[-0.02em]">
             이상한마케팅은 후기를 자랑합니다.<br />
             <span className="text-primary">저희는 수치를 꺼냅니다.</span>
           </h2>
         </Reveal>
 
-        {/* Big stat cards */}
         <Reveal className="mb-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {stats.map(s => (
@@ -254,7 +280,6 @@ const SocialProofSection = () => {
           </div>
         </Reveal>
 
-        {/* Case study list — matching main page style */}
         <div className="space-y-0">
           {cases.map(c => (
             <Reveal key={c.industry}>
@@ -264,9 +289,7 @@ const SocialProofSection = () => {
                   <h3 className="font-serif text-[22px] lg:text-[26px] font-medium text-foreground mt-2">과제: {c.challenge}</h3>
                 </div>
                 <div>
-                  <p className="text-[17px] lg:text-[19px] text-foreground leading-[1.85] tracking-[-0.01em]">
-                    "{c.quote}"
-                  </p>
+                  <p className="text-[17px] lg:text-[19px] text-foreground leading-[1.85] tracking-[-0.01em]">"{c.quote}"</p>
                   <p className="text-[14px] text-muted-foreground mt-3">{c.approach}</p>
                   <p className="text-[13px] text-primary font-semibold mt-2">{c.result}</p>
                 </div>
@@ -289,25 +312,25 @@ const ProcessSection = () => {
   ];
 
   return (
-    <section className="py-28 lg:py-36 bg-dark">
+    <section className="py-28 lg:py-36 bg-background">
       <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
         <Reveal className="text-center mb-16 lg:mb-20">
           <p className="font-display text-[13px] tracking-[0.25em] uppercase text-primary mb-6">Process</p>
-          <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-semibold text-cream leading-[1.2] tracking-[-0.02em]">
+          <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-semibold text-foreground leading-[1.2] tracking-[-0.02em]">
             계약 후 연락이 끊기는<br />대행사에 지쳤다면 —
           </h2>
-          <p className="text-[17px] text-cream/40 max-w-[480px] mx-auto leading-[1.9] mt-6">
+          <p className="text-[17px] text-muted-foreground max-w-[480px] mx-auto leading-[1.9] mt-6">
             저희는 다릅니다.
           </p>
         </Reveal>
 
         <Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {steps.map(s => (
-              <div key={s.n} className="border-t-2 border-primary pt-8 pr-8 pb-8">
-                <span className="text-[28px] lg:text-[36px] font-serif font-bold text-primary/20 tracking-tight">{s.n}</span>
-                <h3 className="text-[18px] font-semibold text-cream mt-3 mb-4">{s.t}</h3>
-                <p className="text-[15px] text-cream/45 leading-[2]">{s.d}</p>
+              <div key={s.n} className="border border-border rounded-2xl p-7 bg-card shadow-card">
+                <span className="text-[28px] font-serif font-bold text-primary/20 tracking-tight">{s.n}</span>
+                <h3 className="text-[17px] font-semibold text-foreground mt-3 mb-3">{s.t}</h3>
+                <p className="text-[15px] text-muted-foreground leading-[1.9]">{s.d}</p>
               </div>
             ))}
           </div>
