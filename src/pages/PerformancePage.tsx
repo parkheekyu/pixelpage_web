@@ -8,7 +8,6 @@ import iconRocket from "@/assets/icon-rocket.svg";
 import iconFileForm from "@/assets/icon-file-form.svg";
 import iconTrophy from "@/assets/icon-trophy.svg";
 import {
-  CampaignStructureMockup,
   AudienceOverlapMockup,
   BudgetScalingMockup,
   CreativeLifecycleMockup,
