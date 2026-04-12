@@ -3,133 +3,116 @@ import { useRef } from "react";
 import Reveal from "@/components/Reveal";
 import iconOk from "@/assets/icon-ok.svg";
 
-/* ── 보통 대행사 퍼널 (flat, 끊김) ── */
+/* ── 보통 대행사: 끊긴 퍼널 ── */
 const AgencyFunnel = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
-  const steps = [
-    { label: "광고 세팅", color: "bg-neutral-300" },
-    { label: "노출", color: "bg-neutral-300" },
-    { label: "클릭", color: "bg-neutral-400" },
-  ];
-
-  const gap = [
-    { label: "랜딩 최적화", color: "bg-neutral-200", dashed: true },
-    { label: "리텐션 설계", color: "bg-neutral-200", dashed: true },
-    { label: "매출 전환", color: "bg-neutral-200", dashed: true },
+  const layers = [
+    { label: "광고 세팅", width: "100%", active: true },
+    { label: "노출", width: "85%", active: true },
+    { label: "클릭", width: "70%", active: true },
+    { label: "전환 설계", width: "55%", active: false },
+    { label: "리텐션", width: "40%", active: false },
+    { label: "매출", width: "25%", active: false },
   ];
 
   return (
     <div ref={ref} className="rounded-2xl border border-neutral-200 bg-white shadow-card overflow-hidden p-6 lg:p-8">
-      {/* Header */}
-      <div className="flex items-center gap-2 mb-6">
-        <div className="w-3 h-3 rounded-full bg-neutral-300" />
-        <span className="text-[15px] font-semibold text-neutral-500">보통 광고 대행사</span>
+      <div className="flex items-center gap-2 mb-2">
+        <div className="w-2.5 h-2.5 rounded-full bg-neutral-300" />
+        <span className="text-[14px] font-semibold text-neutral-400">보통 광고 대행사</span>
       </div>
+      <p className="text-[12px] text-neutral-400 mb-6">광고 세팅 → 보고서 → 끝</p>
 
-      {/* Active steps */}
-      <div className="space-y-2.5 mb-4">
-        {steps.map((s, i) => (
+      <div className="flex flex-col items-center gap-1.5">
+        {layers.map((layer, i) => (
           <motion.div
-            key={s.label}
-            initial={{ opacity: 0, x: -16 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.3, delay: 0.1 + i * 0.12 }}
-            className="flex items-center gap-3"
+            key={layer.label}
+            initial={{ opacity: 0, scaleX: 0.5 }}
+            animate={inView ? { opacity: layer.active ? 1 : 0.35, scaleX: 1 } : {}}
+            transition={{ duration: 0.35, delay: 0.1 + i * 0.08 }}
+            style={{ width: layer.width }}
+            className="origin-center"
           >
-            <div className={`w-2 h-2 rounded-full ${s.color} flex-shrink-0`} />
-            <div className={`${s.color} rounded-md px-4 py-2.5 flex-1`}>
-              <span className="text-[13px] font-medium text-neutral-600">{s.label}</span>
+            <div
+              className={`rounded-md px-4 py-2.5 text-center ${
+                layer.active
+                  ? "bg-neutral-200 border border-neutral-300"
+                  : "border border-dashed border-neutral-200"
+              }`}
+            >
+              <span className={`text-[12px] font-medium ${
+                layer.active ? "text-neutral-500" : "text-neutral-300 line-through"
+              }`}>
+                {layer.label}
+              </span>
             </div>
           </motion.div>
         ))}
       </div>
 
-      {/* Dashed separator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.3, delay: 0.5 }}
-        className="border-t-2 border-dashed border-neutral-200 my-4 relative"
+        transition={{ duration: 0.3, delay: 0.7 }}
+        className="mt-6 text-center"
       >
-        <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white px-3 text-[11px] text-neutral-400 font-medium">여기서 끝</span>
+        <span className="text-[11px] text-neutral-400 bg-neutral-100 px-3 py-1.5 rounded-full">
+          클릭 이후는 알아서 하세요 👋
+        </span>
       </motion.div>
-
-      {/* Inactive steps */}
-      <div className="space-y-2.5">
-        {gap.map((s, i) => (
-          <motion.div
-            key={s.label}
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 0.45 } : {}}
-            transition={{ duration: 0.3, delay: 0.6 + i * 0.1 }}
-            className="flex items-center gap-3"
-          >
-            <div className="w-2 h-2 rounded-full bg-neutral-200 flex-shrink-0" />
-            <div className="border border-dashed border-neutral-200 rounded-md px-4 py-2.5 flex-1">
-              <span className="text-[13px] text-neutral-400 line-through">{s.label}</span>
-            </div>
-          </motion.div>
-        ))}
-      </div>
     </div>
   );
 };
 
-/* ── 런모아 퍼널 (full, 연결됨) ── */
-const RunmoaFunnel = () => {
+/* ── 픽셀페이지: AARRR 풀퍼널 ── */
+const PixelPageFunnel = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
-  const steps = [
-    { label: "시장 조사 · USP 개발", sub: "브랜드 포지셔닝", color: "from-[hsl(15,55%,58%)] to-[hsl(15,60%,65%)]" },
-    { label: "퍼널 · 채널 설계", sub: "타겟 세그먼트", color: "from-[hsl(15,50%,55%)] to-[hsl(15,55%,62%)]" },
-    { label: "크리에이티브 제작", sub: "A/B 테스트", color: "from-[hsl(20,45%,50%)] to-[hsl(15,50%,58%)]" },
-    { label: "광고 집행 · 최적화", sub: "실시간 모니터링", color: "from-[hsl(25,40%,45%)] to-[hsl(20,45%,52%)]" },
-    { label: "리텐션 · CRM", sub: "고객 재방문 유도", color: "from-[hsl(25,35%,40%)] to-[hsl(25,40%,48%)]" },
-    { label: "매출 전환 · 스케일업", sub: "ROAS 극대화", color: "from-[hsl(25,30%,35%)] to-[hsl(25,35%,42%)]" },
+  const layers = [
+    { label: "Acquisition", sub: "유입 설계 · 채널 최적화", width: "100%", hue: 220 },
+    { label: "Activation", sub: "첫 경험 설계 · 랜딩 최적화", width: "85%", hue: 250 },
+    { label: "Retention", sub: "CRM 자동화 · 리텐션 루프", width: "70%", hue: 280 },
+    { label: "Referral", sub: "바이럴 설계 · 공유 트리거", width: "55%", hue: 340 },
+    { label: "Revenue", sub: "매출 전환 · ROAS 극대화", width: "40%", hue: 15 },
   ];
 
   return (
     <div ref={ref} className="rounded-2xl border border-primary/20 bg-white shadow-card overflow-hidden p-6 lg:p-8 ring-1 ring-primary/10">
-      {/* Header */}
-      <div className="flex items-center gap-2 mb-6">
-        <div className="w-3 h-3 rounded-full bg-primary" />
-        <span className="text-[15px] font-semibold text-foreground">런모아</span>
-        <span className="ml-auto text-[11px] bg-primary/10 text-primary font-medium px-2.5 py-1 rounded-full">End-to-End</span>
+      <div className="flex items-center gap-2 mb-2">
+        <div className="w-2.5 h-2.5 rounded-full bg-primary" />
+        <span className="text-[14px] font-semibold text-foreground">픽셀페이지</span>
+        <span className="ml-auto text-[10px] bg-primary/10 text-primary font-semibold px-2.5 py-1 rounded-full tracking-wide">AARRR DRIVEN</span>
       </div>
+      <p className="text-[12px] text-muted-foreground mb-6">데이터 기반 그로스 마케팅 · 풀퍼널 설계</p>
 
-      {/* Full funnel */}
-      <div className="space-y-2">
-        {steps.map((s, i) => (
+      <div className="flex flex-col items-center gap-1">
+        {layers.map((layer, i) => (
           <motion.div
-            key={s.label}
-            initial={{ opacity: 0, x: -16, scale: 0.97 }}
-            animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
+            key={layer.label}
+            initial={{ opacity: 0, scaleX: 0.3, y: -8 }}
+            animate={inView ? { opacity: 1, scaleX: 1, y: 0 } : {}}
             transition={{
-              duration: 0.35,
-              delay: 0.15 + i * 0.12,
+              duration: 0.4,
+              delay: 0.15 + i * 0.13,
               type: "spring",
-              damping: 22,
-              stiffness: 200,
+              damping: 20,
+              stiffness: 180,
             }}
+            style={{ width: layer.width }}
+            className="origin-center"
           >
-            <div className={`bg-gradient-to-r ${s.color} rounded-lg px-4 py-3 flex items-center justify-between`}>
-              <div className="flex items-center gap-2.5">
-                <span className="text-[13px] font-bold text-white/50">{String(i + 1).padStart(2, '0')}</span>
-                <span className="text-[13px] font-semibold text-white">{s.label}</span>
-              </div>
-              <span className="text-[11px] text-white/70">{s.sub}</span>
+            <div
+              className="rounded-lg px-4 py-3 text-center"
+              style={{
+                background: `linear-gradient(135deg, hsl(${layer.hue}, 55%, 52%), hsl(${layer.hue + 15}, 50%, 60%))`,
+              }}
+            >
+              <span className="text-[12px] font-bold text-white/90 tracking-wide">{layer.label}</span>
+              <span className="block text-[10px] text-white/60 mt-0.5">{layer.sub}</span>
             </div>
-            {i < steps.length - 1 && (
-              <motion.div
-                initial={{ scaleY: 0 }}
-                animate={inView ? { scaleY: 1 } : {}}
-                transition={{ duration: 0.2, delay: 0.3 + i * 0.12 }}
-                className="w-px h-3 bg-primary/30 mx-auto origin-top"
-              />
-            )}
           </motion.div>
         ))}
       </div>
@@ -138,11 +121,11 @@ const RunmoaFunnel = () => {
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.4, delay: 1.0 }}
-        className="mt-5 bg-primary/5 border border-primary/15 rounded-xl px-5 py-3 text-center"
+        transition={{ duration: 0.4, delay: 0.9 }}
+        className="mt-6 bg-primary/5 border border-primary/15 rounded-xl px-5 py-3 text-center"
       >
-        <span className="text-[13px] text-primary font-semibold">
-          동종 업계 평균 대비 결과당 비용 최대 83% ↓
+        <span className="text-[12px] text-primary font-semibold">
+          모든 단계를 데이터로 측정 · 최적화 → 결과당 비용 최대 83% ↓
         </span>
       </motion.div>
     </div>
@@ -161,22 +144,21 @@ const ComparisonSection = () => {
           </h2>
           <p className="text-[17px] text-muted-foreground max-w-[520px] mx-auto leading-[1.9] mt-6">
             광고 세팅만 하고 끝나는 대행이 아닙니다.<br />
-            시장 조사부터 매출 전환까지, 전 과정을 설계합니다.
+            AARRR 퍼널 전체를 데이터로 설계하고 최적화합니다.
           </p>
         </Reveal>
 
         <Reveal>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
             <AgencyFunnel />
-            <RunmoaFunnel />
+            <PixelPageFunnel />
           </div>
         </Reveal>
 
-        {/* Bottom copy */}
         <Reveal className="mt-16 lg:mt-20 text-center">
           <p className="text-[19px] font-serif text-foreground leading-[1.9] max-w-[560px] mx-auto">
-            "광고만 띡 하고 끝"이 아니라,<br />
-            <span className="text-primary font-semibold">고객이 사는 순간까지</span> 함께합니다.
+            "광고비만 태우고 끝"이 아니라,<br />
+            <span className="text-primary font-semibold">유입부터 매출까지</span> 전 과정을 그로스합니다.
           </p>
         </Reveal>
       </div>
