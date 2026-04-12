@@ -76,7 +76,7 @@ const Index = () => {
         </div>
       </section>
 
-      <PhilosophySection />
+      <ComparisonSection />
 
       <ServicesTabSection />
 
