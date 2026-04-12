@@ -254,7 +254,17 @@ const MetaNotificationsMockup = () => {
 };
 
 /* ── Philosophy Section ── */
-const PhilosophySection = () => {
+interface PhilosophySectionProps {
+  heading?: React.ReactNode;
+  icon?: string;
+  iconAlt?: string;
+}
+
+const PhilosophySection = ({
+  heading = <>일반 마케팅 회사와는<br />조금 다릅니다.</>,
+  icon = iconOk,
+  iconAlt = "Philosophy",
+}: PhilosophySectionProps) => {
   const rows = [
     {
       num: "01",
@@ -283,9 +293,9 @@ const PhilosophySection = () => {
     <section className="py-28 lg:py-36 bg-background">
       <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
         <Reveal className="text-center mb-20 lg:mb-28">
-          <img src={iconOk} alt="Philosophy" className="w-10 h-10 mb-5 mx-auto" />
+          <img src={icon} alt={iconAlt} className="w-10 h-10 mb-5 mx-auto" />
           <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-semibold text-foreground leading-[1.2] tracking-[-0.02em]">
-            압도적인 성과를<br />낼 수 있는 이유?
+            {heading}
           </h2>
         </Reveal>
 
