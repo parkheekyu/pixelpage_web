@@ -42,7 +42,7 @@ const AgencyFunnel = () => {
                   : "border border-dashed border-border/60"
               }`}
             >
-              <span className={`text-[12px] font-medium ${
+              <span className={`text-[14px] font-medium ${
                 layer.active ? "text-muted-foreground" : "text-muted-foreground/30 line-through"
               }`}>
                 {layer.label}
@@ -72,11 +72,11 @@ const PixelPageFunnel = () => {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   const layers = [
-    { label: "Acquisition", sub: "유입 설계 · 채널 최적화", width: "100%", opacity: 0.65 },
-    { label: "Activation", sub: "첫 경험 설계 · 랜딩 최적화", width: "85%", opacity: 0.72 },
-    { label: "Retention", sub: "CRM 자동화 · 리텐션 루프", width: "70%", opacity: 0.8 },
-    { label: "Referral", sub: "바이럴 설계 · 공유 트리거", width: "55%", opacity: 0.9 },
-    { label: "Revenue", sub: "매출 전환 · ROAS 극대화", width: "40%", opacity: 1 },
+    { label: "Acquisition", sub: "유입 설계 · 채널 최적화", width: "100%" },
+    { label: "Activation", sub: "첫 경험 설계 · 랜딩 최적화", width: "85%" },
+    { label: "Retention", sub: "CRM 자동화 · 리텐션 루프", width: "70%" },
+    { label: "Referral", sub: "바이럴 설계 · 공유 트리거", width: "55%" },
+    { label: "Revenue", sub: "매출 전환 · ROAS 극대화", width: "40%" },
   ];
 
   return (
@@ -104,12 +104,9 @@ const PixelPageFunnel = () => {
             style={{ width: layer.width }}
             className="origin-center"
           >
-            <div
-              className="rounded-lg px-4 py-3 text-center bg-primary"
-              style={{ opacity: layer.opacity }}
-            >
-              <span className="text-[12px] font-bold text-primary-foreground tracking-wide">{layer.label}</span>
-              <span className="block text-[10px] text-primary-foreground/60 mt-0.5">{layer.sub}</span>
+            <div className="rounded-lg px-5 py-4 text-center bg-primary">
+              <span className="text-[15px] font-bold text-primary-foreground tracking-wide">{layer.label}</span>
+              <span className="block text-[13px] text-primary-foreground/70 mt-1">{layer.sub}</span>
             </div>
           </motion.div>
         ))}
