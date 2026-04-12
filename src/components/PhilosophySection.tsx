@@ -280,7 +280,7 @@ const PhilosophySection = () => {
   ];
 
   return (
-    <section className="py-28 lg:py-36 bg-surface-white border-t border-border">
+    <section className="py-28 lg:py-36 bg-background">
       <div className="max-w-[1240px] mx-auto px-6 lg:px-12">
         <Reveal className="text-center mb-20 lg:mb-28">
           <img src={iconOk} alt="Philosophy" className="w-10 h-10 mb-5 mx-auto" />
