@@ -21,9 +21,9 @@ const AgencyFunnel = () => {
     <div ref={ref} className="rounded-2xl border border-border bg-card shadow-card overflow-hidden p-6 lg:p-8">
       <div className="flex items-center gap-2 mb-2">
         <div className="w-2.5 h-2.5 rounded-full bg-muted-foreground/30" />
-        <span className="text-[14px] font-semibold text-muted-foreground">보통 광고 대행사</span>
+        <span className="text-[17px] font-semibold text-muted-foreground">보통 광고 대행사</span>
       </div>
-      <p className="text-[12px] text-muted-foreground/70 mb-6">광고 세팅 → 보고서 → 끝</p>
+      <p className="text-[14px] text-muted-foreground/70 mb-6">광고 세팅 → 보고서 → 끝</p>
 
       <div className="flex flex-col items-center gap-1.5">
         {layers.map((layer, i) => (
@@ -42,7 +42,7 @@ const AgencyFunnel = () => {
                   : "border border-dashed border-border/60"
               }`}
             >
-              <span className={`text-[12px] font-medium ${
+              <span className={`text-[14px] font-medium ${
                 layer.active ? "text-muted-foreground" : "text-muted-foreground/30 line-through"
               }`}>
                 {layer.label}
@@ -58,7 +58,7 @@ const AgencyFunnel = () => {
         transition={{ duration: 0.3, delay: 0.7 }}
         className="mt-6 text-center"
       >
-        <span className="text-[11px] text-muted-foreground/60 bg-secondary px-3 py-1.5 rounded-full">
+        <span className="text-[13px] text-muted-foreground/60 bg-secondary px-3 py-1.5 rounded-full">
           클릭 이후는 알아서 하세요 👋
         </span>
       </motion.div>
@@ -83,10 +83,10 @@ const PixelPageFunnel = () => {
     <div ref={ref} className="rounded-2xl border border-primary/20 bg-card shadow-card overflow-hidden p-6 lg:p-8 ring-1 ring-primary/10">
       <div className="flex items-center gap-2 mb-2">
         <div className="w-2.5 h-2.5 rounded-full bg-primary" />
-        <span className="text-[14px] font-semibold text-foreground">픽셀페이지</span>
-        <span className="ml-auto text-[10px] bg-primary/10 text-primary font-semibold px-2.5 py-1 rounded-full tracking-wide">FULL FUNNEL</span>
+        <span className="text-[17px] font-semibold text-foreground">픽셀페이지</span>
+        <span className="ml-auto text-[12px] bg-primary/10 text-primary font-semibold px-2.5 py-1 rounded-full tracking-wide">FULL FUNNEL</span>
       </div>
-      <p className="text-[12px] text-muted-foreground mb-6">데이터 기반 · 풀퍼널 설계</p>
+      <p className="text-[14px] text-muted-foreground mb-6">데이터 기반 · 풀퍼널 설계</p>
 
       <div className="flex flex-col items-center gap-1">
         {layers.map((layer, i) => (
@@ -108,8 +108,8 @@ const PixelPageFunnel = () => {
               className="rounded-lg px-4 py-3 text-center bg-primary"
               style={{ opacity: layer.opacity }}
             >
-              <span className="text-[12px] font-bold text-primary-foreground tracking-wide">{layer.label}</span>
-              <span className="block text-[10px] text-primary-foreground/60 mt-0.5">{layer.sub}</span>
+              <span className="text-[14px] font-bold text-primary-foreground tracking-wide">{layer.label}</span>
+              <span className="block text-[12px] text-primary-foreground/60 mt-0.5">{layer.sub}</span>
             </div>
           </motion.div>
         ))}
@@ -121,7 +121,7 @@ const PixelPageFunnel = () => {
         transition={{ duration: 0.4, delay: 0.9 }}
         className="mt-6 bg-primary/5 border border-primary/15 rounded-xl px-5 py-3 text-center"
       >
-        <span className="text-[12px] text-primary font-semibold">
+        <span className="text-[14px] text-primary font-semibold">
           모든 단계를 측정 · 최적화 → 결과당 비용 최대 83% ↓
         </span>
       </motion.div>
