@@ -285,7 +285,7 @@ const PhilosophySection = () => {
         <Reveal className="text-center mb-20 lg:mb-28">
           <img src={iconOk} alt="Philosophy" className="w-10 h-10 mb-5 mx-auto" />
           <h2 className="font-serif text-[clamp(36px,5vw,64px)] font-semibold text-foreground leading-[1.2] tracking-[-0.02em]">
-            일반 마케팅 회사와는<br />조금 다릅니다.
+            압도적인 성과를<br />낼 수 있는 이유?
           </h2>
         </Reveal>
 
