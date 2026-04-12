@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
 import illustHero from "@/assets/illust-performance-hero.png";
-import perfStructure from "@/assets/perf-structure.png";
-import perfOverlap from "@/assets/perf-overlap.png";
-import perfScaling from "@/assets/perf-scaling.png";
-import perfLifecycle from "@/assets/perf-lifecycle.png";
 import iconOk from "@/assets/icon-ok.svg";
 import iconRocket from "@/assets/icon-rocket.svg";
 import iconTrophy from "@/assets/icon-trophy.svg";
+import {
+  CampaignStructureMockup,
+  AudienceOverlapMockup,
+  BudgetScalingMockup,
+  CreativeLifecycleMockup,
+} from "@/components/PerformanceMockups";
 
 /* ─────────────── Section 01 · Hero ─────────────── */
 const HeroSection = () => (
@@ -104,35 +106,31 @@ const PainSection = () => {
   );
 };
 
-/* ─────────────── Section 03 · Structure (교육 섹션) ─────────────── */
+/* ─────────────── Section 03 · Structure ─────────────── */
 const StructureSection = () => {
   const articles = [
     {
       title: "캠페인, 광고세트, 광고\n3단 구조를 먼저 이해하라",
       body: "메타 광고는 캠페인·광고세트·광고 세 단계로 나뉩니다. 이 구조를 모르면 테스트도, 최적화도, 예산 분배도 감으로 하게 됩니다. 구조가 곧 실험 설계입니다.",
-      image: perfStructure,
-      imageAlt: "캠페인 3단 구조",
+      mockup: <CampaignStructureMockup />,
       imageFirst: true,
     },
     {
       title: "광고 세트를 나눴는데\n왜 성과가 안 나올까?",
       body: "타겟을 세분화했는데 오히려 CPA가 올라갑니다. 내 광고끼리 같은 사람을 놓고 경쟁하고 있기 때문입니다. 오디언스 오버랩을 모르면 예산을 쪼갤수록 비효율이 커집니다.",
-      image: perfOverlap,
-      imageAlt: "오디언스 오버랩 문제",
+      mockup: <AudienceOverlapMockup />,
       imageFirst: false,
     },
     {
       title: "예산을 올리면\n성과도 같이 오를까?",
       body: "잘 되는 캠페인의 예산을 올리면 성과도 비례해서 오를 것 같지만, 현실은 다릅니다. 단계별로 어떤 일이 벌어지는지 알아야 예산을 안전하게 키울 수 있습니다.",
-      image: perfScaling,
-      imageAlt: "예산 스케일링 타임라인",
+      mockup: <BudgetScalingMockup />,
       imageFirst: true,
     },
     {
       title: "왜 잘되던 광고가\n갑자기 죽을까?",
       body: "모든 광고 소재에는 수명이 있습니다. 성과가 좋을수록 빠르게 소진되고, 그 타이밍을 놓치면 예산만 낭비됩니다. 이 구조를 알면 죽기 전에 다음 판을 준비할 수 있습니다.",
-      image: perfLifecycle,
-      imageAlt: "소재 성과 생애주기",
+      mockup: <CreativeLifecycleMockup />,
       imageFirst: false,
     },
   ];
@@ -154,13 +152,9 @@ const StructureSection = () => {
           {articles.map((article, idx) => (
             <Reveal key={idx}>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-                {/* Image */}
                 <div className={article.imageFirst ? "lg:order-1" : "lg:order-2"}>
-                  <div className="rounded-2xl overflow-hidden border border-border bg-card shadow-card">
-                    <img src={article.image} alt={article.imageAlt} className="w-full" loading="lazy" />
-                  </div>
+                  {article.mockup}
                 </div>
-                {/* Text */}
                 <div className={article.imageFirst ? "lg:order-2" : "lg:order-1"}>
                   <span className="text-[28px] lg:text-[36px] font-serif font-bold text-primary/20 tracking-tight">
                     {String(idx + 1).padStart(2, "0")}
