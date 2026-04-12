@@ -123,7 +123,11 @@ const Index = () => {
       </section>
 
       {/* ─── WHY WE DELIVER ─── */}
-      <PhilosophySection />
+      <PhilosophySection
+        heading={<>압도적인 성과를<br />낼 수 있는 이유?</>}
+        icon={iconCloud}
+        iconAlt="Why"
+      />
 
       {/* ─── CONTACT ─── */}
       <section id="contact" className="py-28 lg:py-36 bg-surface-beige">
