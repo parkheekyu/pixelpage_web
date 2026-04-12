@@ -5,9 +5,9 @@ import PageMeta from "@/components/PageMeta";
 import illustHero from "@/assets/illust-performance-hero.png";
 import iconOk from "@/assets/icon-ok.svg";
 import iconRocket from "@/assets/icon-rocket.svg";
+import iconFileForm from "@/assets/icon-file-form.svg";
 import iconTrophy from "@/assets/icon-trophy.svg";
 import {
-  CampaignStructureMockup,
   AudienceOverlapMockup,
   BudgetScalingMockup,
   CreativeLifecycleMockup,
@@ -108,30 +108,21 @@ const PainSection = () => {
 
 /* ─────────────── Section 03 · Structure ─────────────── */
 const StructureSection = () => {
-  const articles = [
-    {
-      title: "캠페인, 광고세트, 광고\n3단 구조를 먼저 이해하라",
-      body: "메타 광고는 캠페인·광고세트·광고 세 단계로 나뉩니다. 이 구조를 모르면 테스트도, 최적화도, 예산 분배도 감으로 하게 됩니다. 구조가 곧 실험 설계입니다.",
-      mockup: <CampaignStructureMockup />,
-      imageFirst: true,
-    },
+  const cards = [
     {
       title: "광고 세트를 나눴는데\n왜 성과가 안 나올까?",
       body: "타겟을 세분화했는데 오히려 CPA가 올라갑니다. 내 광고끼리 같은 사람을 놓고 경쟁하고 있기 때문입니다. 오디언스 오버랩을 모르면 예산을 쪼갤수록 비효율이 커집니다.",
       mockup: <AudienceOverlapMockup />,
-      imageFirst: false,
     },
     {
       title: "예산을 올리면\n성과도 같이 오를까?",
       body: "잘 되는 캠페인의 예산을 올리면 성과도 비례해서 오를 것 같지만, 현실은 다릅니다. 단계별로 어떤 일이 벌어지는지 알아야 예산을 안전하게 키울 수 있습니다.",
       mockup: <BudgetScalingMockup />,
-      imageFirst: true,
     },
     {
       title: "왜 잘되던 광고가\n갑자기 죽을까?",
       body: "모든 광고 소재에는 수명이 있습니다. 성과가 좋을수록 빠르게 소진되고, 그 타이밍을 놓치면 예산만 낭비됩니다. 이 구조를 알면 죽기 전에 다음 판을 준비할 수 있습니다.",
       mockup: <CreativeLifecycleMockup />,
-      imageFirst: false,
     },
   ];
 
@@ -148,28 +139,25 @@ const StructureSection = () => {
           </p>
         </Reveal>
 
-        <div className="space-y-24 lg:space-y-36">
-          {articles.map((article, idx) => (
-            <Reveal key={idx}>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-                <div className={article.imageFirst ? "lg:order-1" : "lg:order-2"}>
-                  {article.mockup}
+        <Reveal>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {cards.map((card, idx) => (
+              <div key={idx} className="flex flex-col">
+                {/* Mockup */}
+                <div className="mb-6">
+                  {card.mockup}
                 </div>
-                <div className={article.imageFirst ? "lg:order-2" : "lg:order-1"}>
-                  <span className="text-[28px] lg:text-[36px] font-serif font-bold text-primary/20 tracking-tight">
-                    {String(idx + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="font-serif text-[clamp(26px,3.5vw,36px)] font-semibold text-foreground mt-3 mb-5 leading-[1.35] tracking-[-0.01em] whitespace-pre-line">
-                    {article.title}
-                  </h3>
-                  <p className="text-[17px] text-muted-foreground leading-[2] max-w-[460px]">
-                    {article.body}
-                  </p>
-                </div>
+                {/* Text */}
+                <h3 className="font-serif text-[22px] lg:text-[26px] font-semibold text-foreground mb-3 leading-[1.35] tracking-[-0.01em] whitespace-pre-line">
+                  {card.title}
+                </h3>
+                <p className="text-[15px] text-muted-foreground leading-[1.9]">
+                  {card.body}
+                </p>
               </div>
-            </Reveal>
-          ))}
-        </div>
+            ))}
+          </div>
+        </Reveal>
 
         {/* CTR × CPA Matrix */}
         <Reveal className="mt-24 lg:mt-36 text-center">
